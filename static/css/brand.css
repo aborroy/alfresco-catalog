@@ -254,3 +254,24 @@ a.brand:hover {
 
 .results { min-width: 0; }
 .sidebar { width: 100%; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.submit-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--brand-accent);
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.submit-link:hover {
+  background: var(--brand-accent-600);
+}
