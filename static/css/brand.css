@@ -276,3 +276,7 @@ a.brand:hover {
 .submit-link:hover {
   background: var(--brand-accent-600);
 }
+
+.shots .video { position: relative; width: 100%; padding-top: 56.25%; }
+.shots .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.shots img, .shots .shot-video { max-width: 100%; height: auto; display: block; }

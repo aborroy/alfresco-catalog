@@ -1,34 +1,36 @@
-{{ define "main" }}
-<article class="entry">
-  <h1>{{ .Title }}</h1>
-  <p class="vendor">{{ .Params.vendor }}</p>
+{{ with .Params.screenshots }}
+<div class="shots">
+  {{ range . }}
+    {{- $src := . -}}
+    {{- if not (hasPrefix $src "http") -}}
+      {{- $src = $src | strings.TrimPrefix "/" | relURL -}}
+    {{- end -}}
 
-  {{ with .Params.screenshots }}
-  <div class="shots">
-    {{ range . }}
-      {{- $src := . -}}
-      {{- if not (hasPrefix $src "http") -}}
-        {{- $src = $src | strings.TrimPrefix "/" | relURL -}}
-      {{- end -}}
+    {{- $isYT := or (in $src "youtube.com/watch") (in $src "youtu.be/") -}}
+    {{- if $isYT -}}
+      {{- /* Extract YouTube video ID from either form */ -}}
+      {{- $id := cond (in $src "youtu.be/") (replaceRE `.*youtu\.be/([^?&/]+).*` `$1` $src) (replaceRE `.*[?&]v=([^?&/]+).*` `$1` $src) -}}
+      <div class="video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/{{ $id }}"
+          title="YouTube video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+        <noscript><p><a href="{{ $src }}" target="_blank" rel="noopener">Watch video</a></p></noscript>
+      </div>
+
+    {{- else if or (hasSuffix (lower $src) ".mp4") (hasSuffix (lower $src) ".webm") -}}
+      <video controls preload="metadata" class="shot-video">
+        <source src="{{ $src }}">
+        <p><a href="{{ $src }}" target="_blank" rel="noopener">Download video</a></p>
+      </video>
+
+    {{- else -}}
       <img src="{{ $src }}" alt="screenshot"/>
-    {{ end }}
-  </div>
+    {{- end }}
   {{ end }}
-
-  <div class="meta">
-    {{ with .Params.download_url }}
-      <p><strong>Download:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
-    {{ end }}
-    {{ with .Params.compatibility }}<p><strong>Compatibility:</strong> {{ delimit . ", " }}</p>{{ end }}
-    {{ with .Params.license }}<p><strong>License:</strong> {{ . }}</p>{{ end }}
-    {{ with .Params.keywords }}<p><strong>Keywords:</strong> {{ delimit . ", " }}</p>{{ end }}
-    {{ with .Params.about_url }}
-      <p><strong>About:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
-    {{ end }}
-  </div>
-
-  <div class="content">
-    {{ .Content }}
-  </div>
-</article>
+</div>
 {{ end }}
