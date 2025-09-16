@@ -75,7 +75,7 @@ const keywords     = parseList(getField(sections, 'keywords','tags'));
 const downloadUrl  = getField(sections, 'download url','download page link','repo url','project url','link');
 const vendor       = getField(sections, 'vendor','author','author vendor name','maintainer','company') || 'Unknown';
 const aboutUrl     = getField(sections, 'about url','website','homepage');
-const about        = (getField(sections, 'about','short pitch') || '').slice(0, 300);
+const about        = (getField(sections, 'about','short pitch') || '').slice(0, 500);
 
 // screenshots: explicit field or pasted markdown images
 let screenshots    = parseList(getField(sections, 'screenshots'));

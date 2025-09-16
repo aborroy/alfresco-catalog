@@ -30,9 +30,9 @@ for (const f of files) {
     ok = false;
     console.error(`Too many screenshots in ${f} (max 4)`);
   }
-  if (typeof fm.about === 'string' && fm.about.length > 300) {
+  if (typeof fm.about === 'string' && fm.about.length > 500) {
     ok = false;
-    console.error(`"about" too long in ${f} (${fm.about.length} > 300)`);
+    console.error(`"about" too long in ${f} (${fm.about.length} > 500)`);
   }
 }
 

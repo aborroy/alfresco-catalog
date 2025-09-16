@@ -40,7 +40,7 @@
     },
     "about": {
       "type": "string",
-      "maxLength": 300
+      "maxLength": 500
     },
     "about_url": {
       "type": "string"

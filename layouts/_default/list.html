@@ -59,6 +59,12 @@
   const sort  = document.getElementById('sort');
   const grid  = document.getElementById('cards');
 
+  // capture ALL pre-rendered cards once (before we clear the grid)
+  const ALL_BY_SLUG = new Map(
+    Array.from(grid.querySelectorAll('article.card'))
+        .map(el => [el.getAttribute('data-slug'), el])
+  );
+
   // Facet containers
   const fx = {
     license:  document.getElementById('facet-license'),
@@ -149,11 +155,9 @@
     // Apply to DOM: reorder cards to match `list`
     const allCards = Array.from(grid.querySelectorAll('article.card'));
     const bySlug = new Map(allCards.map(el => [el.getAttribute('data-slug'), el]));
-
-    // Clear grid and append in new order
     grid.innerHTML = '';
     for (const item of list) {
-      const el = bySlug.get(item.slug);
+      const el = ALL_BY_SLUG.get(item.slug);
       if (el) grid.appendChild(el);
     }
 

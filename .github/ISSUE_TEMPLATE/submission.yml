@@ -32,7 +32,7 @@ body:
     attributes: { label: "About URL" }
   - type: textarea
     id: about
-    attributes: { label: "About (≤ 300 chars)" }
+    attributes: { label: "About (maximum 500 chars)" }
   - type: textarea
     id: screenshots
     attributes: { label: "Screenshots (one URL per line)" }

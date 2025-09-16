@@ -10,7 +10,7 @@
     "license"       .Params.license
     "compatibility" .Params.compatibility
     "keywords"      .Params.keywords
-    "description"   (.Params.description | truncate 300)
+    "description"   (.Params.description | truncate 500)
     "date"          $ts
   ) -}}
 {{- end -}}
