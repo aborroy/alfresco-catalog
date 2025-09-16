@@ -18,20 +18,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install Node deps
-        run: npm ci
+      - name: Install Node deps (ci if lockfile, else install)
+        run: |
+          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
 
       - name: Validate entries (front-matter schema)
         run: node scripts/validate-frontmatter.mjs
 
-      # Use official Lychee action (no npm install needed)
       - name: Link check
         uses: lycheeverse/lychee-action@v1
         with:
           args: --no-progress --accept 200,206 --exclude-mail --max-concurrency 4 --base . .
-        continue-on-error: true   # don't block deploy on flaky external links
+        continue-on-error: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2

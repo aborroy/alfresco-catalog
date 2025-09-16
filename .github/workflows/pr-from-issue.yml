@@ -1,3 +1,4 @@
+# .github/workflows/pr-from-issue.yml
 name: PR from Issue Form
 on:
   issues:
@@ -5,6 +6,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+
 jobs:
   create-pr:
     if: contains(github.event.issue.labels.*.name, 'new-entry')
@@ -16,6 +18,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Install Node deps (ci if lockfile, else install)
+        run: |
+          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
 
       - name: Create entry from issue
         env:
