@@ -7,6 +7,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,16 +18,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install validators
-        run: |
-          npm i -g ajv-cli@5 lychee-link-checker@0.14.3
+      - name: Install Node deps
+        run: npm ci
 
       - name: Validate entries (front-matter schema)
         run: node scripts/validate-frontmatter.mjs
 
+      # Use official Lychee action (no npm install needed)
       - name: Link check
-        run: lychee --no-progress --accept 200,206 --exclude-mail --max-concurrency 4 --base . . || true
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress --accept 200,206 --exclude-mail --max-concurrency 4 --base . .
+        continue-on-error: true   # don't block deploy on flaky external links
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
