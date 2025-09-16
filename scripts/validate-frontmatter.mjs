@@ -1,33 +1,40 @@
+// ESM, Ajv2020 + formats
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
-const Ajv = require('ajv');
-const addFormats = require('ajv-formats');
+import Ajv2020 from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
 
-const ajv = new Ajv({allErrors:true, allowUnionTypes:true});
+const ajv = new Ajv2020({ allErrors: true, strict: false }); // strict off = fewer surprises
 addFormats(ajv);
 
-const schema = JSON.parse(fs.readFileSync('schema/entry.schema.json','utf8'));
+const schema = JSON.parse(fs.readFileSync('schema/entry.schema.json', 'utf8'));
 const validate = ajv.compile(schema);
 
 const dir = 'content/entries';
 const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-let ok = true;
 
+let ok = true;
 for (const f of files) {
-  const raw = fs.readFileSync(path.join(dir,f),'utf8');
+  const raw = fs.readFileSync(path.join(dir, f), 'utf8');
   const fm = matter(raw).data;
+
   if (!validate(fm)) {
     ok = false;
     console.error(`Schema errors in ${f}:`);
-    console.error(validate.errors);
+    for (const e of validate.errors) console.error('-', e.instancePath || '/', e.message);
   }
-  if (fm.screenshots && fm.screenshots.length > 4) {
+
+  // repo-specific rules
+  if (Array.isArray(fm.screenshots) && fm.screenshots.length > 4) {
     ok = false;
     console.error(`Too many screenshots in ${f} (max 4)`);
   }
+  if (typeof fm.about === 'string' && fm.about.length > 300) {
+    ok = false;
+    console.error(`"about" too long in ${f} (${fm.about.length} > 300)`);
+  }
 }
+
 if (!ok) process.exit(1);
-else console.log('Front-matter OK');
+console.log('Front-matter OK');
