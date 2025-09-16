@@ -45,7 +45,8 @@
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 <script>
 (async function () {
-  const data = await (await fetch('/index.json')).json();
+  const res = await fetch('{{ "index.json" | relURL }}');
+  const data = await res.json();
 
   // Fuse for relevance
   const fuse = new Fuse(data, {

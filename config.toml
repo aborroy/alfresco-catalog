@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://aborroy.github.io/alfresco-marketplace/"
 languageCode = "en-us"
 title = "Alfresco Marketplace"
 paginate = 24
