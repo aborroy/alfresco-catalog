@@ -2,18 +2,37 @@
 <article class="entry">
   <h1>{{ .Title }}</h1>
   <p class="vendor">{{ .Params.vendor }}</p>
+
   {{ with .Params.screenshots }}
   <div class="shots">
-    {{ range . }}<img src="{{ . }}" alt="screenshot"/>{{ end }}
+    {{ range . }}
+      <img src="{{ . | relURL }}" alt="screenshot"/>
+    {{ end }}
   </div>
   {{ end }}
+
   <div class="meta">
-    {{ with .Params.download_url }}<p><strong>Download:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>{{ end }}
-    {{ with .Params.compatibility }}<p><strong>Compatibility:</strong> {{ delimit . ", " }}</p>{{ end }}
-    {{ with .Params.license }}<p><strong>License:</strong> {{ . }}</p>{{ end }}
-    {{ with .Params.keywords }}<p><strong>Keywords:</strong> {{ delimit . ", " }}</p>{{ end }}
-    {{ with .Params.about_url }}<p><strong>About:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>{{ end }}
+    {{ with .Params.download_url }}
+      <p><strong>Download:</strong>
+        <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a>
+      </p>
+    {{ end }}
+    {{ with .Params.compatibility }}
+      <p><strong>Compatibility:</strong> {{ delimit . ", " }}</p>
+    {{ end }}
+    {{ with .Params.license }}
+      <p><strong>License:</strong> {{ . }}</p>
+    {{ end }}
+    {{ with .Params.keywords }}
+      <p><strong>Keywords:</strong> {{ delimit . ", " }}</p>
+    {{ end }}
+    {{ with .Params.about_url }}
+      <p><strong>About:</strong>
+        <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a>
+      </p>
+    {{ end }}
   </div>
+
   <div class="content">
     {{ .Content }}
   </div>
