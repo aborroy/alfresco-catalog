@@ -1,0 +1,38 @@
+<div class="searchbar">
+  <div class="input">
+    <input id="q" type="search" placeholder="Search solutions, vendors, keywords…" aria-label="Search"/>
+  </div>
+  <div class="hint">Type to filter • Press Enter to apply if you disabled live search</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+(async function(){
+  const res = await fetch('/index.json');
+  const data = await res.json();
+  const fuse = new Fuse(data, {
+    keys: ['title','vendor','keywords','description','compatibility','license'],
+    threshold: 0.3
+  });
+  const q = document.getElementById('q');
+  const facet = document.getElementById('facet-license');
+  const grid = document.querySelector('section.grid');
+  const render = (items) => {
+    const slugs = new Set(items.map(i => i.item?.slug || i.slug));
+    for (const card of grid.querySelectorAll('article.card')) {
+      const slug = card.querySelector('a').getAttribute('href').split('/').filter(Boolean).pop();
+      card.style.display = (!slugs.size || slugs.has(slug)) ? '' : 'none';
+    }
+  };
+  const apply = () => {
+    const query = q.value.trim();
+    const lic = facet.value;
+    let base = data;
+    if (lic) base = base.filter(x => x.license === lic);
+    render(query ? fuse.search(query).filter(r => !lic || r.item.license === lic) : base);
+  };
+  q.addEventListener('input', apply);
+  q.addEventListener('keyup', e => { if (e.key === 'Enter') apply(); });
+  facet.addEventListener('change', apply);
+})();
+</script>

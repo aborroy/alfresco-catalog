@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Marketplace Entry",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "screenshots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compatibility": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "download_url": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "about": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "about_url": {
+      "type": "string"
+    },
+    "draft": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "license",
+    "vendor",
+    "about"
+  ],
+  "additionalProperties": true
+}

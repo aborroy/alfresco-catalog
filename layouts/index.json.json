@@ -1,0 +1,17 @@
+{{- $items := slice -}}
+{{- range where .Site.RegularPages "Section" "entries" -}}
+  {{- $d := .Lastmod }}
+  {{- if .Params.date }}{{ $d = .Params.date }}{{ end }}
+  {{- $ts := (time $d).Unix }}
+  {{- $items = $items | append (dict
+    "title"         .Title
+    "slug"          .File.TranslationBaseName
+    "vendor"        .Params.vendor
+    "license"       .Params.license
+    "compatibility" .Params.compatibility
+    "keywords"      .Params.keywords
+    "description"   (.Params.description | truncate 300)
+    "date"          $ts
+  ) -}}
+{{- end -}}
+{{- $items | jsonify -}}

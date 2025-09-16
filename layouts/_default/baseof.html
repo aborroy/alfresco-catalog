@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{ partial "head.html" . }}
+    {{ partial "analytics.html" . }}
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <div class="header-bar">
+          <a href="{{ "/" | relURL }}" class="brand">
+            <span class="brand-text">Alfresco Marketplace</span>
+          </a>
+          <a href="https://www.hyland.com" class="logo">
+            <img src="/img/hyland.webp" alt="Hyland" style="height:100px;"/>
+          </a>
+        </div>
+        <div class="site-sub">Discover addons, connectors, extensions, and tools for Alfresco</div>
+      </header>      
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer>
+        <p>©2025 Hyland Software, Inc. and its affiliates</p>
+      </footer>
+    </div>
+  </body>
+</html>

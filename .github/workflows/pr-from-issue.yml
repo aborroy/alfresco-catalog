@@ -1,0 +1,33 @@
+name: PR from Issue Form
+on:
+  issues:
+    types: [labeled]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  create-pr:
+    if: contains(github.event.issue.labels.*.name, 'new-entry')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create entry from issue
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/make-entry-from-issue.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "New marketplace entry from issue #${{ github.event.issue.number }}"
+          commit-message: "feat(entry): add from issue #${{ github.event.issue.number }}"
+          branch: entry/issue-${{ github.event.issue.number }}
+          base: main
+          body: "Auto-generated from issue #${{ github.event.issue.number }}"

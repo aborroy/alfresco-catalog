@@ -1,0 +1,199 @@
+{{ define "main" }}
+<div class="layout">
+  <aside class="sidebar">
+    <div id="facet-root">
+      <div class="facet-block">
+        <h4>License</h4>
+        <div id="facet-license"></div>
+      </div>
+      <div class="facet-block">
+        <h4>Compatibility</h4>
+        <div id="facet-compat"></div>
+      </div>
+      <div class="facet-block">
+        <h4>Keywords</h4>
+        <div id="facet-keywords"></div>
+      </div>
+      <button id="facet-clear" class="btn-clear" type="button">Clear filters</button>
+    </div>
+  </aside>
+
+  <section class="results">
+    <div class="searchbar">
+      <div class="input">
+        <input id="q" type="search" placeholder="Search solutions, vendors, keywords…" aria-label="Search"/>
+      </div>
+      <div class="facet">
+        <span>Sort</span>
+        <select id="sort">
+          <option value="relevance">Relevance</option>
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="grid" id="cards">
+      {{ range where .Site.RegularPages "Section" "entries" }}
+        {{ partial "card.html" . }}
+      {{ end }}
+    </section>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+(async function () {
+  const data = await (await fetch('/index.json')).json();
+
+  // Fuse for relevance
+  const fuse = new Fuse(data, {
+    keys: ['title','vendor','keywords','description','compatibility','license'],
+    threshold: 0.3
+  });
+
+  // Elements
+  const q     = document.getElementById('q');
+  const sort  = document.getElementById('sort');
+  const grid  = document.getElementById('cards');
+
+  // Facet containers
+  const fx = {
+    license:  document.getElementById('facet-license'),
+    compat:   document.getElementById('facet-compat'),
+    keywords: document.getElementById('facet-keywords'),
+    clearBtn: document.getElementById('facet-clear'),
+  };
+
+  // Build facet lists
+  const uniq = (arr) => [...new Set(arr)].filter(Boolean).sort();
+  const flat = (arr) => arr.flat ? arr.flat() : [].concat.apply([], arr);
+  const values = {
+    license:  uniq(data.map(x => x.license)),
+    compat:   uniq(flat(data.map(x => x.compatibility || []))),
+    keywords: uniq(flat(data.map(x => x.keywords || []))),
+  };
+
+  const countsFor = (list, field, isArray=false) => {
+    const m = new Map();
+    for (const v of list) {
+      if (isArray) for (const it of (v[field] || [])) m.set(it, (m.get(it)||0)+1);
+      else { const it = v[field]; if (it) m.set(it, (m.get(it)||0)+1); }
+    }
+    return m;
+  };
+
+  function renderFacet(container, items, counts, group){
+    container.innerHTML = items.map(val => {
+      const n = counts.get(val) || 0;
+      const esc = encodeURIComponent(val);
+      return `<label class="chk">
+        <input type="checkbox" data-group="${group}" value="${esc}">
+        <span>${val} <em>${n}</em></span>
+      </label>`;
+    }).join('');
+  }
+
+  renderFacet(fx.license,  values.license,  countsFor(data,'license',false),       'license');
+  renderFacet(fx.compat,   values.compat,   countsFor(data,'compatibility',true),  'compat');
+  renderFacet(fx.keywords, values.keywords, countsFor(data,'keywords',true),       'keywords');
+
+  // State
+  const selected = { license:new Set(), compat:new Set(), keywords:new Set() };
+
+  function getFilters(){
+    return {
+      text: q.value.trim(),
+      license:  [...selected.license].map(decodeURIComponent),
+      compat:   [...selected.compat].map(decodeURIComponent),
+      keywords: [...selected.keywords].map(decodeURIComponent),
+      sort:     sort.value || 'relevance',
+    };
+  }
+
+  function apply(){
+    const f = getFilters();
+
+    // Start with all data
+    let list = data.slice();
+
+    // Text query → we’ll sort by Fuse relevance if selected
+    let scoreMap = null;
+    if (f.text) {
+      const fuseResults = fuse.search(f.text);
+      // scoreMap: slug -> score (smaller = better)
+      scoreMap = new Map(fuseResults.map(r => [r.item.slug, r.score ?? 0]));
+      // Keep only items that matched
+      list = fuseResults.map(r => r.item);
+    }
+
+    // Facet filters
+    if (f.license.length)  list = list.filter(x => f.license.includes(x.license));
+    if (f.compat.length)   list = list.filter(x => (x.compatibility || []).some(v => f.compat.includes(v)));
+    if (f.keywords.length) list = list.filter(x => (x.keywords || []).some(v => f.keywords.includes(v)));
+
+    // Sorting
+    if (f.text && f.sort === 'relevance' && scoreMap) {
+      list.sort((a,b) => (scoreMap.get(a.slug) ?? 1) - (scoreMap.get(b.slug) ?? 1));
+    } else if (f.sort === 'az') {
+      list.sort((a,b) => a.title.localeCompare(b.title));
+    } else if (f.sort === 'za') {
+      list.sort((a,b) => b.title.localeCompare(a.title));
+    } else if (f.sort === 'newest') {
+      list.sort((a,b) => (b.date || 0) - (a.date || 0));
+    }
+    // else: relevance with empty query is meaningless → keep current order
+
+    // Apply to DOM: reorder cards to match `list`
+    const allCards = Array.from(grid.querySelectorAll('article.card'));
+    const bySlug = new Map(allCards.map(el => [el.getAttribute('data-slug'), el]));
+
+    // Clear grid and append in new order
+    grid.innerHTML = '';
+    for (const item of list) {
+      const el = bySlug.get(item.slug);
+      if (el) grid.appendChild(el);
+    }
+
+    // If nothing matches, show an empty state
+    if (!list.length) {
+      const empty = document.createElement('div');
+      empty.style.padding = '24px';
+      empty.style.color = '#64748b';
+      empty.textContent = 'No results match your filters.';
+      grid.appendChild(empty);
+    }
+  }
+
+  // Facet listeners
+  for (const box of ['license','compat','keywords']) {
+    const el = fx[box];
+    el.addEventListener('change', (e)=>{
+      if (e.target?.matches('input[type="checkbox"]')) {
+        e.target.checked ? selected[box].add(e.target.value) : selected[box].delete(e.target.value);
+        apply();
+      }
+    });
+  }
+
+  fx.clearBtn.addEventListener('click', ()=>{
+    for (const set of Object.values(selected)) set.clear();
+    document.querySelectorAll('#facet-root input[type="checkbox"]').forEach(cb => cb.checked = false);
+    q.value = '';
+    sort.value = 'relevance';
+    apply();
+  });
+
+  // Text & sort listeners
+  q.addEventListener('input', apply);
+  q.addEventListener('keyup', e => { if (e.key === 'Enter') apply(); });
+  sort.addEventListener('change', apply);
+
+  // Default sort (pick what you prefer)
+  if (!sort.value) sort.value = 'newest';
+
+  apply();
+})();
+</script>
+{{ end }}

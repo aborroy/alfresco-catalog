@@ -1,0 +1,13 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Alfresco Marketplace"
+paginate = 24
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[taxonomies]
+tag = "tags"
+
+[outputs]
+home = ["HTML", "JSON"]

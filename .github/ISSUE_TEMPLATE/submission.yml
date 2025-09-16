@@ -1,0 +1,40 @@
+name: "Submit a marketplace entry"
+description: "Use this form to propose a new listing. A PR will be created for review."
+labels: ["new-entry"]
+body:
+  - type: input
+    id: title
+    attributes: { label: "Name", placeholder: "Connector X" }
+    validations: { required: true }
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description (Markdown allowed)"
+      description: "Short overview and links to docs."
+    validations: { required: true }
+  - type: input
+    id: compatibility
+    attributes: { label: "Compatibility (comma-separated)", placeholder: "ACS 7.4, ACS 25.2" }
+  - type: dropdown
+    id: license
+    attributes: { label: "License", options: ["Apache-2.0","MIT","GPL-3.0-only","Proprietary"] }
+  - type: input
+    id: keywords
+    attributes: { label: "Keywords (comma-separated)" }
+  - type: input
+    id: download_url
+    attributes: { label: "Download page link (URL)" }
+  - type: input
+    id: vendor
+    attributes: { label: "Author/Vendor name" }
+  - type: input
+    id: about_url
+    attributes: { label: "About URL" }
+  - type: textarea
+    id: about
+    attributes: { label: "About (≤ 300 chars)" }
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Notes to reviewers (optional)"
+      description: "Anything we should know."
