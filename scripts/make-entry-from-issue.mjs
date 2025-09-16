@@ -2,88 +2,88 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Octokit } from 'octokit';
 
-const issueNumber = process.env.ISSUE_NUMBER;
+const issueNumber = Number(process.env.ISSUE_NUMBER);
 const token = process.env.GITHUB_TOKEN;
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
 const octokit = new Octokit({ auth: token });
-const { data: issue } = await octokit.rest.issues.get({ owner, repo, issue_number: Number(issueNumber) });
+const { data: issue } = await octokit.rest.issues.get({ owner, repo, issue_number: issueNumber });
 
-// --- Parse helpers ---------------------------------------------------------
+// ---- helpers --------------------------------------------------------------
 
-// Parse "### Heading" blocks from issue.body into { heading -> value }
-function parseFormSections(text) {
-  const body = (text || '') + '\n### END';
+const norm = (s='') =>
+  s.toLowerCase()
+   .replace(/\(.*?\)/g, '')          // drop parenthetical notes, e.g. " (URL)"
+   .replace(/[^a-z0-9]+/g, ' ')      // remove punctuation
+   .trim();
+
+function parseSections(text='') {
+  const src = text + '\n### END';
   const re = /(?:^|\n)###\s+([^\n]+)\n+([\s\S]*?)(?=\n###|\n?$)/g;
-  const map = new Map();
+  const items = [];
   let m;
-  while ((m = re.exec(body))) {
-    const key = m[1].trim().toLowerCase();            // e.g., "title", "name", "description"
-    const val = m[2].trim();
-    if (!map.has(key)) map.set(key, val);
+  while ((m = re.exec(src))) {
+    items.push({ raw: m[1].trim(), key: norm(m[1]), value: m[2].trim() });
   }
-  return map;
+  return items;
 }
 
-// Normalize a comma/list field; also supports checklist or one-per-line lists
-function parseList(s) {
-  if (!s) return [];
-  const lines = s
-    .split(/\r?\n/)
-    .map(l => l.replace(/^- \[.\]\s*/, '').trim())     // checkbox lines
-    .filter(Boolean);
-  const joined = lines.join(',');                      // allow both forms
-  return joined.split(',').map(x => x.trim()).filter(Boolean);
-}
-
-// Extract Markdown image URLs for screenshots
-function parseScreenshots(text) {
-  if (!text) return [];
-  const urls = [];
-  const imgRe = /!\[[^\]]*\]\(([^)]+)\)/g;            // ![alt](url)
-  let m;
-  while ((m = imgRe.exec(text))) urls.push(m[1]);
-  return urls.slice(0, 4);
-}
-
-// Slugify
-function slugify(s) {
-  return (s || 'entry')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
-// --- Extract fields from issue --------------------------------------------
-
-const sections = parseFormSections(issue.body || '');
-
-// flexible getters: try several aliases/labels
-function getField(...aliases) {
-  for (const a of aliases) {
-    const v = sections.get(a.toLowerCase());
-    if (v) return v.trim();
+function getField(sections, ...aliases) {
+  const targets = aliases.map(norm);
+  for (const t of targets) {
+    // exact key
+    const exact = sections.find(s => s.key === t);
+    if (exact) return exact.value.trim();
+    // substring match (handles "download page link" vs "download url")
+    const sub = sections.find(s => s.key.includes(t));
+    if (sub) return sub.value.trim();
   }
   return '';
 }
 
-const title        = getField('title', 'name') || issue.title || 'Untitled';
-const description  = getField('description', 'short description', 'summary');
-const downloadUrl  = getField('download_url', 'download url', 'repo url', 'link');
-const vendor       = getField('vendor', 'author', 'company') || 'Unknown';
-const about        = (getField('about', 'short pitch') || '').slice(0, 300);
-const aboutUrl     = getField('about_url', 'about url', 'website');
-const license      = getField('license', 'licence') || 'Proprietary';
-const keywords     = parseList(getField('keywords', 'tags'));
-const compatibility= parseList(getField('compatibility', 'versions', 'alfresco versions'));
+function parseList(s) {
+  if (!s) return [];
+  const lines = s
+    .split(/\r?\n/)
+    .map(l => l.replace(/^- \[.\]\s*/, '').trim())
+    .filter(Boolean);
+  return lines.join(',').split(',').map(x => x.trim()).filter(Boolean);
+}
 
-// screenshots: from a dedicated field OR scrape images from the whole body
-let screenshots    = parseList(getField('screenshots'));
+function parseScreenshots(body='') {
+  const urls = [];
+  const imgRe = /!\[[^\]]*\]\(([^)]+)\)/g;
+  let m;
+  while ((m = imgRe.exec(body))) urls.push(m[1]);
+  return urls.slice(0, 4);
+}
+
+const slugify = (s='entry') =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+
+// ---- extract --------------------------------------------------------------
+
+const sections = parseSections(issue.body || '');
+
+const title        = getField(sections, 'title','name') || issue.title || 'Untitled';
+const description  = getField(sections, 'description','summary','overview');
+
+const compatibility= parseList(getField(sections, 'compatibility','versions','alfresco versions'));
+const license      = getField(sections, 'license','licence') || 'Proprietary';
+const keywords     = parseList(getField(sections, 'keywords','tags'));
+
+const downloadUrl  = getField(sections, 'download url','download page link','repo url','project url','link');
+const vendor       = getField(sections, 'vendor','author','author vendor name','maintainer','company') || 'Unknown';
+const aboutUrl     = getField(sections, 'about url','website','homepage');
+const about        = (getField(sections, 'about','short pitch') || '').slice(0, 300);
+
+// screenshots: explicit field or pasted markdown images
+let screenshots    = parseList(getField(sections, 'screenshots'));
 if (!screenshots.length) screenshots = parseScreenshots(issue.body || '');
 
 const slug = slugify(title);
 
-// --- Write content file ----------------------------------------------------
+// ---- write file -----------------------------------------------------------
 
 const fm = {
   title,
@@ -105,7 +105,7 @@ fs.mkdirSync(outDir, { recursive: true });
 const filePath = path.join(outDir, `${slug}-${issue.number}.md`);
 const frontMatter = `---\n${Object.entries(fm).map(([k,v]) => {
   if (Array.isArray(v)) return `${k}: ${JSON.stringify(v)}`;
-  return `${k}: ${v === null || v === undefined ? '""' : JSON.stringify(v)}`;
+  return `${k}: ${v == null ? '""' : JSON.stringify(v)}`;
 }).join('\n')}\n---\n\n`;
 
 fs.writeFileSync(filePath, frontMatter, 'utf8');
