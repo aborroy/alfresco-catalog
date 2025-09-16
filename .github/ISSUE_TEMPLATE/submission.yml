@@ -34,6 +34,9 @@ body:
     id: about
     attributes: { label: "About (≤ 300 chars)" }
   - type: textarea
+    id: screenshots
+    attributes: { label: "Screenshots (one URL per line)" }
+  - type: textarea
     id: notes
     attributes:
       label: "Notes to reviewers (optional)"
