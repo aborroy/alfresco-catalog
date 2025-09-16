@@ -8,19 +8,18 @@
     <div class="container">
       <header class="site-header">
         <div class="header-bar">
+          <a href="https://www.hyland.com" class="logo">
+            <img src="{{ "img/hyland.webp" | relURL }}" alt="Hyland" style="height:100px;">
+          </a>
+
           <a href="{{ .Site.BaseURL | safeURL }}" class="brand">
             <span class="brand-text">Alfresco Marketplace</span>
           </a>
 
-          <div class="nav-links">
-            <a href="https://www.hyland.com" class="logo">
-              <img src="{{ "img/hyland.webp" | relURL }}" alt="Hyland" style="height:100px;">
-            </a>
-            <a href="https://github.com/aborroy/alfresco-marketplace/issues/new?template=new-entry.yml"
-              class="submit-link" target="_blank" rel="noopener">
-              + Submit Entry
-            </a>
-          </div>
+          <a href="https://github.com/aborroy/alfresco-marketplace/issues/new?template=new-entry.yml"
+            class="submit-link" target="_blank" rel="noopener">
+            + Submit Entry
+          </a>
         </div>
       </header>
       <main>

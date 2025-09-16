@@ -185,6 +185,7 @@ a:hover{ color:var(--brand-accent-600) }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
 }
 
 .header-bar .brand-text {
