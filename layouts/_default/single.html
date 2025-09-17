@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="entry">
   <h1>{{ .Title }}</h1>
-  <p class="vendor">{{ .Params.vendor }}</p>
+  <p class="vendor">by {{ .Params.vendor }}</p>
 
   {{ with .Params.screenshots }}
   <div class="shots">

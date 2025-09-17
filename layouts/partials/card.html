@@ -1,6 +1,6 @@
 <article class="card" data-slug="{{ .File.TranslationBaseName }}">
   <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-  <p class="vendor">{{ .Params.vendor }}</p>
+  <p class="vendor">by {{ .Params.vendor }}</p>
   <p class="desc">{{ .Params.description }}</p>
   <div class="badges">
     {{ with .Params.compatibility }}<span class="badge">Compat: {{ delimit . ", " }}</span>{{ end }}
