@@ -4,50 +4,72 @@ labels: ["new-entry"]
 body:
   - type: input
     id: title
-    attributes: { label: "Name", placeholder: "Connector X" }
-    validations: { required: true }
+    attributes:
+      label: "Name"
+      placeholder: "Connector X"
+    validations:
+      required: true
+
   - type: textarea
     id: description
     attributes:
       label: "Description"
       description: "Short overview and links to docs."
-    validations: { required: true }
+    validations:
+      required: true
+
   - type: input
     id: compatibility
-    attributes: { label: "Compatibility (comma-separated)", placeholder: "ACS 7.4, ACS 25.2" }
+    attributes:
+      label: "Compatibility (comma-separated)"
+      placeholder: "ACS 7.4, ACS 25.2"
+
   - type: dropdown
     id: license
-    attributes: { label: "License", placeholder: "Public Domain", 
-      options: [
-          "Apache-2",
-          "MIT",
-          "BSD-3-Clause",
-          "GPL-2",
-          "GPL-3",
-          "LGPL-3",
-          "Proprietary",
-          "Public Domain"
-        ] 
-      }
-    validations: { required: true }
+    attributes:
+      label: "License"
+      options:
+        - Apache-2
+        - MIT
+        - BSD-3-Clause
+        - GPL-2
+        - GPL-3
+        - LGPL-3
+        - Proprietary
+        - Public Domain
+    validations:
+      required: true
+
   - type: input
     id: keywords
-    attributes: { label: "Keywords (comma-separated)" }
+    attributes:
+      label: "Keywords (comma-separated)"
+
   - type: input
     id: download_url
-    attributes: { label: "Download page link (URL)" }
+    attributes:
+      label: "Download page link (URL)"
+
   - type: input
     id: vendor
-    attributes: { label: "Author/Vendor name" }
+    attributes:
+      label: "Author/Vendor name"
+
   - type: input
     id: about_url
-    attributes: { label: "About URL" }
+    attributes:
+      label: "About URL"
+
   - type: textarea
     id: about
-    attributes: { label: "About (maximum 500 chars)" }
+    attributes:
+      label: "About (maximum 500 chars)"
+
   - type: textarea
     id: screenshots
-    attributes: { label: "Screenshots (one URL per line)" }
+    attributes:
+      label: "Screenshots (one URL per line)"
+
   - type: textarea
     id: notes
     attributes:
