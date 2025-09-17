@@ -9,7 +9,7 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: "Description (Markdown allowed)"
+      label: "Description"
       description: "Short overview and links to docs."
     validations: { required: true }
   - type: input
@@ -17,7 +17,19 @@ body:
     attributes: { label: "Compatibility (comma-separated)", placeholder: "ACS 7.4, ACS 25.2" }
   - type: dropdown
     id: license
-    attributes: { label: "License", options: ["Apache-2.0","MIT","GPL-3.0-only","Proprietary"] }
+    attributes: { label: "License", placeholder: "Public Domain", 
+      options: [
+          "Apache-2",
+          "MIT",
+          "BSD-3-Clause",
+          "GPL-2",
+          "GPL-3",
+          "LGPL-3",
+          "Proprietary",
+          "Public Domain"
+        ] 
+      }
+    validations: { required: true }
   - type: input
     id: keywords
     attributes: { label: "Keywords (comma-separated)" }
