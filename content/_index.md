@@ -1,5 +1,5 @@
 ---
-title: "Alfresco Marketplace"
+title: "Alfresco Catalog"
 type: "list"
 ---
 

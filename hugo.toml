@@ -1,6 +1,6 @@
 baseURL = "https://aborroy.github.io/alfresco-marketplace/"
 languageCode = "en-us"
-title = "Alfresco Marketplace"
+title = "Alfresco Catalog"
 paginate = 24
 
 [markup.goldmark.renderer]

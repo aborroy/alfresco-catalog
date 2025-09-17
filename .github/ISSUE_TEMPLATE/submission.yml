@@ -1,4 +1,4 @@
-name: "Submit a marketplace entry"
+name: "Submit a catalog entry"
 description: "Use this form to propose a new listing. A PR will be created for review."
 labels: ["new-entry"]
 body:
