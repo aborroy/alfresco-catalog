@@ -11,3 +11,9 @@ tag = "tags"
 
 [outputs]
 home = ["HTML", "JSON"]
+
+[params]
+introTitle = "Alfresco Catalog"
+introLead = """Alfresco Catalog is a community-driven space where customers, partners, and community members can showcase add-ons, solutions, and real-world use cases built around Alfresco.<br/>
+Browse the catalog to quickly discover extensions and ideas that may inspire or accelerate your projects.<br/>
+Want to share your own work? Click “+ Submit Entry” to suggest a new listing, every submission is reviewed by the Hyland Team before it appears here."""

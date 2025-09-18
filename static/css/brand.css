@@ -280,3 +280,21 @@ a.brand:hover {
 .shots .video { position: relative; width: 100%; padding-top: 56.25%; }
 .shots .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 .shots img, .shots .shot-video { max-width: 100%; height: auto; display: block; }
+
+#catalog-hero-toggle {
+  display: none;      
+  margin: 0;
+  padding: 0;
+}
+#catalog-hero-toggle.is-visible {
+  display: block;     
+  margin-top: 1rem;
+  font-size: .9rem;
+  text-align: right;  
+}
+.catalog-hero { margin: 1rem 0 0; }
+.catalog-hero.container {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+
