@@ -7,7 +7,7 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "GPL-3.0"
+license: "GPL-3"
 keywords:
   - "share"
   - "markdown"
