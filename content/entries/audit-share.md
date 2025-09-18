@@ -1,13 +1,19 @@
 ---
-title: Audit Share
-href: https://github.com/atolcd/alfresco-audit-share
-creators: ["atolcd"]
-image: https://raw.githubusercontent.com/atolcd/alfresco-audit-share/master/screenshots/audit-share.png
-id: audit-share
-type: addon
-vendor: atolcd
-edition: Community & Enterprise
-license: LGPL-3.0
-desc: Adds a Share UI to view Alfresco audit logs with filters and pagination.
-tags: ["share", "audit"]
+title: "Audit Share"
+description: "Adds a Share UI to view Alfresco audit logs with filters and pagination."
+screenshots:
+  - "https://opengraph.githubassets.com/1/atolcd/alfresco-audit-share"
+compatibility:
+  - "ACS 6.x"
+  - "ACS 7.x"
+  - "ACS 23.x+"
+license: "LGPL-3.0"
+keywords:
+  - "share"
+  - "audit"
+download_url: "https://github.com/atolcd/alfresco-audit-share"
+vendor: "ATOL Conseils et Développements"
+about: "Adds a Share UI to view Alfresco audit logs with filters and pagination."
+about_url: "https://github.com/atolcd/alfresco-audit-share"
+draft: false
 ---

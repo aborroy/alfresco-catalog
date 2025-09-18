@@ -1,13 +1,20 @@
 ---
-title: TOTP Authenticator
-href: https://github.com/loftuxab/alfresco-totp-authenticator
-creators: ["loftuxab"]
-image: https://raw.githubusercontent.com/loftuxab/alfresco-totp-authenticator/master/screenshot.png
-id: totp-authenticator
-type: addon
-vendor: Loftux AB
-edition: Community & Enterprise
-license: GPL-3.0
-desc: Two‑factor authentication (TOTP) for Alfresco Share login.
-tags: ["security", "share", "authentication"]
+title: "TOTP Authenticator"
+description: "Two‑factor authentication (TOTP) for Alfresco Share login."
+screenshots:
+  - "https://opengraph.githubassets.com/1/loftuxab/alfresco-totp-authenticator"
+compatibility:
+  - "ACS 6.x"
+  - "ACS 7.x"
+  - "ACS 23.x+"
+license: "GPL-3.0"
+keywords:
+  - "security"
+  - "share"
+  - "authentication"
+download_url: "https://github.com/loftuxab/alfresco-totp-authenticator"
+vendor: "Loftux AB"
+about: "Two‑factor authentication (TOTP) for Alfresco Share login."
+about_url: "https://github.com/loftuxab/alfresco-totp-authenticator"
+draft: false
 ---

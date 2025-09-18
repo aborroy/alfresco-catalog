@@ -1,13 +1,19 @@
 ---
-title: Alfresco Benchmark
-href: https://github.com/AlfrescoBenchmark/alfresco-benchmark
-creators: ["AlfrescoBenchmark"]
-image: https://raw.githubusercontent.com/AlfrescoBenchmark/alfresco-benchmark/master/docs/images/benchmark.png
-id: alfresco-benchmark
-type: tool
-vendor: Community
-edition: Community & Enterprise
-license: UNKNOWN
-desc: JMeter-based load/benchmark suite for Alfresco Content Services.
-tags: ["performance", "testing"]
+title: "Alfresco Benchmark"
+description: "JMeter-based load/benchmark suite for Alfresco Content Services."
+screenshots:
+  - "https://opengraph.githubassets.com/1/AlfrescoBenchmark/alfresco-benchmark"
+compatibility:
+  - "ACS 6.x"
+  - "ACS 7.x"
+  - "ACS 23.x+"
+license: "UNKNOWN"
+keywords:
+  - "performance"
+  - "testing"
+download_url: "https://github.com/AlfrescoBenchmark/alfresco-benchmark"
+vendor: "Community"
+about: "JMeter-based load/benchmark suite for Alfresco Content Services."
+about_url: "https://github.com/AlfrescoBenchmark/alfresco-benchmark"
+draft: false
 ---

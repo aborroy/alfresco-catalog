@@ -1,13 +1,20 @@
 ---
-title: Uploader Plus
-href: https://github.com/softwareloop/uploader-plus
-creators: ["softwareloop"]
-image: https://raw.githubusercontent.com/softwareloop/uploader-plus/master/docs/uploader-plus.png
-id: uploader-plus
-type: addon
-vendor: Community
-edition: Community & Enterprise
-license: LGPL-3.0
-desc: Enhances Share uploader with prompts for content type and metadata during upload.
-tags: ["share", "uploader", "metadata"]
+title: "Uploader Plus"
+description: "Enhances Share uploader with prompts for content type and metadata during upload."
+screenshots:
+  - "https://opengraph.githubassets.com/1/softwareloop/uploader-plus"
+compatibility:
+  - "ACS 6.x"
+  - "ACS 7.x"
+  - "ACS 23.x+"
+license: "LGPL-3.0"
+keywords:
+  - "share"
+  - "uploader"
+  - "metadata"
+download_url: "https://github.com/softwareloop/uploader-plus"
+vendor: "Community"
+about: "Enhances Share uploader with prompts for content type and metadata during upload."
+about_url: "https://github.com/softwareloop/uploader-plus"
+draft: false
 ---
