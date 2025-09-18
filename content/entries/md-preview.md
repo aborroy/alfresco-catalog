@@ -1,20 +1,13 @@
 ---
-title: "MD Preview"
-description: "Markdown preview and editing support in Alfresco Share."
-screenshots:
-  - "https://opengraph.githubassets.com/1/share-extras/alfresco-md-preview"
-compatibility:
-  - "ACS 6.x"
-  - "ACS 7.x"
-  - "ACS 23.x+"
-license: "Unknown"
-keywords:
-  - "share"
-  - "markdown"
-  - "preview"
-download_url: "https://github.com/share-extras/alfresco-md-preview"
-vendor: "Share Extras"
-about: "Markdown preview and editing support in Alfresco Share."
-about_url: "https://github.com/share-extras/alfresco-md-preview"
-draft: false
+title: Markdown Preview for Share
+href: https://github.com/cetra3/md-preview
+creators: ["cetra3"]
+image: https://raw.githubusercontent.com/cetra3/md-preview/master/markdown-preview.png
+id: md-preview
+type: addon
+vendor: Community
+edition: Community & Enterprise
+license: GPL-3.0
+desc: Adds Markdown preview and edit actions to Alfresco Share.
+tags: ["share", "markdown", "ui"]
 ---

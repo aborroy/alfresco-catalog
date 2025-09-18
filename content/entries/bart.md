@@ -1,20 +1,13 @@
 ---
-title: "Alfresco BART - Backup and Recovery Tool"
-description: "Shell-based backups and restore with Duplicity (local/FTP/SCP/S3)."
-screenshots:
-  - "https://opengraph.githubassets.com/1/toniblyx/alfresco-backup-and-recovery-tool"
-compatibility:
-  - "ACS 6.x"
-  - "ACS 7.x"
-  - "ACS 23.x+"
-license: "Unknown"
-keywords:
-  - "backup"
-  - "restore"
-  - "ops"
-download_url: "https://github.com/toniblyx/alfresco-backup-and-recovery-tool"
-vendor: "Toni de la Fuente"
-about: "Shell-based backups and restore with Duplicity (local/FTP/SCP/S3)."
-about_url: "https://github.com/toniblyx/alfresco-backup-and-recovery-tool"
-draft: false
+title: Backup And Recovery Tool (BART)
+href: https://github.com/toniblyx/alfresco-backup-and-recovery-tool
+creators: ["toniblyx"]
+image: https://raw.githubusercontent.com/toniblyx/alfresco-backup-and-recovery-tool/master/docs/img/bart.png
+id: bart
+type: tool
+vendor: toniblyx
+edition: Community & Enterprise
+license: Apache-2.0
+desc: Scripts and automation to back up and restore Alfresco (repo, DB, content store, Solr).
+tags: ["ops", "backup", "restore"]
 ---

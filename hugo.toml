@@ -1,7 +1,7 @@
 baseURL = "https://aborroy.github.io/alfresco-catalog/"
 languageCode = "en-us"
 title = "Alfresco Catalog"
-paginate = 24
+paginate = 12
 
 [markup.goldmark.renderer]
 unsafe = true

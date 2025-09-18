@@ -1,20 +1,13 @@
 ---
-title: "alfresco-s3-adapter"
-description: "Store Alfresco content in Amazon S3 with an AMP module."
-screenshots:
-  - "https://opengraph.githubassets.com/1/Alfresco/alfresco-s3-adapter"
-compatibility:
-  - "ACS 6.x"
-  - "ACS 7.x"
-  - "ACS 23.x+"
-license: "Unknown"
-keywords:
-  - "content-store"
-  - "s3"
-  - "storage"
-download_url: "https://github.com/Alfresco/alfresco-s3-adapter"
-vendor: "Alfresco"
-about: "Store Alfresco content in Amazon S3 with an AMP module."
-about_url: "https://github.com/Alfresco/alfresco-s3-adapter"
-draft: false
+title: S3 Adapter
+href: https://github.com/Redpill-Linpro/alfresco-s3-adapter
+creators: ["Redpill-Linpro"]
+image: https://raw.githubusercontent.com/Redpill-Linpro/alfresco-s3-adapter/master/docs/s3.png
+id: s3-adapter
+type: addon
+vendor: Redpill Linpro
+edition: Community & Enterprise
+license: Apache-2.0
+desc: Content store adapter to keep Alfresco content binaries in Amazon S3.
+tags: ["storage", "s3", "content-store"]
 ---
