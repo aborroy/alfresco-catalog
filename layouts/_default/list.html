@@ -100,8 +100,10 @@
   };
 
   // Facet rendering
-  function renderFacet(root, items, counts, facetKey) {
+  function renderFacet(root, items, counts) {
     root.innerHTML = '';
+    // sort items by count (descending), then by name
+    items.sort((a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b));
     items.forEach(v => {
       const id  = encodeURIComponent(v);
       const cnt = counts[v] || 0;
@@ -116,6 +118,7 @@
     });
     root.addEventListener('change', apply);
   }
+
 
   function countsFor(list, key, arrayField) {
     const m = {};
