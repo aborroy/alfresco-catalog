@@ -236,12 +236,24 @@ a.brand:hover {
   font-size:14px; font-weight:700; color:#0f172a;
 }
 
-.chk{
+.chk,
+.facet-item{
   display:flex; align-items:center; gap:8px;
   padding:6px 4px; border-radius:8px;
 }
-.chk input{ width:16px; height:16px; }
-.chk em{ font-style:normal; color:#64748b; font-size:12px; }
+
+.chk input,
+.facet-item input{ width:16px; height:16px; }
+
+.facet-item span{ color:#0f172a; font-size:14px; line-height:1.4; }
+
+.chk em,
+.facet-item span em{
+  font-style:normal;
+  color:#64748b;
+  font-size:12px;
+  margin-left:6px;
+}
 
 .btn-clear{
   width:100%;
