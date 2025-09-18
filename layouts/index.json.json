@@ -11,6 +11,7 @@
     "compatibility" .Params.compatibility
     "keywords"      .Params.keywords
     "description"   (.Params.description | truncate 500)
+    "download_url"  .Params.download_url
     "date"          $ts
   ) -}}
 {{- end -}}
