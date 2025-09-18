@@ -1,0 +1,20 @@
+---
+title: "Alfresco Audit Dashlet"
+description: "Dashlet for viewing Alfresco audit logs directly in Share."
+screenshots:
+  - "https://opengraph.githubassets.com/1/loftuxab/alfresco-audit-dashlet"
+compatibility:
+  - "ACS 6.x"
+  - "ACS 7.x"
+  - "ACS 23.x+"
+license: "Unknown"
+keywords:
+  - "auditing"
+  - "dashlet"
+  - "share"
+download_url: "https://github.com/loftuxab/alfresco-audit-dashlet"
+vendor: "Loftux AB"
+about: "Dashlet for viewing Alfresco audit logs directly in Share."
+about_url: "https://github.com/loftuxab/alfresco-audit-dashlet"
+draft: false
+---
