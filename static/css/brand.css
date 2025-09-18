@@ -298,3 +298,51 @@ a.brand:hover {
   padding-bottom: 1rem;
 }
 
+nav.pagination ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+nav.pagination li { display: inline-block; }
+
+/* Base style for interactive links */
+nav.pagination a {
+  display: inline-block;
+  padding: .4rem .7rem;
+  border: 1px solid var(--brand-border, #E5E7EB);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--brand-accent, #5B3DF1);
+  line-height: 1.2;
+}
+
+/* Hover/focus state */
+nav.pagination a:hover,
+nav.pagination a:focus {
+  background: var(--brand-accent-50, #F4F2FF);
+  border-color: var(--brand-accent, #5B3DF1);
+}
+
+/* Active page (current) */
+nav.pagination .active a {
+  background: var(--brand-accent, #5B3DF1);
+  color: #fff;
+  font-weight: 600;
+  border-color: var(--brand-accent, #5B3DF1);
+}
+
+/* Disabled prev/next («, ») */
+nav.pagination .disabled span {
+  cursor: not-allowed;
+  color: var(--brand-muted, #94A3B8);
+  opacity: 0.6
+}
+
+nav.pagination .disabled a:hover,
+nav.pagination .disabled a:focus {
+  background: transparent;
+  border-color: var(--brand-border, #E5E7EB);
+}

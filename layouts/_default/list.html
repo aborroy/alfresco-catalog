@@ -35,15 +35,13 @@
           <option value="relevance">Relevance</option>
           <option value="az">A to Z</option>
           <option value="za">Z to A</option>
-          <option value="newest">Newest</option>
+          <option value="newest" selected>Newest</option>
         </select>
       </div>
     </div>
 
-    <!-- Visual grid (server paginated for no-JS users).
-         When JS is active, we will fully control its contents from index.json -->
+    <!-- Server-rendered (paginated) grid for no-JS & initial load -->
     <section class="grid" id="cards">
-      {{/* Paginate the entries section */}}
       {{ $all := where .Site.RegularPages "Section" "entries" }}
       {{ $p := .Paginate $all }}
       {{ range $p.Pages }}
@@ -51,179 +49,221 @@
       {{ end }}
     </section>
 
-    <!-- Server-side pagination controls (good for SEO & no-JS users).
-         JS-powered filtering will ignore this, but we keep it for progressive enhancement. -->
-    <nav class="pagination">
+    <!-- Server-side pagination (SEO & no-JS). Will be replaced in client mode -->
+    <nav class="pagination" id="server-pagination">
       {{ template "_internal/pagination.html" . }}
     </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script>
+    (function () {
+      // Reuse server page size for client pagination
+      const PAGE_SIZE = {{ $p.PageSize }};
+
+      // DOM refs
+      const grid   = document.getElementById('cards');
+      const pager  = document.getElementById('server-pagination');
+      const q      = document.getElementById('q');
+      const sort   = document.getElementById('sort');
+      const fx = {
+        license:  document.getElementById('facet-license'),
+        compat:   document.getElementById('facet-compat'),
+        keywords: document.getElementById('facet-keywords'),
+        clearBtn: document.getElementById('facet-clear'),
+      };
+
+      // Load index once on page load to build facets (does NOT switch to client rendering)
+      document.addEventListener('DOMContentLoaded', () => { ensureIndex(); });
+
+      // State
+      let data = null, fuse = null, indexLoaded = false;
+      let currentPage = 1;
+      let lastClientList = [];
+
+      async function ensureIndex() {
+        if (indexLoaded) return;
+        const res = await fetch('{{ "index.json" | relURL }}');
+        data = await res.json();
+        fuse = new Fuse(data, {
+          keys: ['title','vendor','keywords','description','compatibility','license'],
+          threshold: 0.3
+        });
+        buildFacets();
+        indexLoaded = true;
+      }
+
+      // Utils
+      const uniq = (arr) => [...new Set(arr)].filter(Boolean).sort();
+      const flat = (arr) => arr.flat ? arr.flat() : [].concat.apply([], arr);
+
+      function buildFacets(){
+        const values = {
+          license:  uniq(data.map(x => x.license)),
+          compat:   uniq(flat(data.map(x => x.compatibility || []))),
+          keywords: uniq(flat(data.map(x => x.keywords || []))),
+        };
+
+        function renderFacet(root, items, counts) {
+          root.innerHTML = '';
+          const ordered = [...items].sort((a,b) => (counts[b]||0)-(counts[a]||0) || a.localeCompare(b));
+          ordered.forEach(v => {
+            const id  = encodeURIComponent(v);
+            const cnt = counts[v] || 0;
+            const lab = document.createElement('label');
+            lab.className = 'chk';
+            lab.innerHTML = `
+              <input type="checkbox" value="${id}">
+              <span>${v}</span>
+              <em>${cnt}</em>
+            `;
+            root.appendChild(lab);
+          });
+          root.addEventListener('change', onUserIntent(() => {
+            currentPage = 1;       // reset when toggling facets
+            applyClient();
+          }));
+        }
+
+        function countsFor(list, key, arrayField) {
+          const m = {};
+          list.forEach(x => {
+            const val = x[key];
+            if (arrayField) (val || []).forEach(v => { m[v] = (m[v] || 0) + 1; });
+            else if (val)   m[val] = (m[val] || 0) + 1;
+          });
+          return m;
+        }
+
+        renderFacet(fx.license,  values.license,  countsFor(data,'license',false));
+        renderFacet(fx.compat,   values.compat,   countsFor(data,'compatibility',true));
+        renderFacet(fx.keywords, values.keywords, countsFor(data,'keywords',true));
+      }
+
+      function getFilters(){
+        const pick = (root) => [...root.querySelectorAll('input[type="checkbox"]:checked')].map(x => decodeURIComponent(x.value));
+        return {
+          text:     q.value.trim(),
+          license:  pick(fx.license),
+          compat:   pick(fx.compat),
+          keywords: pick(fx.keywords),
+          sort:     sort.value || 'newest',
+        };
+      }
+
+      function renderCard(item) {
+        const a = document.createElement('article');
+        a.className = 'card';
+        a.setAttribute('data-slug', item.slug);
+        const compat  = (item.compatibility && item.compatibility.length) ? `Compat: ${item.compatibility.join(', ')}` : '';
+        const license = item.license ? `License: ${item.license}` : '';
+        const link = '{{ "entries/" | relURL }}' + item.slug + '/';
+        const dl   = item.download_url ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>` : '';
+        a.innerHTML = `
+          <h3><a href="${link}">${item.title}</a></h3>
+          <p class="vendor">by ${item.vendor || ''}</p>
+          <p class="desc">${item.description || ''}</p>
+          <div class="badges">
+            ${compat ? `<span class="badge">${compat}</span>` : ''}
+            ${license ? `<span class="badge badge--muted">${license}</span>` : ''}
+          </div>
+          <div class="links">${dl}</div>
+        `;
+        return a;
+      }
+
+      // ---------- Client-side pagination ----------
+      function renderClient(list){
+        lastClientList = list;
+        const total = list.length;
+        const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        if (currentPage > pages) currentPage = 1;
+
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const pageItems = list.slice(start, start + PAGE_SIZE);
+
+        // cards
+        grid.innerHTML = '';
+        pageItems.forEach(item => grid.appendChild(renderCard(item)));
+
+        // pager (replace server pager with client pager)
+        if (!pager) return;
+        pager.style.display = '';
+        pager.innerHTML = buildPagerHTML(pages, currentPage);
+
+        // bind clicks
+        pager.querySelectorAll('[data-page]').forEach(el => {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            const p = parseInt(el.getAttribute('data-page'), 10);
+            if (!isNaN(p)) { currentPage = p; renderClient(lastClientList); }
+          });
+        });
+      }
+
+      function buildPagerHTML(pages, page){
+        const btn = (p, label, disabled=false, active=false) => {
+          if (disabled) return `<li class="disabled"><span>${label}</span></li>`;
+          if (active)   return `<li class="active"><a href="#" aria-current="page">${label}</a></li>`;
+          return `<li><a href="#" data-page="${p}">${label}</a></li>`;
+        };
+        const prev  = btn(page-1, '«', page<=1);
+        const first = btn(1, '««', page<=1);
+        const next  = btn(page+1, '»', page>=pages);
+        const last  = btn(pages, '»»', page>=pages);
+
+        let nums = '';
+        for (let i=1;i<=pages;i++) nums += btn(i, String(i), false, i===page);
+
+        return `<ul>${first}${prev}${nums}${next}${last}</ul>`;
+      }
+      // -------------------------------------------
+
+      function applyClient(){
+        // Switch to client mode (we control the pager; don't hide it)
+        const f = getFilters();
+        let list = data.slice();
+
+        // Search
+        let scoreMap = null;
+        if (f.text) {
+          const results = fuse.search(f.text);
+          scoreMap = new Map(results.map(r => [r.item.slug, r.score]));
+          list = results.map(r => r.item);
+        }
+
+        // Facets
+        if (f.license.length)  list = list.filter(x => x.license && f.license.includes(x.license));
+        if (f.compat.length)   list = list.filter(x => (x.compatibility || []).some(v => f.compat.includes(v)));
+        if (f.keywords.length) list = list.filter(x => (x.keywords || []).some(v => f.keywords.includes(v)));
+
+        // Sort
+        if (f.sort === 'az') list.sort((a,b) => a.title.localeCompare(b.title));
+        else if (f.sort === 'za') list.sort((a,b) => b.title.localeCompare(a.title));
+        else if (f.sort === 'newest') list.sort((a,b) => (b.date||0) - (a.date||0));
+        else if (f.sort === 'relevance' && scoreMap) list.sort((a,b) => (scoreMap.get(a.slug)||0) - (scoreMap.get(b.slug)||0));
+
+        // Render current page + pager
+        renderClient(list);
+      }
+
+      // Wire up interactions: lazy-load index, then apply
+      function onUserIntent(handler){
+        return async function(...args){
+          await ensureIndex();
+          handler.apply(this, args);
+        }
+      }
+
+      q.addEventListener('input', onUserIntent(() => { currentPage = 1; applyClient(); }));
+      q.addEventListener('keyup', onUserIntent(e => { if (e.key === 'Enter') { currentPage = 1; applyClient(); } }));
+      sort.addEventListener('change', onUserIntent(() => { currentPage = 1; applyClient(); }));
+      fx.clearBtn.addEventListener('click', function(){
+        // Hard reset to restore server pagination perfectly
+        window.location.href = window.location.pathname;
+      });
+    })();
+    </script>
   </section>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-<script>
-(async function () {
-  // Base URL to entry pages (e.g., "/entries/")
-  const baseEntries = '{{ "entries/" | relURL }}';
-
-  // Load the full index (ALL entries, not paginated)
-  const res = await fetch('{{ "index.json" | relURL }}');
-  const data = await res.json();
-
-  // Fuse for relevance
-  const fuse = new Fuse(data, {
-    keys: ['title','vendor','keywords','description','compatibility','license'],
-    threshold: 0.3
-  });
-
-  // Elements
-  const q     = document.getElementById('q');
-  const sort  = document.getElementById('sort');
-  const grid  = document.getElementById('cards');
-
-  // Facet containers
-  const fx = {
-    license:  document.getElementById('facet-license'),
-    compat:   document.getElementById('facet-compat'),
-    keywords: document.getElementById('facet-keywords'),
-    clearBtn: document.getElementById('facet-clear'),
-  };
-
-  // Helpers
-  const uniq  = (arr) => [...new Set(arr)].filter(Boolean).sort();
-  const flat  = (arr) => arr.flat ? arr.flat() : [].concat.apply([], arr);
-
-  // Precompute facet values
-  const values = {
-    license:  uniq(data.map(x => x.license)),
-    compat:   uniq(flat(data.map(x => x.compatibility || []))),
-    keywords: uniq(flat(data.map(x => x.keywords || []))),
-  };
-
-  // Facet rendering
-  function renderFacet(root, items, counts) {
-    root.innerHTML = '';
-
-    // Do not mutate the original array
-    const ordered = [...items].sort(
-      (a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b)
-    );
-
-    ordered.forEach(v => {
-      const id  = encodeURIComponent(v);
-      const cnt = counts[v] || 0;
-      const lab = document.createElement('label');
-      lab.className = 'chk';
-      lab.innerHTML = `
-        <input type="checkbox" value="${id}">
-        <span>${v}</span>
-        <em>${cnt}</em>
-      `;
-      root.appendChild(lab);
-    });
-
-    root.addEventListener('change', apply);
-  }
-
-  function countsFor(list, key, arrayField) {
-    const m = {};
-    list.forEach(x => {
-      const val = x[key];
-      if (arrayField) {
-        (val || []).forEach(v => { m[v] = (m[v] || 0) + 1; });
-      } else if (val) {
-        m[val] = (m[val] || 0) + 1;
-      }
-    });
-    return m;
-  }
-
-  renderFacet(fx.license,  values.license,  countsFor(data,'license',false),       'license');
-  renderFacet(fx.compat,   values.compat,   countsFor(data,'compatibility',true),  'compat');
-  renderFacet(fx.keywords, values.keywords, countsFor(data,'keywords',true),       'keywords');
-
-  // State
-  const selected = { license:new Set(), compat:new Set(), keywords:new Set() };
-
-  function getFilters(){
-    const pick = (root) => [...root.querySelectorAll('input[type="checkbox"]:checked')].map(x => decodeURIComponent(x.value));
-    return {
-      text:     q.value.trim(),
-      license:  pick(fx.license),
-      compat:   pick(fx.compat),
-      keywords: pick(fx.keywords),
-      sort:     sort.value || 'relevance',
-    };
-  }
-
-  // Create a card element from index item
-  function renderCard(item) {
-    const a = document.createElement('article');
-    a.className = 'card';
-    a.setAttribute('data-slug', item.slug);
-    const compat = (item.compatibility && item.compatibility.length) ? `Compat: ${item.compatibility.join(', ')}` : '';
-    const license = item.license ? `License: ${item.license}` : '';
-    const link = baseEntries + item.slug + '/';
-    const dl   = item.download_url ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>` : '';
-    a.innerHTML = `
-      <h3><a href="${link}">${item.title}</a></h3>
-      <p class="vendor">by ${item.vendor || ''}</p>
-      <p class="desc">${item.description || ''}</p>
-      <div class="badges">
-        ${compat ? `<span class="badge">${compat}</span>` : ''}
-        ${license ? `<span class="badge badge--muted">${license}</span>` : ''}
-      </div>
-      <div class="links">${dl}</div>
-    `;
-    return a;
-  }
-
-  function apply(){
-    const f = getFilters();
-
-    // Base list
-    let list = data.slice();
-
-    // Text query via Fuse
-    let scoreMap = null;
-    if (f.text) {
-      const fuseResults = fuse.search(f.text);
-      scoreMap = new Map(fuseResults.map(r => [r.item.slug, r.score]));
-      list = fuseResults.map(r => r.item);
-    }
-
-    // Facets
-    if (f.license.length)  list = list.filter(x => x.license && f.license.includes(x.license));
-    if (f.compat.length)   list = list.filter(x => (x.compatibility || []).some(v => f.compat.includes(v)));
-    if (f.keywords.length) list = list.filter(x => (x.keywords || []).some(v => f.keywords.includes(v)));
-
-    // Sort
-    if (f.sort === 'az')       list.sort((a,b) => a.title.localeCompare(b.title));
-    else if (f.sort === 'za')  list.sort((a,b) => b.title.localeCompare(a.title));
-    else if (f.sort === 'newest') list.sort((a,b) => (b.date||0) - (a.date||0));
-    else if (f.sort === 'relevance' && scoreMap) list.sort((a,b) => (scoreMap.get(a.slug)||0) - (scoreMap.get(b.slug)||0));
-
-    // Render results (client-side replaces paginated server list)
-    grid.innerHTML = '';
-    list.forEach(item => grid.appendChild(renderCard(item)));
-  }
-
-  // Clear facets
-  fx.clearBtn.addEventListener('click', () => {
-    [fx.license, fx.compat, fx.keywords].forEach(root => {
-      root.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked = false; });
-    });
-    q.value = '';
-    sort.value = 'newest';
-    apply();
-  });
-
-  // Listeners
-  q.addEventListener('input', apply);
-  q.addEventListener('keyup', e => { if (e.key === 'Enter') apply(); });
-  sort.addEventListener('change', apply);
-
-  if (!sort.value) sort.value = 'newest';
-  apply();
-})();
-</script>
 {{ end }}
