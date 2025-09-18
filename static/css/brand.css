@@ -189,7 +189,7 @@ a:hover{ color:var(--brand-accent-600) }
 }
 
 .header-bar .brand-text {
-  font-size: 28px;
+  font-size: 48px;
   font-weight: 700;
   color: var(--brand-accent);
   letter-spacing: -0.01em;

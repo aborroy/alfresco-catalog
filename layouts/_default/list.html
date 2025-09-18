@@ -59,6 +59,7 @@
     (function () {
       // Reuse server page size for client pagination
       const PAGE_SIZE = {{ $p.PageSize }};
+      const KEYWORDS_LIMIT = {{ with .Site.Params.facets.keywordsLimit }}{{ . }}{{ else }}10{{ end }};
 
       // DOM refs
       const grid   = document.getElementById('cards');
@@ -100,8 +101,18 @@
         const values = {
           license:  uniq(data.map(x => x.license)),
           compat:   uniq(flat(data.map(x => x.compatibility || []))),
-          keywords: uniq(flat(data.map(x => x.keywords || []))),
+          // keywords are handled via counts to pick top-N
         };
+
+        function countsFor(list, key, arrayField) {
+          const m = {};
+          list.forEach(x => {
+            const val = x[key];
+            if (arrayField) (val || []).forEach(v => { m[v] = (m[v] || 0) + 1; });
+            else if (val)   m[val] = (m[val] || 0) + 1;
+          });
+          return m;
+        }
 
         function renderFacet(root, items, counts) {
           root.innerHTML = '';
@@ -118,25 +129,20 @@
             `;
             root.appendChild(lab);
           });
-          root.addEventListener('change', onUserIntent(() => {
-            currentPage = 1;       // reset when toggling facets
-            applyClient();
-          }));
+          root.addEventListener('change', onUserIntent(() => { currentPage = 1; applyClient(); }));
         }
 
-        function countsFor(list, key, arrayField) {
-          const m = {};
-          list.forEach(x => {
-            const val = x[key];
-            if (arrayField) (val || []).forEach(v => { m[v] = (m[v] || 0) + 1; });
-            else if (val)   m[val] = (m[val] || 0) + 1;
-          });
-          return m;
-        }
+        // Build facets
+        renderFacet(fx.license, values.license, countsFor(data,'license',false));
+        renderFacet(fx.compat,  values.compat,  countsFor(data,'compatibility',true));
 
-        renderFacet(fx.license,  values.license,  countsFor(data,'license',false));
-        renderFacet(fx.compat,   values.compat,   countsFor(data,'compatibility',true));
-        renderFacet(fx.keywords, values.keywords, countsFor(data,'keywords',true));
+        // --- TOP-N KEYWORDS ---
+        const kwCounts = countsFor(data,'keywords',true);
+        const topKeywords = Object.entries(kwCounts)
+          .sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .slice(0, Math.max(0, KEYWORDS_LIMIT))
+          .map(([k]) => k);
+        renderFacet(fx.keywords, topKeywords, kwCounts);
       }
 
       function getFilters(){
@@ -219,7 +225,6 @@
       // -------------------------------------------
 
       function applyClient(){
-        // Switch to client mode (we control the pager; don't hide it)
         const f = getFilters();
         let list = data.slice();
 
