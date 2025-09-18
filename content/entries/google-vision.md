@@ -7,7 +7,7 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "LGPL-3.0"
+license: "LGPL-3"
 keywords:
   - "ai"
   - "metadata"

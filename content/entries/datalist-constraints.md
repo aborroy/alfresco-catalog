@@ -7,14 +7,14 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "UNKNOWN"
+license: "LGPL-3"
 keywords:
   - "modeling"
   - "constraints"
   - "share"
-download_url: "https://github.com/atolcd/alfresco-datalist-constraints"
-vendor: "ATOL Conseils et Développements"
+download_url: "https://github.com/keensoft/alfresco-datalist-constraints"
+vendor: "keensoft"
 about: "Use Share data lists to maintain model constraints (list-of-values) at runtime."
-about_url: "https://github.com/atolcd/alfresco-datalist-constraints"
+about_url: "https://github.com/keensoft/alfresco-datalist-constraints"
 draft: false
 ---

@@ -7,7 +7,7 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "Apache-2.0"
+license: "Apache-2"
 keywords:
   - "devtools"
   - "ops"

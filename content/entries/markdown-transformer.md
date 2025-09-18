@@ -7,13 +7,13 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "UNKNOWN"
+license: "LGPL-3"
 keywords:
   - "transforms"
   - "markdown"
-download_url: "https://github.com/AFaust/alfresco-markdown-transformer"
-vendor: "Acosix (Axel Faust)"
+download_url: "https://github.com/aborroy/alf-tengine-markdown"
+vendor: "Alfresco"
 about: "Local Transform Engine that converts Markdown to PDF/HTML for Alfresco."
-about_url: "https://github.com/AFaust/alfresco-markdown-transformer"
+about_url: "https://github.com/aborroy/alf-tengine-markdown"
 draft: false
 ---

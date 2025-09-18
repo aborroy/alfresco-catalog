@@ -7,14 +7,14 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "Unknown"
+license: "Apache-2"
 keywords:
   - "auditing"
   - "dashlet"
   - "share"
-download_url: "https://github.com/loftuxab/alfresco-audit-dashlet"
+download_url: "https://github.com/share-extras/audit-dashlet"
 vendor: "Loftux AB"
 about: "Dashlet for viewing Alfresco audit logs directly in Share."
-about_url: "https://github.com/loftuxab/alfresco-audit-dashlet"
+about_url: "https://github.com/share-extras/audit-dashlet"
 draft: false
 ---

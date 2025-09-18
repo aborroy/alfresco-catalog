@@ -7,7 +7,7 @@ compatibility:
   - "ACS 6.x"
   - "ACS 7.x"
   - "ACS 23.x+"
-license: "Unknown"
+license: "Public Domain"
 keywords:
   - "auditing"
   - "reporting"
