@@ -1,24 +1,28 @@
 {{ define "main" }}
 
 {{ partial "hero.html" . }}
-<div id="catalog-hero-toggle" class="catalog-hero-toggle">
+<div id="catalog-hero-toggle" class="catalog-hero-toggle" aria-expanded="true">
   <a href="#">About this Catalog</a>
 </div>
 
 <div class="layout">
-  <aside class="sidebar">
+  <aside class="sidebar" role="complementary" aria-label="Filters">
     <div id="facet-root">
       <div class="facet-block">
-        <h4>License</h4>
-        <div id="facet-license"></div>
+        <h4 id="facet-license-label">License</h4>
+        <div id="facet-license" role="group" aria-labelledby="facet-license-label"></div>
       </div>
       <div class="facet-block">
-        <h4>Compatibility</h4>
-        <div id="facet-compat"></div>
+        <h4 id="facet-compat-label">Compatibility</h4>
+        <div id="facet-compat" role="group" aria-labelledby="facet-compat-label"></div>
       </div>
       <div class="facet-block">
-        <h4>Keywords</h4>
-        <div id="facet-keywords"></div>
+        <h4 id="facet-keywords-label">Keywords</h4>
+        <div id="facet-keywords" role="group" aria-labelledby="facet-keywords-label"></div>
+      </div>
+      <div class="facet-block">
+        <h4 id="facet-type-label">Type</h4>
+        <div id="facet-type" role="group" aria-labelledby="facet-type-label"></div>
       </div>
       <button id="facet-clear" class="btn-clear" type="button">Clear filters</button>
     </div>
@@ -56,6 +60,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script>
+// Persist hero toggle state
+const heroToggle = document.getElementById('catalog-hero-toggle');
+try {
+  const k = 'catalog-hero-collapsed';
+  const collapsed = localStorage.getItem(k) === '1';
+  heroToggle.setAttribute('aria-expanded', (!collapsed).toString());
+  heroToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const expanded = heroToggle.getAttribute('aria-expanded') === 'true';
+    heroToggle.setAttribute('aria-expanded', (!expanded).toString());
+    localStorage.setItem(k, expanded ? '1' : '0');
+  });
+} catch(_) {}
+
     (function () {
       // Reuse server page size for client pagination
       const PAGE_SIZE = {{ $p.PageSize }};
@@ -70,6 +88,7 @@
         license:  document.getElementById('facet-license'),
         compat:   document.getElementById('facet-compat'),
         keywords: document.getElementById('facet-keywords'),
+    type:     document.getElementById('facet-type'),
         clearBtn: document.getElementById('facet-clear'),
       };
 

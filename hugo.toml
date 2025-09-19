@@ -1,4 +1,4 @@
-baseURL = "https://aborroy.github.io/alfresco-catalog/"
+baseURL = "http://127.0.0.1:1313/"
 languageCode = "en-us"
 title = "Alfresco Catalog"
 # Show only the top N cards per page
@@ -13,6 +13,8 @@ unsafe = true
 
 [taxonomies]
 tag = "tags"
+type   = "types"
+vendor = "vendors"
 
 [outputs]
 home = ["HTML", "JSON"]

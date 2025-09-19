@@ -1,0 +1,29 @@
+name: "Claim or Update Listing"
+description: "Request ownership of an existing listing, or propose updates to details."
+labels: ["listing-update"]
+body:
+  - type: input
+    id: slug
+    attributes:
+      label: "Listing slug"
+      description: "File name without extension (e.g., `alf-cli`)"
+    validations:
+      required: true
+  - type: input
+    id: vendor
+    attributes:
+      label: "Your organization"
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: "Proof of ownership"
+      description: "E.g., commit link in your repo, domain email, or other verification."
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: "Requested changes"
+      description: "Describe the updates you want (description, links, compatibility, etc.)."

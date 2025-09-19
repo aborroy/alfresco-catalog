@@ -1,6 +1,14 @@
 <article class="card" data-slug="{{ .File.TranslationBaseName }}">
   <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-  <p class="vendor">by {{ .Params.vendor }}</p>
+  <p class="vendor">
+      by
+      {{ $v := .Params.vendor | default "Unknown" }}
+      <a href='{{ (printf "/vendors/%s/" $v | urlize) | relURL }}'>{{ $v }}</a>
+      {{ $vendorKey := ($v | urlize) }}
+      {{ with (index site.Data.vendors $vendorKey) }}
+        {{ if .verified }}<span class="badge badge--verified" title="Verified partner">Verified</span>{{ end }}
+      {{ end }}
+    </p>
   <p class="desc">{{ .Params.description }}</p>
   <div class="badges">
     {{ with .Params.compatibility }}<span class="badge">Compat: {{ delimit . ", " }}</span>{{ end }}
@@ -8,5 +16,6 @@
   </div>
   <div class="links">
     {{ with .Params.download_url }}<a href="{{ . }}" target="_blank" rel="noopener">Download</a>{{ end }}
+      {{ with .Params.types }}<p><strong>Type:</strong> {{ delimit . ", " }}</p>{{ end }}
   </div>
 </article>
