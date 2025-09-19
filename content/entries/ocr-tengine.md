@@ -8,7 +8,7 @@ license: "GPL-2"
 keywords: ["ocr","tengine","transform","pdf"]
 download_url: "https://github.com/aborroy/alf-tengine-ocr"
 vendor: "Alfresco"
-vendor_type: "Community"
+vendor_type: "community"
 about: "OCR transformer for Alfresco, based on Tesseract"
 about_url: "https://github.com/aborroy/alf-tengine-ocr"
 draft: false
