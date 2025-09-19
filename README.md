@@ -3,7 +3,7 @@
 A zero-infrastructure, community-driven catalog of third‑party solutions for Alfresco.
 Built with **Hugo + GitHub Pages**, moderated via Pull Requests, with **client‑side search (Fuse.js)**.
 
-See it live: https://aborroy.github.io/alfresco-marketplace/
+See it live: https://aborroy.github.io/alfresco-catalog/
 
 ## Quick start
 - Add a listing: open an Issue "Submit a catalog entry" or send a PR with a file under `content/entries/`.
