@@ -179,13 +179,33 @@ try {
         const a = document.createElement('article');
         a.className = 'card';
         a.setAttribute('data-slug', item.slug);
-        const compat  = (item.compatibility && item.compatibility.length) ? `Compat: ${item.compatibility.join(', ')}` : '';
+
+        const compat  = (item.compatibility && item.compatibility.length)
+          ? `Compat: ${item.compatibility.join(', ')}`
+          : '';
         const license = item.license ? `License: ${item.license}` : '';
-        const link = '{{ "entries/" | relURL }}' + item.slug + '/';
-        const dl   = item.download_url ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>` : '';
+        const link    = '{{ "entries/" | relURL }}' + item.slug + '/';
+        const dl      = item.download_url
+          ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>`
+          : '';
+
+        // build vendor: external link if vendor_url exists, plus Verified badge
+        let vendorHTML = '';
+        if (item.vendor) {
+          vendorHTML = 'by ';
+          if (item.vendor_url) {
+            vendorHTML += `<a href="${item.vendor_url}" target="_blank" rel="noopener nofollow">${item.vendor}</a>`;
+          } else {
+            vendorHTML += item.vendor;
+          }
+          if (item.vendor_verified) {
+            vendorHTML += ' <span class="badge badge--verified" title="Verified partner">Verified</span>';
+          }
+        }
+
         a.innerHTML = `
           <h3><a href="${link}">${item.title}</a></h3>
-          <p class="vendor">by ${item.vendor || ''}</p>
+          <p class="vendor">${vendorHTML}</p>
           <p class="desc">${item.description || ''}</p>
           <div class="badges">
             ${compat ? `<span class="badge">${compat}</span>` : ''}

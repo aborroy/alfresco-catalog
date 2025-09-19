@@ -1,18 +1,23 @@
-{{- $items := slice -}}
-{{- range where .Site.RegularPages "Section" "entries" -}}
-  {{- $d := .Lastmod }}
-  {{- if .Params.date }}{{ $d = .Params.date }}{{ end }}
-  {{- $ts := (time $d).Unix }}
-  {{- $items = $items | append (dict
-    "title"         .Title
-    "slug"          .File.TranslationBaseName
-    "vendor"        .Params.vendor
-    "license"       .Params.license
-    "compatibility" .Params.compatibility
-    "keywords"      .Params.keywords
-    "description"   (.Params.description | truncate 500)
-    "download_url"  .Params.download_url
-    "date"          $ts
-  ) -}}
+[
+{{- $pages := where .Site.RegularPages "Section" "entries" -}}
+{{- range $i, $p := $pages -}}
+  {{- if $i }},{{ end -}}
+  {
+    "title": {{ $p.Title | jsonify }},
+    "slug": {{ $p.File.TranslationBaseName | jsonify }},
+    "permalink": {{ $p.Permalink | jsonify }},
+    "description": {{ $p.Params.description | jsonify }},
+{{- $v := or $p.Params.vendor "Unknown" -}}
+{{- $slug := $v | urlize -}}
+{{- $vd := index site.Data.vendors $slug -}}
+    "vendor": {{ $p.Params.vendor | jsonify }},
+    "vendor_url": {{ with $vd }}{{ .website | jsonify }}{{ else }}null{{ end }},
+    "vendor_verified": {{ with $vd }}{{ if .verified }}true{{ else }}false{{ end }}{{ else }}false{{ end }},
+    "license": {{ $p.Params.license | jsonify }},
+    "keywords": {{ $p.Params.keywords | jsonify }},
+    "compatibility": {{ $p.Params.compatibility | jsonify }},
+    "types": {{ $p.Params.types | jsonify }},
+    "download_url": {{ $p.Params.download_url | jsonify }}
+  }
 {{- end -}}
-{{- $items | jsonify -}}
+]

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="vendor-list">
+  <h1>Vendor: {{ .Title }}</h1>
+  {{ $pages := .Pages }}
+  {{ if not (len $pages) }}
+    <p>No listings yet.</p>
+  {{ else }}
+    <div class="grid">
+      {{ range $pages }}
+        {{ partial "card.html" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+</main>
+{{ end }}

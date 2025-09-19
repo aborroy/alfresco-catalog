@@ -346,3 +346,16 @@ nav.pagination .disabled a:focus {
   background: transparent;
   border-color: var(--brand-border, #E5E7EB);
 }
+
+:root {
+  --brand-verified-bg: #dcfce7;   
+  --brand-verified-text: #166534; 
+  --brand-verified-border: #86efac; 
+}
+
+.badge--verified {
+  background-color: var(--brand-verified-bg);
+  color: var(--brand-verified-text);
+  border: 1px solid var(--brand-verified-border);
+  font-weight: 600;
+}

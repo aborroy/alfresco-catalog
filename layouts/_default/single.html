@@ -1,15 +1,21 @@
 {{ define "main" }}
 <article class="entry">
   <h1>{{ .Title }}</h1>
-    <p class="vendor">
-      by
-      {{ $v := .Params.vendor | default "Unknown" }}
-      <a href='{{ (printf "/vendors/%s/" $v | urlize) | relURL }}'>{{ $v }}</a>
-      {{ $vendorKey := ($v | urlize) }}
-      {{ with (index site.Data.vendors $vendorKey) }}
-        {{ if .verified }}<span class="badge badge--verified" title="Verified partner">Verified</span>{{ end }}
-      {{ end }}
-    </p>
+  <p class="vendor">
+    {{/* Derive slug & fetch vendor data from data/vendors.yaml */}}
+    {{ $v := .Params.vendor | default "Unknown" }}
+    {{ $slug := $v | urlize }}
+    {{ $vdata := index site.Data.vendors $slug }}
+
+    by {{ if and $vdata $vdata.website }}
+          <a href="{{ $vdata.website }}" target="_blank" rel="noopener nofollow">{{ $v }}</a>
+        {{ else }}
+          {{ $v }}
+        {{ end }}
+    {{ if and $vdata $vdata.verified }}
+      <span class="badge badge--verified" title="Verified partner">Verified</span>
+    {{ end }}
+  </p>
 
   {{ with .Params.screenshots }}
   <div class="shots">
