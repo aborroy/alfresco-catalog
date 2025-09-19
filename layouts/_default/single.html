@@ -1,7 +1,15 @@
 {{ define "main" }}
 <article class="entry">
   <h1>{{ .Title }}</h1>
-  <p class="vendor">by {{ .Params.vendor }}</p>
+    <p class="vendor">
+      by
+      {{ $v := .Params.vendor | default "Unknown" }}
+      <a href='{{ (printf "/vendors/%s/" $v | urlize) | relURL }}'>{{ $v }}</a>
+      {{ $vendorKey := ($v | urlize) }}
+      {{ with (index site.Data.vendors $vendorKey) }}
+        {{ if .verified }}<span class="badge badge--verified" title="Verified partner">Verified</span>{{ end }}
+      {{ end }}
+    </p>
 
   {{ with .Params.screenshots }}
   <div class="shots">
