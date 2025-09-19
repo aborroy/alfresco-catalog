@@ -38,6 +38,10 @@
     "vendor": {
       "type": "string"
     },
+    "vendor_type": { 
+      "type": "string", 
+      "enum": ["partner", "customer", "community"] 
+    },    
     "about": {
       "type": "string",
       "maxLength": 500

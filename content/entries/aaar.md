@@ -14,6 +14,7 @@ keywords:
   - "bi"
 download_url: "https://github.com/fcorti/alfresco-audit-analysis-reporting"
 vendor: "Francesco Corti"
+vendor_type: "community"
 about: "Extracts Alfresco audit data into a datamart and ships BI reports/dashboards."
 about_url: "https://github.com/fcorti/alfresco-audit-analysis-reporting"
 draft: false

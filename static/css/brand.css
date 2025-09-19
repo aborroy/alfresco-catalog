@@ -353,9 +353,25 @@ nav.pagination .disabled a:focus {
   --brand-verified-border: #86efac; 
 }
 
-.badge--verified {
-  background-color: var(--brand-verified-bg);
-  color: var(--brand-verified-text);
-  border: 1px solid var(--brand-verified-border);
-  font-weight: 600;
+.badge--contrib { font-weight:700; }
+.badge--partner { background:#E6F5EE; color:#075E3B; border-color:#A7E3C7; }
+.badge--customer{ background:#E6F0FF; color:#1E40AF; border-color:#BFD3FF; }
+.badge--community{ background:#F1F5F9; color:#0F172A; border-color:#CBD5E1; }
+
+.badge--verified { background:#ECFDF5; color:#065F46; border-color:#A7F3D0; }
+
+.badge--partner::before{ content: "🤝"; }
+.badge--customer::before{ content: "👤"; }
+.badge--community::before{ content: "🌐"; }
+.badge--contrib::before{ margin-right:6px; }
+
+#facet-root .chk .ico{
+  display:inline-block;
+  width:1.1em;
+  text-align:center;
+  margin-right:.35rem;
+}
+
+.card .contrib {
+  margin: 0.25rem 0 0.5rem 0;
 }

@@ -14,6 +14,7 @@ keywords:
   - "authentication"
 download_url: "https://github.com/loftuxab/alfresco-totp-authenticator"
 vendor: "Loftux AB"
+vendor_type: "partner"
 about: "Two‑factor authentication (TOTP) for Alfresco Share login."
 about_url: "https://github.com/loftuxab/alfresco-totp-authenticator"
 draft: false

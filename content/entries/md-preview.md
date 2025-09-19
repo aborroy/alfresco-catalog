@@ -13,7 +13,8 @@ keywords:
   - "markdown"
   - "ui"
 download_url: "https://github.com/cetra3/md-preview"
-vendor: "Community"
+vendor: "Cetra3"
+vendor_type: "community"
 about: "Adds Markdown preview and edit actions to Alfresco Share."
 about_url: "https://github.com/cetra3/md-preview"
 draft: false

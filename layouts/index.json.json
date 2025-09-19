@@ -12,7 +12,20 @@
 {{- $vd := index site.Data.vendors $slug -}}
     "vendor": {{ $p.Params.vendor | jsonify }},
     "vendor_url": {{ with $vd }}{{ .website | jsonify }}{{ else }}null{{ end }},
-    "vendor_verified": {{ with $vd }}{{ if .verified }}true{{ else }}false{{ end }}{{ else }}false{{ end }},
+{{- $v := or $p.Params.vendor "Unknown" -}}
+{{- $slug := $v | urlize -}}
+{{- $vd := index site.Data.vendors $slug -}}
+"vendor_type":
+{{- if $p.Params.vendor_type -}}
+  {{ $p.Params.vendor_type | lower | jsonify }}
+{{- else if $vd -}}
+  {{ if $vd.type }}{{ $vd.type | lower | jsonify }}
+  {{ else if $vd.role }}{{ $vd.role | lower | jsonify }}
+  {{ else if $vd.kind }}{{ $vd.kind | lower | jsonify }}
+  {{ else }}"community"{{ end }}
+{{- else -}}
+  "community"
+{{- end -}},
     "license": {{ $p.Params.license | jsonify }},
     "keywords": {{ $p.Params.keywords | jsonify }},
     "compatibility": {{ $p.Params.compatibility | jsonify }},

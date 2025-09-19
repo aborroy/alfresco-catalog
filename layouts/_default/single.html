@@ -1,20 +1,44 @@
 {{ define "main" }}
 <article class="entry">
   <h1>{{ .Title }}</h1>
-  <p class="vendor">
-    {{/* Derive slug & fetch vendor data from data/vendors.yaml */}}
-    {{ $v := .Params.vendor | default "Unknown" }}
-    {{ $slug := $v | urlize }}
-    {{ $vdata := index site.Data.vendors $slug }}
+  {{/* Resolve vendor + metadata (front-matter first, then data/vendors.yaml) */}}
+  {{ $vendor := .Params.vendor | default "Unknown" }}
+  {{ $vslug  := $vendor | urlize }}
+  {{ $vdata  := index site.Data.vendors $vslug }}
 
-    by {{ if and $vdata $vdata.website }}
-          <a href="{{ $vdata.website }}" target="_blank" rel="noopener nofollow">{{ $v }}</a>
-        {{ else }}
-          {{ $v }}
-        {{ end }}
-    {{ if and $vdata $vdata.verified }}
-      <span class="badge badge--verified" title="Verified partner">Verified</span>
+  {{/* 1) Prefer front-matter override */}}
+  {{ $vtype := lower (.Params.vendor_type | default "") }}
+
+  {{/* 2) Fall back to data/vendors.yaml if no override */}}
+  {{ if not $vtype }}
+    {{ if $vdata }}
+      {{ if $vdata.type }}
+        {{ $vtype = lower $vdata.type }}
+      {{ else if $vdata.role }}
+        {{ $vtype = lower $vdata.role }}
+      {{ else if $vdata.kind }}
+        {{ $vtype = lower $vdata.kind }}
+      {{ else }}
+        {{ $vtype = "community" }}
+      {{ end }}
+    {{ else }}
+      {{ $vtype = "community" }}
     {{ end }}
+  {{ end }}
+
+  {{ $vurl := "" }}
+  {{ if $vdata }}
+    {{ with $vdata.website }}{{ $vurl = . }}{{ end }}
+  {{ end }}
+
+  <p class="vendor">
+    by
+    {{ if $vurl }}
+      <a href="{{ $vurl }}" target="_blank" rel="noopener nofollow">{{ $vendor }}</a>
+    {{ else }}
+      {{ $vendor }}
+    {{ end }}
+
   </p>
 
   {{ with .Params.screenshots }}
@@ -24,50 +48,22 @@
       {{- if not (hasPrefix $src "http") -}}
         {{- $src = $src | strings.TrimPrefix "/" | relURL -}}
       {{- end -}}
-
-      {{- $isYT := or (in $src "youtube.com/watch") (in $src "youtu.be/") -}}
-      {{- if $isYT -}}
-        {{- /* Extract YouTube video ID from either form */ -}}
-        {{- $id := cond (in $src "youtu.be/") (replaceRE `.*youtu\.be/([^?&/]+).*` `$1` $src) (replaceRE `.*[?&]v=([^?&/]+).*` `$1` $src) -}}
-        <div class="video">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/{{ $id }}"
-            title="YouTube video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
-          <noscript><p><a href="{{ $src }}" target="_blank" rel="noopener">Watch video</a></p></noscript>
-        </div>
-
-      {{- else if or (hasSuffix (lower $src) ".mp4") (hasSuffix (lower $src) ".webm") -}}
-        <video controls preload="metadata" class="shot-video">
-          <source src="{{ $src }}">
-          <p><a href="{{ $src }}" target="_blank" rel="noopener">Download video</a></p>
-        </video>
-
-      {{- else -}}
-        <img src="{{ $src }}" alt="screenshot"/>
-      {{- end }}
+      <img src="{{ $src }}" alt="screenshot"/>
     {{ end }}
   </div>
   {{ end }}
 
   <div class="meta">
+    {{ if $vtype }}
+      <span class="badge badge--contrib badge--{{ $vtype }}" title="{{ title $vtype }}">{{ title $vtype }}</span>
+    {{ end }}
     {{ with .Params.download_url }}
       <p><strong>Download:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
     {{ end }}
     {{ with .Params.compatibility }}<p><strong>Compatibility:</strong> {{ delimit . ", " }}</p>{{ end }}
     {{ with .Params.license }}<p><strong>License:</strong> {{ . }}</p>{{ end }}
     {{ with .Params.keywords }}<p><strong>Keywords:</strong> {{ delimit . ", " }}</p>{{ end }}
-    {{ with .Params.about_url }}
-      <p><strong>About:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
-    {{ end }}
-  </div>
-
-  <div class="content">
-    {{ .Content }}
+    {{ with .Params.types }}<p><strong>Type:</strong> {{ delimit . ", " }}</p>{{ end }}
   </div>
 </article>
-{{ end }}  
+{{ end }}

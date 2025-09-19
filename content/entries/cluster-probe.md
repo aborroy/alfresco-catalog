@@ -13,6 +13,7 @@ keywords:
   - "ops"
 download_url: "https://github.com/Redpill-Linpro/alfresco-cluster-probe"
 vendor: "Redpill Linpro"
+vendor_type: "partner"
 about: "Allows removing members from an Alfresco cluster at runtime via a probe endpoint."
 about_url: "https://github.com/Redpill-Linpro/alfresco-cluster-probe"
 draft: false

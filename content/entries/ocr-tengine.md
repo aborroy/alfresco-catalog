@@ -7,7 +7,8 @@ compatibility: ["ACS 7.3", "ACS 7.4", "ACS 25.2"]
 license: "GPL-2"
 keywords: ["ocr","tengine","transform","pdf"]
 download_url: "https://github.com/aborroy/alf-tengine-ocr"
-vendor: "Hyland"
+vendor: "Alfresco"
+vendor_type: "Community"
 about: "OCR transformer for Alfresco, based on Tesseract"
 about_url: "https://github.com/aborroy/alf-tengine-ocr"
 draft: false

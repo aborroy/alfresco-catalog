@@ -14,6 +14,7 @@ keywords:
   - "compliance"
 download_url: "https://github.com/atolcd/alfresco-agreement-filter"
 vendor: "ATOL Conseils et Développements"
+vendor_type: "partner"
 about: "Displays an agreement/notice to users on first login; they must accept to proceed."
 about_url: "https://github.com/atolcd/alfresco-agreement-filter"
 draft: false

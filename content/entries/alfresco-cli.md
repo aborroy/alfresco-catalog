@@ -14,6 +14,7 @@ keywords:
   - "tools"
 download_url: "https://github.com/aborroy/alf-cli"
 vendor: "Angel Borroy"
+vendor_type: "community"
 about: "Command-line interface to navigate and manage Alfresco."
 about_url: "https://github.com/aborroy/alf-cli"
 draft: false

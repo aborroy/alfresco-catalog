@@ -13,6 +13,7 @@ keywords:
   - "ops"
 download_url: "https://github.com/aborroy/alf-cli"
 vendor: "Angel Borroy"
+vendor_type: "community"
 about: "Opinionated CLI to scaffold a ready‑to‑run Docker Compose stack for ACS."
 about_url: "https://github.com/aborroy/alf-cli"
 draft: false

@@ -13,6 +13,7 @@ keywords:
   - "markdown"
 download_url: "https://github.com/aborroy/alf-tengine-markdown"
 vendor: "Alfresco"
+vendor_type: "community"
 about: "Local Transform Engine that converts Markdown to PDF/HTML for Alfresco."
 about_url: "https://github.com/aborroy/alf-tengine-markdown"
 draft: false

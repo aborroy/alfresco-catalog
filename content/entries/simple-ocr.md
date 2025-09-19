@@ -13,6 +13,7 @@ keywords:
   - "transforms"
 download_url: "https://github.com/keensoft/alfresco-simple-ocr"
 vendor: "keensoft"
+vendor_type: "community"
 about: "Adds an action that extracts text from images and PDFs using system OCR tools."
 about_url: "https://github.com/keensoft/alfresco-simple-ocr"
 draft: false

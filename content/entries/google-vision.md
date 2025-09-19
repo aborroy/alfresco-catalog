@@ -14,6 +14,7 @@ keywords:
   - "classification"
 download_url: "https://github.com/AngelBorroy/alfresco-google-vision"
 vendor: "Angel Borroy"
+vendor_type: "community"
 about: "Auto-tags images using Google Cloud Vision; writes labels to metadata and aspects."
 about_url: "https://github.com/AngelBorroy/alfresco-google-vision"
 draft: false

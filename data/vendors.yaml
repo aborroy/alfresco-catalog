@@ -1,6 +1,9 @@
 # vendor-slug:
 #   verified: true
 #   website: https://example.com
+#   type: partner   # one of: partner | customer | community
+
 acosix-axel-faust:
   verified: true
   website: https://acosix.de
+  type: community

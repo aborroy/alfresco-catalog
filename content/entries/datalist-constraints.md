@@ -14,6 +14,7 @@ keywords:
   - "share"
 download_url: "https://github.com/keensoft/alfresco-datalist-constraints"
 vendor: "keensoft"
+vendor_type: "community"
 about: "Use Share data lists to maintain model constraints (list-of-values) at runtime."
 about_url: "https://github.com/keensoft/alfresco-datalist-constraints"
 draft: false

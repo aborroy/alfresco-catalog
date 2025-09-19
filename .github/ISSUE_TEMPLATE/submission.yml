@@ -54,6 +54,18 @@ body:
     id: vendor
     attributes:
       label: "Author/Vendor name"
+      
+  - type: dropdown
+    id: vendor_type
+    attributes:
+      label: "Contributor type"
+      options:
+        - partner
+        - customer
+        - community
+      description: "Select who is contributing this entry"
+    validations:
+      required: true
 
   - type: input
     id: about_url

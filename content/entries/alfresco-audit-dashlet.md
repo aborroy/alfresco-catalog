@@ -14,6 +14,7 @@ keywords:
   - "share"
 download_url: "https://github.com/share-extras/audit-dashlet"
 vendor: "Loftux AB"
+vendor_type: "partner"
 about: "Dashlet for viewing Alfresco audit logs directly in Share."
 about_url: "https://github.com/share-extras/audit-dashlet"
 draft: false

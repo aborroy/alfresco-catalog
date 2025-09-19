@@ -13,6 +13,7 @@ keywords:
   - "audit"
 download_url: "https://github.com/atolcd/alfresco-audit-share"
 vendor: "ATOL Conseils et Développements"
+vendor_type: "partner"
 about: "Adds a Share UI to view Alfresco audit logs with filters and pagination."
 about_url: "https://github.com/atolcd/alfresco-audit-share"
 draft: false

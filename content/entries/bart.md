@@ -14,6 +14,7 @@ keywords:
   - "restore"
 download_url: "https://github.com/toniblyx/alfresco-backup-and-recovery-tool"
 vendor: "Toni de la Fuente"
+vendor_type: "community"
 about: "Scripts and automation to back up and restore Alfresco (repo, DB, content store, Solr)."
 about_url: "https://github.com/toniblyx/alfresco-backup-and-recovery-tool"
 draft: false

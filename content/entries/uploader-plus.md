@@ -13,7 +13,8 @@ keywords:
   - "uploader"
   - "metadata"
 download_url: "https://github.com/softwareloop/uploader-plus"
-vendor: "Community"
+vendor: "SoftwareLoop"
+vendor_type: "community"
 about: "Enhances Share uploader with prompts for content type and metadata during upload."
 about_url: "https://github.com/softwareloop/uploader-plus"
 draft: false

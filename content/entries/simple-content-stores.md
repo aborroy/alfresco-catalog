@@ -13,6 +13,7 @@ keywords:
   - "content-store"
 download_url: "https://github.com/Acosix/alfresco-simple-content-stores"
 vendor: "Acosix (Axel Faust)"
+vendor_type: "community"
 about: "Flexible content-store configuration (multi-store, routing, encryption, retention)."
 about_url: "https://github.com/Acosix/alfresco-simple-content-stores"
 draft: false

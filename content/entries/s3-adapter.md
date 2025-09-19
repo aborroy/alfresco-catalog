@@ -14,6 +14,7 @@ keywords:
   - "content-store"
 download_url: "https://github.com/Redpill-Linpro/alfresco-s3-adapter"
 vendor: "Redpill Linpro"
+vendor_type: "partner"
 about: "Content store adapter to keep Alfresco content binaries in Amazon S3."
 about_url: "https://github.com/Redpill-Linpro/alfresco-s3-adapter"
 draft: false
