@@ -1,35 +1,23 @@
 {{ define "main" }}
 <article class="entry">
   <h1>{{ .Title }}</h1>
-  {{/* Resolve vendor + metadata (front-matter first, then data/vendors.yaml) */}}
+
+  {{/* vendor + metadata resolution (unchanged) */}}
   {{ $vendor := .Params.vendor | default "Unknown" }}
   {{ $vslug  := $vendor | urlize }}
   {{ $vdata  := index site.Data.vendors $vslug }}
-
-  {{/* 1) Prefer front-matter override */}}
   {{ $vtype := lower (.Params.vendor_type | default "") }}
-
-  {{/* 2) Fall back to data/vendors.yaml if no override */}}
   {{ if not $vtype }}
     {{ if $vdata }}
-      {{ if $vdata.type }}
-        {{ $vtype = lower $vdata.type }}
-      {{ else if $vdata.role }}
-        {{ $vtype = lower $vdata.role }}
-      {{ else if $vdata.kind }}
-        {{ $vtype = lower $vdata.kind }}
-      {{ else }}
-        {{ $vtype = "community" }}
-      {{ end }}
-    {{ else }}
-      {{ $vtype = "community" }}
+      {{ if $vdata.type }}{{ $vtype = lower $vdata.type }}
+      {{ else if $vdata.role }}{{ $vtype = lower $vdata.role }}
+      {{ else if $vdata.kind }}{{ $vtype = lower $vdata.kind }}
+      {{ else }}{{ $vtype = "community" }}{{ end }}
+    {{ else }}{{ $vtype = "community" }}
     {{ end }}
   {{ end }}
-
   {{ $vurl := "" }}
-  {{ if $vdata }}
-    {{ with $vdata.website }}{{ $vurl = . }}{{ end }}
-  {{ end }}
+  {{ if $vdata }}{{ with $vdata.website }}{{ $vurl = . }}{{ end }}{{ end }}
 
   <p class="vendor">
     by
@@ -38,32 +26,47 @@
     {{ else }}
       {{ $vendor }}
     {{ end }}
-
   </p>
 
-  {{ with .Params.screenshots }}
-  <div class="shots">
-    {{ range . }}
-      {{- $src := . -}}
-      {{- if not (hasPrefix $src "http") -}}
-        {{- $src = $src | strings.TrimPrefix "/" | relURL -}}
-      {{- end -}}
-      <img src="{{ $src }}" alt="screenshot"/>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  <div class="meta">
+  <p class="badges">
     {{ if $vtype }}
       <span class="badge badge--contrib badge--{{ $vtype }}" title="{{ title $vtype }}">{{ title $vtype }}</span>
     {{ end }}
+  </p>  
+  
+  {{ with .Params.description }}
+      {{ . | markdownify }}
+  {{ end }}
+
+  {{ with .Params.screenshots }}
+    <div class="shots">
+      {{ range . }}
+        {{ partial "media.html" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+
+<div class="meta">
+
     {{ with .Params.download_url }}
       <p><strong>Download:</strong> <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
     {{ end }}
+
     {{ with .Params.compatibility }}<p><strong>Compatibility:</strong> {{ delimit . ", " }}</p>{{ end }}
     {{ with .Params.license }}<p><strong>License:</strong> {{ . }}</p>{{ end }}
     {{ with .Params.keywords }}<p><strong>Keywords:</strong> {{ delimit . ", " }}</p>{{ end }}
     {{ with .Params.types }}<p><strong>Type:</strong> {{ delimit . ", " }}</p>{{ end }}
+
   </div>
+
+  {{ with .Params.about }}
+    <div class="about">
+      <h3>About</h3>
+      <p>
+        {{ . | markdownify }}
+      </p>
+    </div>
+  {{ end }}
+
 </article>
 {{ end }}

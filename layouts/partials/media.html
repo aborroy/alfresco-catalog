@@ -1,0 +1,45 @@
+{{- $src := . -}}
+
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+
+  {{- if or (in $src "youtube.com") (in $src "youtu.be") -}}
+    {{- $yt := replaceRE `^.*(?:v=|youtu\.be/|embed/)([A-Za-z0-9_-]{6,}).*$` `$1` $src -}}
+    {{- if $yt }}
+    <div class="media youtube">
+      <iframe
+        src="https://www.youtube.com/embed/{{ $yt }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    {{- else }}
+      <a href="{{ $src }}" target="_blank" rel="noopener">Watch video</a>
+    {{- end }}
+
+  {{- else if in $src "vimeo.com" -}}
+    {{- $vm := replaceRE `^.*vimeo\.com/(?:video/)?([0-9]+).*$` `$1` $src -}}
+    {{- if $vm }}
+    <div class="media vimeo">
+      <iframe
+        src="https://player.vimeo.com/video/{{ $vm }}"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    {{- else }}
+      <a href="{{ $src }}" target="_blank" rel="noopener">Watch on Vimeo</a>
+    {{- end }}
+
+  {{- else -}}
+    <div class="media image">
+      <img src="{{ $src }}" alt="screenshot"/>
+    </div>
+  {{- end -}}
+
+{{- else -}}
+  <div class="media image">
+    <img src="{{ $src | relURL }}" alt="screenshot"/>
+  </div>
+{{- end -}}

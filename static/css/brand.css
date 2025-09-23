@@ -125,7 +125,13 @@ header{
 }
 .card h3 a:hover{ text-decoration:underline }
 .vendor{ color:var(--brand-muted); margin:0 0 8px; font-size:14px }
-.desc{ margin:0 0 12px; color:#334155; min-height:56px }
+.desc{
+  margin:0 0 12px; color:#334155; min-height:56px;
+  display:-webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
 
 .badges{
   display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;
@@ -374,4 +380,16 @@ nav.pagination .disabled a:focus {
 
 .card .contrib {
   margin: 0.25rem 0 0.5rem 0;
+}
+
+.media iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+}
+
+.media img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
