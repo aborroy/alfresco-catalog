@@ -8,10 +8,6 @@
     <div class="container">
       <header class="site-header">
         <div class="header-bar">
-          <a href="https://www.hyland.com" class="logo">
-            <img src="{{ "img/hyland.webp" | relURL }}" alt="Hyland" style="height:100px;">
-          </a>
-
           <a href="{{ .Site.BaseURL | safeURL }}" class="brand">
             <span class="brand-text">Alfresco Catalog</span>
           </a>
@@ -26,7 +22,7 @@
         {{ block "main" . }}{{ end }}
       </main>
       <footer>
-        <p>©2025 Hyland Software, Inc. All rights reserved.</p>
+        <p>©2025 Contributors. Project in development. Not an official Hyland release.</p>
         <p>Add-on listings are provided by third-party contributors and remain their property.</p>
       </footer>
     </div>
