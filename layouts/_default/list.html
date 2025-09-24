@@ -205,9 +205,9 @@
     a.setAttribute('data-slug', item.slug);
 
     const compat  = (item.compatibility && item.compatibility.length)
-      ? `Compat: ${item.compatibility.join(', ')}`
+      ? `${item.compatibility.join(', ')}`
       : '';
-    const license = item.license ? `License: ${item.license}` : '';
+    const license = item.license ? `${item.license}` : '';
     const link    = '{{ "entries/" | relURL }}' + item.slug + '/';
     const dl      = item.download_url
       ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>`
