@@ -1,9 +1,6 @@
 {{ define "main" }}
 
-{{ partial "hero.html" . }}
-<div id="catalog-hero-toggle" class="catalog-hero-toggle" aria-expanded="true">
-  <a href="#">About this Catalog</a>
-</div>
+
 
 <div class="layout">
   <aside class="sidebar" role="complementary" aria-label="Filters">
@@ -34,16 +31,17 @@
 
   <section class="results">
     <div class="searchbar">
+      <span class="search"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2.75a7.25 7.25 0 0 1 5.63 11.819l4.9 4.9a.75.75 0 0 1-.976 1.134l-.084-.073-4.901-4.9A7.25 7.25 0 1 1 10 2.75Zm0 1.5a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5Z" fill="#475569"/></svg> <strong>Search</strong></span>
       <div class="input">
         <input id="q" type="search" placeholder="Search solutions, vendors, keywords..." aria-label="Search"/>
       </div>
       <div class="facet">
-        <span>Sort</span>
+        <span class="sort"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.25 4-.1.007a.75.75 0 0 0-.65.743v12.692l-3.22-3.218-.084-.072a.75.75 0 0 0-.976 1.134l4.504 4.5.084.072a.75.75 0 0 0 .976-.073l4.497-4.5.072-.084a.75.75 0 0 0-.073-.977l-.084-.072a.75.75 0 0 0-.977.073L18 17.446V4.75l-.006-.102A.75.75 0 0 0 17.251 4Zm-11.036.22L1.72 8.715l-.073.084a.75.75 0 0 0 .073.976l.084.073a.75.75 0 0 0 .976-.073l3.217-3.218v12.698l.008.102a.75.75 0 0 0 .743.648l.101-.007a.75.75 0 0 0 .649-.743L7.497 6.559l3.223 3.217.084.072a.75.75 0 0 0 .975-1.134L7.275 4.22l-.085-.072a.75.75 0 0 0-.976.073Z" fill="#475569"/></svg> <strong>Sort</strong></span>
         <select id="sort" aria-label="Sort results">
           <option value="relevance">Relevance</option>
           <option value="az">A to Z</option>
           <option value="za">Z to A</option>
-          <option value="newest" selected>Newest</option>
+          <option value="newest" selected>Newest 🠃</option>
         </select>
       </div>
     </div>
@@ -85,7 +83,7 @@
 /* ------------------------------ client catalog JS ------------------------------ */
 (function () {
   // Config constants
-  const PAGE_SIZE = {{ (.Paginate (where .Site.RegularPages "Section" "entries")).PageSize }};
+  const PAGE_SIZE = {{ (.Paginate (where .Site.RegularPages "Section" "entries")).PagerSize }};
   const KEYWORDS_LIMIT = {{ with .Site.Params.facets.keywordsLimit }}{{ . }}{{ else }}10{{ end }};
   const INDEX_URL = '{{ "index.json" | relURL }}'; // works on GH Pages subpaths
 
@@ -210,7 +208,7 @@
     const license = item.license ? `${item.license}` : '';
     const link    = '{{ "entries/" | relURL }}' + item.slug + '/';
     const dl      = item.download_url
-      ? `<a href="${item.download_url}" target="_blank" rel="noopener">Download</a>`
+      ? `<a href="${item.download_url}" class="download" target="_blank" rel="noopener">Download <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.25 20.5a.75.75 0 1 1 0 1.5l-13 .004a.75.75 0 1 1 0-1.5l13-.004ZM11.648 2.012l.102-.007a.75.75 0 0 1 .743.648l.007.102-.001 13.685 3.722-3.72a.75.75 0 0 1 .976-.073l.085.073a.75.75 0 0 1 .072.976l-.073.084-4.997 4.997a.75.75 0 0 1-.976.073l-.085-.073-5.003-4.996a.75.75 0 0 1 .976-1.134l.084.072 3.719 3.714L11 2.755a.75.75 0 0 1 .648-.743l.102-.007-.102.007Z"/></svg></a>`
       : '';
 
     // Vendor line (name+link only)
@@ -239,14 +237,19 @@
     if (license) badges.push(`<span class="badge badge--muted">${license}</span>`);
 
     a.innerHTML = `
-      <h3><a href="${link}">${item.title}</a></h3>
-      <p class="vendor">${vendorHTML}</p>
+      <div class="card-title">
+        <h3><a href="${link}" target="_blank">${item.title}</a></h3>
+        <p class="vendor">${vendorHTML}</p>
+      </div>
       ${contribHTML}
       <p class="desc">${item.description || ''}</p>
       <div class="badges">
         ${badges.join('')}
       </div>
-      <div class="links">${dl}</div>
+      <div class="links">
+        <a href="${link}" class="see-more" target="_blank">See more <svg width="16" height="16"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.267 4.209a.75.75 0 0 0-1.034 1.086l6.251 5.955H3.75a.75.75 0 0 0 0 1.5h14.734l-6.251 5.954a.75.75 0 0 0 1.034 1.087l7.42-7.067a.996.996 0 0 0 .3-.58.758.758 0 0 0-.001-.29.995.995 0 0 0-.3-.578l-7.419-7.067Z"/></svg></a>
+        ${dl}
+      </div>
     `;
     return a;
   }

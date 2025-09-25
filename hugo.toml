@@ -2,7 +2,9 @@ baseURL = "https://aborroy.github.io/alfresco-catalog/"
 languageCode = "en-us"
 title = "Alfresco Catalog"
 # Show only the top N cards per page
-paginate = 12
+# novo formato
+[pagination]
+pagerSize = 10
 
 [params.facets]
 # Show only the top N keywords (by frequency)

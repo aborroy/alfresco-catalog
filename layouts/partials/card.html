@@ -1,43 +1,43 @@
 <article class="card" data-slug="{{ .File.TranslationBaseName }}">
-  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-  {{/* Resolve vendor + metadata (front-matter first, then data/vendors.yaml) */}}
-  {{ $vendor := .Params.vendor | default "Unknown" }}
-  {{ $vslug  := $vendor | urlize }}
-  {{ $vdata  := index site.Data.vendors $vslug }}
-
-  {{/* 1) Prefer front-matter override */}}
-  {{ $vtype := lower (.Params.vendor_type | default "") }}
-
-  {{/* 2) Fall back to data/vendors.yaml if no override */}}
-  {{ if not $vtype }}
-    {{ if $vdata }}
-      {{ if $vdata.type }}
-        {{ $vtype = lower $vdata.type }}
-      {{ else if $vdata.role }}
-        {{ $vtype = lower $vdata.role }}
-      {{ else if $vdata.kind }}
-        {{ $vtype = lower $vdata.kind }}
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{/* Resolve vendor + metadata (front-matter first, then data/vendors.yaml) */}}
+    {{ $vendor := .Params.vendor | default "Unknown" }}
+    {{ $vslug  := $vendor | urlize }}
+    {{ $vdata  := index site.Data.vendors $vslug }}
+  
+    {{/* 1) Prefer front-matter override */}}
+    {{ $vtype := lower (.Params.vendor_type | default "") }}
+  
+    {{/* 2) Fall back to data/vendors.yaml if no override */}}
+    {{ if not $vtype }}
+      {{ if $vdata }}
+        {{ if $vdata.type }}
+          {{ $vtype = lower $vdata.type }}
+        {{ else if $vdata.role }}
+          {{ $vtype = lower $vdata.role }}
+        {{ else if $vdata.kind }}
+          {{ $vtype = lower $vdata.kind }}
+        {{ else }}
+          {{ $vtype = "community" }}
+        {{ end }}
       {{ else }}
         {{ $vtype = "community" }}
       {{ end }}
-    {{ else }}
-      {{ $vtype = "community" }}
     {{ end }}
-  {{ end }}
-
-  {{ $vurl := "" }}
-  {{ if $vdata }}
-    {{ with $vdata.website }}{{ $vurl = . }}{{ end }}
-  {{ end }}
-
-  <p class="vendor">
-    by
-    {{ if $vurl }}
-      <a href="{{ $vurl }}" target="_blank" rel="noopener nofollow">{{ $vendor }}</a>
-    {{ else }}
-      {{ $vendor }}
+  
+    {{ $vurl := "" }}
+    {{ if $vdata }}
+      {{ with $vdata.website }}{{ $vurl = . }}{{ end }}
     {{ end }}
-  </p>
+  
+    <p class="vendor">
+      by
+      {{ if $vurl }}
+        <a href="{{ $vurl }}" target="_blank" rel="noopener nofollow">{{ $vendor }}</a>
+      {{ else }}
+        {{ $vendor }}
+      {{ end }}
+    </p>
 
   {{ if $vtype }}
     <span class="badge badge--contrib badge--{{ $vtype }}" title="{{ title $vtype }}">{{ title $vtype }}</span>
