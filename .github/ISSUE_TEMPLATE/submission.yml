@@ -18,25 +18,38 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: checkboxes
     id: compatibility
     attributes:
-      label: "Compatibility (comma-separated)"
-      placeholder: "ACS 7.4, ACS 25.2"
+      label: "Compatibility"
+      description: "Select the Alfresco versions this applies to"
+      options:
+        - label: "ACS 5.x"
+        - label: "ACS 6.x"
+        - label: "ACS 7.x"
+        - label: "ACS 23.1"
+        - label: "ACS 23.2"
+        - label: "ACS 23.3"
+        - label: "ACS 23.4"
+        - label: "ACS 23.x"
+        - label: "ACS 25.1"
+        - label: "ACS 25.2"
+        - label: "ACS 25.x"
 
   - type: dropdown
     id: license
     attributes:
       label: "License"
+      description: "Pick the license from these SPDX standard IDs"
       options:
-        - Apache-2
+        - Apache-2.0
         - MIT
         - BSD-3-Clause
-        - GPL-2
-        - GPL-3
-        - LGPL-3
-        - Proprietary
-        - Public Domain
+        - GPL-2.0-or-later
+        - GPL-3.0-or-later
+        - LGPL-3.0-or-later
+        - LicenseRef-Proprietary
+        - LicenseRef-Public-Domain
     validations:
       required: true
 
