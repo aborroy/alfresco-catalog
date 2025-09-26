@@ -83,7 +83,7 @@
 /* ------------------------------ client catalog JS ------------------------------ */
 (function () {
   // Config constants
-  const PAGE_SIZE = {{ (.Paginate (where .Site.RegularPages "Section" "entries")).PagerSize }};
+  const PAGE_SIZE = {{ (.Paginate (where .Site.RegularPages "Section" "entries")).PageSize }};
   const KEYWORDS_LIMIT = {{ with .Site.Params.facets.keywordsLimit }}{{ . }}{{ else }}10{{ end }};
   const INDEX_URL = '{{ "index.json" | relURL }}'; // works on GH Pages subpaths
 
