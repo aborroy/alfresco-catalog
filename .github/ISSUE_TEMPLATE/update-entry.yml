@@ -1,0 +1,19 @@
+name: "Update Existing Catalog Entry"
+description: "Request changes to an existing entry (metadata, links, description, etc.)"
+title: "Update Entry: [Project Name]"
+labels: ["update-request"]
+body:
+  - type: input
+    id: entry_name
+    attributes:
+      label: "Entry Name"
+      description: "Name of the catalog entry to update"
+      placeholder: "alfresco-docker-installer"
+  - type: textarea
+    id: update_details
+    attributes:
+      label: "Requested Changes"
+      description: "Describe the updates (new version, new repo URL, description, etc.)"
+      placeholder: "Update version to 3.2.1, new repo at https://github.com/..."
+    validations:
+      required: true

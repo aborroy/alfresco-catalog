@@ -1,0 +1,19 @@
+name: "Remove Catalog Entry"
+description: "Propose removing an existing catalog entry (deprecated, obsolete, or incorrect)"
+title: "Remove Entry: [Project Name]"
+labels: ["removal-request"]
+body:
+  - type: input
+    id: entry_name
+    attributes:
+      label: "Entry Name"
+      description: "Name of the catalog entry to remove"
+      placeholder: "alfresco-legacy-addon"
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Reason for Removal"
+      description: "Explain why this entry should be removed (deprecated, broken link, security issue, etc.)"
+      placeholder: "This project has been archived and is no longer supported."
+    validations:
+      required: true

@@ -2,7 +2,6 @@
 <article class="entry">
   <h1>{{ .Title }}</h1>
 
-  {{/* vendor + metadata resolution (unchanged) */}}
   {{ $vendor := .Params.vendor | default "Unknown" }}
   {{ $vslug  := $vendor | urlize }}
   {{ $vdata  := index site.Data.vendors $vslug }}
@@ -67,6 +66,22 @@
       </p>
     </div>
   {{ end }}
+
+  {{ $name := or .Params.name .Title }}
+  <div class="catalog-entry-actions" style="display: flex; justify-content: flex-end; gap: 0.5rem; flex-wrap: wrap;">
+    <a
+      class="submit-link" target="_blank" rel="noopener"
+      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=update-entry.yml&labels=update-request&title={{ printf "Update Entry: %s" $name | urlquery }}&body={{ printf "Requested updates for **%s**:\n- " $name | urlquery }}">
+      * Update Entry
+    </a>
+
+    <a
+      class="submit-link" target="_blank" rel="noopener"
+      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=remove-entry.yml&labels=removal-request&title={{ printf "Remove Entry: %s" $name | urlquery }}&body={{ printf "Proposed removal of **%s**.\nReason:\n- " $name | urlquery }}">
+      - Request Removal
+    </a>
+  </div>
+
 
 </article>
 {{ end }}
