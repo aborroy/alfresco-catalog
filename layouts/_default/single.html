@@ -67,21 +67,21 @@
     </div>
   {{ end }}
 
+  {{ $slug := or .Slug .File.BaseFileName (path.Base (strings.TrimSuffix "/" .RelPermalink)) }}
   {{ $name := or .Params.name .Title }}
-  <div class="catalog-entry-actions" style="display: flex; justify-content: flex-end; gap: 0.5rem; flex-wrap: wrap;">
+  <div class="catalog-entry-actions" style="display:flex;justify-content:flex-end;gap:.5rem;flex-wrap:wrap;">
     <a
-      class="submit-link" target="_blank" rel="noopener"
-      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=update-entry.yml&labels=update-request&title={{ printf "Update Entry: %s" $name | urlquery }}&body={{ printf "Requested updates for **%s**:\n- " $name | urlquery }}">
-      * Update Entry
+      class="button-secondary" target="_blank" rel="noopener"
+      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=update-entry.yml&labels=update-request&title={{ printf "Update Entry: %s (%s)" $name $slug | urlquery }}&entry_name={{ $name | urlquery }}">
+      x Update Entry
     </a>
 
     <a
-      class="submit-link" target="_blank" rel="noopener"
-      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=remove-entry.yml&labels=removal-request&title={{ printf "Remove Entry: %s" $name | urlquery }}&body={{ printf "Proposed removal of **%s**.\nReason:\n- " $name | urlquery }}">
+      class="button-secondary" target="_blank" rel="noopener"
+      href="https://github.com/aborroy/alfresco-catalog/issues/new?template=remove-entry.yml&labels=removal-request&title={{ printf "Remove Entry: %s (%s)" $name $slug | urlquery }}&entry_name={{ $name | urlquery }}">
       - Request Removal
     </a>
   </div>
-
 
 </article>
 {{ end }}
