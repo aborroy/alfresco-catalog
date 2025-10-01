@@ -10,6 +10,6 @@ download_url: "https://flex-solution.com/site/solutions/multi_dashboard"
 vendor: "Sergey Palyukh ‌"
 about: ""
 about_url: "https://flex-solution.com/site/solutions/multi_dashboard"
-draft: true
+draft: false
 
 ---

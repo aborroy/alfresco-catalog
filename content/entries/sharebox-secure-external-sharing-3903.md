@@ -10,6 +10,6 @@ download_url: "https://loftux.se/en/products-and-add-ons/alfresco-add-ons/alfres
 vendor: "Peter Löfgren ‌"
 about: ""
 about_url: "https://loftux.se/en/products-and-add-ons/alfresco-add-ons/alfresco-sharebox-1"
-draft: true
+draft: false
 
 ---

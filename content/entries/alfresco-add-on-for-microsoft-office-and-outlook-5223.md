@@ -10,6 +10,6 @@ download_url: "https://crestsolution.com/solutions/alfresco-add-ons/"
 vendor: "Crest Infosolutions Pte Ltd"
 about: ""
 about_url: "https://crestsolution.com/solutions/alfresco-add-ons/"
-draft: true
+draft: false
 
 ---

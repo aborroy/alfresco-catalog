@@ -10,6 +10,6 @@ download_url: "https://code.google.com/p/share-extras/wiki/GoogleAnalyticsTracki
 vendor: "Richard Esplin ‌"
 about: ""
 about_url: "https://code.google.com/p/share-extras/wiki/GoogleAnalyticsTracking"
-draft: true
+draft: false
 
 ---

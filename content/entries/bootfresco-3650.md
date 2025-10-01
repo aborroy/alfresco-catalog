@@ -10,6 +10,6 @@ download_url: "https://github.com/SnigBhaumik/Bootfresco"
 vendor: "snig.bhaumik@infoaxon.com"
 about: ""
 about_url: "http://www.infoaxon.com/add-on/bootfresco/"
-draft: true
+draft: false
 
 ---

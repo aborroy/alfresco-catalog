@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/share-extras/downloads/detail?name=red-t
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://code.google.com/p/share-extras/wiki/RedTheme"
-draft: true
+draft: false
 
 ---

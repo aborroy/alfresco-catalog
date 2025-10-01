@@ -10,6 +10,6 @@ download_url: "http://www.zylk.net/en/web/guest/alfresco-form"
 vendor: "Cesar Capillas ‌"
 about: ""
 about_url: "http://www.zylk.net/es/web/guest/alfresco-addons"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/Alfresco/alfresco-dropbox-integration"
 vendor: "Jeff Potts ‌"
 about: ""
 about_url: "https://github.com/Alfresco/alfresco-dropbox-integration"
-draft: true
+draft: false
 
 ---

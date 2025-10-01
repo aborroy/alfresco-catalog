@@ -10,6 +10,6 @@ download_url: "http://www.contentreich.de/von-menschen-lesbare-emails-in-alfresc
 vendor: "Andreas Steffan ‌"
 about: ""
 about_url: "http://www.contentreich.de/von-menschen-lesbare-emails-in-alfresco-share"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://ezuno.com/#clients"
 vendor: "FAW"
 about: ""
 about_url: "https://www.ezuno.com"
-draft: true
+draft: false
 
 ---

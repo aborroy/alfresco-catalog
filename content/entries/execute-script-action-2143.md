@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/share-extras/downloads/detail?name=execu
 vendor: "Jeff Potts ‌"
 about: ""
 about_url: "http://code.google.com/p/share-extras/wiki/ExecuteScriptAction"
-draft: true
+draft: false
 
 ---

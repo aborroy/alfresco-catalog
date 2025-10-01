@@ -10,6 +10,6 @@ download_url: "http://www.contentreich.de/contentreich-alfresco-add-on-site-grup
 vendor: "Andreas Steffan ‌"
 about: ""
 about_url: "http://www.contentreich.de/contentreich-alfresco-add-on-site-gruppen"
-draft: true
+draft: false
 
 ---

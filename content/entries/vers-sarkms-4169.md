@@ -10,6 +10,6 @@ download_url: "https://www.parashift.com.au/verssarkms/"
 vendor: "peter@parashift.com"
 about: ""
 about_url: "https://www.parashift.com.au/verssarkms/"
-draft: true
+draft: false
 
 ---

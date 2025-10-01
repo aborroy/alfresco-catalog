@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-simple-ocr/releases"
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-simple-ocr"
-draft: true
+draft: false
 
 ---

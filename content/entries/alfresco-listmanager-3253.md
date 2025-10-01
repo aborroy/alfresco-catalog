@@ -10,6 +10,6 @@ download_url: "https://github.com/Redpill-Linpro/alfresco-listmanager"
 vendor: "Erik Billerby ‌"
 about: ""
 about_url: "https://github.com/Redpill-Linpro/alfresco-listmanager"
-draft: true
+draft: false
 
 ---

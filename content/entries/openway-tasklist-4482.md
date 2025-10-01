@@ -10,6 +10,6 @@ download_url: "https://github.com/IntesysOpenway/openway-tasklist"
 vendor: "Ruud Gianesini ‌"
 about: ""
 about_url: "https://github.com/IntesysOpenway/openway-tasklist"
-draft: true
+draft: false
 
 ---

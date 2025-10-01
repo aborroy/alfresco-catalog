@@ -10,6 +10,6 @@ download_url: "https://github.com/jett/db2-alfresco"
 vendor: "jettgamboa@gmail.com"
 about: ""
 about_url: "https://github.com/jett/db2-alfresco"
-draft: true
+draft: false
 
 ---

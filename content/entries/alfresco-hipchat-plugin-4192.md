@@ -10,6 +10,6 @@ download_url: "http://www.sourcesense.com/en/addons-plugins/alfresco-hipchat-plu
 vendor: "Piergiorgio Lucidi"
 about: ""
 about_url: "http://www.sourcesense.com/en/addons-plugins/alfresco-hipchat-plugin/"
-draft: true
+draft: false
 
 ---

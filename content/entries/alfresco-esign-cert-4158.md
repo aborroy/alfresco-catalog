@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-esign-cert/releases"
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-esign-cert"
-draft: true
+draft: false
 
 ---

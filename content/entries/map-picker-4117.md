@@ -10,6 +10,6 @@ download_url: "http://www.parashift.com.au/map-picker/"
 vendor: "peter@parashift.com"
 about: ""
 about_url: "http://www.parashift.com.au/map-picker/"
-draft: true
+draft: false
 
 ---

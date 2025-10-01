@@ -10,6 +10,6 @@ download_url: "https://connect.hyland.com/t5/alfresco-forum/alfresco-email-impor
 vendor: "badluck1024@gmail.com"
 about: ""
 about_url: ""
-draft: true
+draft: false
 
 ---

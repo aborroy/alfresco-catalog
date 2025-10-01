@@ -10,6 +10,6 @@ download_url: "http://www.contezza.nl/mailco.html"
 vendor: "Contezza"
 about: ""
 about_url: "http://www.contezza.nl/mailco.html"
-draft: true
+draft: false
 
 ---

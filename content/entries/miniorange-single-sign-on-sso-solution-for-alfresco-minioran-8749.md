@@ -10,6 +10,6 @@ download_url: "https://www.miniorange.com/alfresco-single-sign-on-sso"
 vendor: "idpsupport@xecurify.com"
 about: ""
 about_url: "https://www.miniorange.com/alfresco-single-sign-on-sso"
-draft: true
+draft: false
 
 ---

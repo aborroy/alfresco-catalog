@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/alfresco-live-discussion/source/checkout
 vendor: "Adit Patel ‌"
 about: ""
 about_url: "http://alfrescoworks.blogspot.com/2012/08/steps-to-build-and-utilize-live.html"
-draft: true
+draft: false
 
 ---

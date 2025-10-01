@@ -10,6 +10,6 @@ download_url: "http://www.skytizens.com"
 vendor: "david@skytizens.com"
 about: ""
 about_url: "http://www.skytizens.com"
-draft: true
+draft: false
 
 ---

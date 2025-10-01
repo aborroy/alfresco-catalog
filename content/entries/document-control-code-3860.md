@@ -10,6 +10,6 @@ download_url: "http://github.com/alespin2021/DCC"
 vendor: "alespin2021@yahoo.com _ ‌"
 about: ""
 about_url: "http://github.com/alespin2021/DCC"
-draft: true
+draft: false
 
 ---

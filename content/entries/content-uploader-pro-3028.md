@@ -10,6 +10,6 @@ download_url: "https://connect.hyland.com/t5/alfresco-forum/content-uploader-pro
 vendor: "alfresco@infoaxon.com"
 about: ""
 about_url: ""
-draft: true
+draft: false
 
 ---

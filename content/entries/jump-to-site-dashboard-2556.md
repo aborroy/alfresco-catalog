@@ -10,6 +10,6 @@ download_url: "http://alfresco.fme.de/Jump-to-site-dashboard.918.0.html"
 vendor: "alfresco@fme.de"
 about: ""
 about_url: "http://alfresco.fme.de/Jump-to-site-dashboard.918.0.html"
-draft: true
+draft: false
 
 ---

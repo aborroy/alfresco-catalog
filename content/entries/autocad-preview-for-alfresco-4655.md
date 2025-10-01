@@ -10,6 +10,6 @@ download_url: "https://github.com/EisenVault/Alfresco-Autocad-Viewer"
 vendor: "vipul.swarup@eisenvault.com"
 about: ""
 about_url: "https://github.com/EisenVault/Alfresco-Autocad-Viewer"
-draft: true
+draft: false
 
 ---

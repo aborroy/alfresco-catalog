@@ -10,6 +10,6 @@ download_url: "http://www.eurekabpo.ru/en/products/wowa/tour.html"
 vendor: "Sergey Kharitonov"
 about: ""
 about_url: "http://www.eurekabpo.ru/en/products/wowa/"
-draft: true
+draft: false
 
 ---

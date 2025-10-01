@@ -10,6 +10,6 @@ download_url: "http://www.infoaxon.com/add-on/calendar-event-participant/"
 vendor: "Snig _ ‌"
 about: ""
 about_url: "http://www.infoaxon.com/add-on/calendar-event-participant/"
-draft: true
+draft: false
 
 ---

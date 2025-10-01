@@ -10,6 +10,6 @@ download_url: "http://www.infoaxon.com/add-on/alfresco-category-browser/"
 vendor: "Snig _ ‌"
 about: ""
 about_url: "http://www.infoaxon.com/add-on/alfresco-category-browser/"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://lab.spectrumgroupe.fr/plugins/workflow-reporting/"
 vendor: "labsupport_ecm@spectrumgroupe.fr"
 about: ""
 about_url: "https://lab.spectrumgroupe.fr/plugins/workflow-reporting/"
-draft: true
+draft: false
 
 ---

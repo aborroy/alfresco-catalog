@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/share-extras/downloads/list"
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://code.google.com/p/share-extras/wiki/NoticeDashlet"
-draft: true
+draft: false
 
 ---

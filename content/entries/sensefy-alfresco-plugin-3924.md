@@ -10,6 +10,6 @@ download_url: "https://github.com/zaizi/sensefy-alfresco-plugin"
 vendor: "Richard Esplin ‌"
 about: ""
 about_url: "https://github.com/zaizi/sensefy/wiki"
-draft: true
+draft: false
 
 ---

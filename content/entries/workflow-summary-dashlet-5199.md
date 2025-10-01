@@ -10,6 +10,6 @@ download_url: "https://github.com/howkymike/alfresco-workflow-summary"
 vendor: "howkymike"
 about: ""
 about_url: "https://github.com/howkymike/alfresco-workflow-summary"
-draft: true
+draft: false
 
 ---

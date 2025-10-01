@@ -10,6 +10,6 @@ download_url: "https://github.com/teqnology/alfresco-header-share/blob/master/ta
 vendor: "Alch3mi5t _"
 about: ""
 about_url: "https://github.com/teqnology/alfresco-header-share"
-draft: true
+draft: false
 
 ---

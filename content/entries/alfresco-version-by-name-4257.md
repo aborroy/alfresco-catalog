@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-version-by-name/releases"
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-version-by-name"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "http://www.metaoption.com/metadocs-document-management-add-on-for
 vendor: "onlinemkt54@gmail.com"
 about: ""
 about_url: "http://www.metaoption.com/metadocs-document-management-add-on-for-dynamics-nav/"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://marketplace.atlassian.com/plugins/jp.ricksoft.plugins.alf
 vendor: "mkt@ricksoft.jp"
 about: ""
 about_url: "https://en.ricksoft.jp/products/alfresco_connector.php"
-draft: true
+draft: false
 
 ---

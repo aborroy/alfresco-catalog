@@ -10,6 +10,6 @@ download_url: "https://github.com/FlexSolution/AlfrescoResetPassword"
 vendor: "Sergey Palyukh ‌"
 about: ""
 about_url: "https://flex-solution.com/site/solutions/reset_password"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/rjmfernandes/alfresco-trashcan-cleaner"
 vendor: "rjmfernandes@gmail.com"
 about: ""
 about_url: "https://github.com/rjmfernandes/alfresco-trashcan-cleaner"
-draft: true
+draft: false
 
 ---

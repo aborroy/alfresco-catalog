@@ -10,6 +10,6 @@ download_url: "https://www.flex-solution.com/site/"
 vendor: "Sergey Palyukh ‌"
 about: ""
 about_url: "https://github.com/FlexSolution/SocialLogin"
-draft: true
+draft: false
 
 ---

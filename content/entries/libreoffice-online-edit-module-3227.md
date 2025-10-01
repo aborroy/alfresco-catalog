@@ -10,6 +10,6 @@ download_url: "http://github.com/Redpill-Linpro/alfresco-libreoffice-online-edit
 vendor: "marcus.svartmark@redpill-linpro.com"
 about: ""
 about_url: "http://github.com/Redpill-Linpro/alfresco-libreoffice-online-edit"
-draft: true
+draft: false
 
 ---

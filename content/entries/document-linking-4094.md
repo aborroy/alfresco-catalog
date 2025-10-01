@@ -10,6 +10,6 @@ download_url: "http://www.parashift.com.au/document-linking"
 vendor: "peter@parashift.com"
 about: ""
 about_url: "http://www.parashift.com.au"
-draft: true
+draft: false
 
 ---

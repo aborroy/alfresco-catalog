@@ -10,6 +10,6 @@ download_url: "http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.orderoftheb
 vendor: "Axel Faust ‌ / Order of the Bee"
 about: ""
 about_url: "https://github.com/OrderOfTheBee/ootbee-support-tools"
-draft: true
+draft: false
 
 ---

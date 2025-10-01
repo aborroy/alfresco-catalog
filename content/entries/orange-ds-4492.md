@@ -10,6 +10,6 @@ download_url: "http://www.iopenway.it/en/alfresco-addons"
 vendor: "Luca Rubin ‌"
 about: ""
 about_url: "http://www.iopenway.it/en/alfresco-addons"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "http://www.infoaxon.com/add-on/task-document-previewer/"
 vendor: "Snig _ ‌"
 about: ""
 about_url: "http://www.infoaxon.com/add-on/task-document-previewer/"
-draft: true
+draft: false
 
 ---

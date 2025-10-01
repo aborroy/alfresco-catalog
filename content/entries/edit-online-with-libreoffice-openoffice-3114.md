@@ -10,6 +10,6 @@ download_url: "https://github.com/zylklab/alfresco-share-online-edition-addon"
 vendor: "Cesar Capillas ‌"
 about: ""
 about_url: "http://www.zylk.net/es/web/guest/alfresco-addons"
-draft: true
+draft: false
 
 ---

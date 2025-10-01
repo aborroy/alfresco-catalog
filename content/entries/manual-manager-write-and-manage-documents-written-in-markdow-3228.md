@@ -10,6 +10,6 @@ download_url: "https://github.com/loftuxab/manual-manager"
 vendor: "Peter Löfgren ‌"
 about: ""
 about_url: "https://github.com/loftuxab/manual-manager"
-draft: true
+draft: false
 
 ---

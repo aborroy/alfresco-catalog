@@ -10,6 +10,6 @@ download_url: "https://github.com/cetra3/onlyoffice-alfresco"
 vendor: "Cetra Free"
 about: ""
 about_url: "https://github.com/cetra3/onlyoffice-alfresco"
-draft: true
+draft: false
 
 ---

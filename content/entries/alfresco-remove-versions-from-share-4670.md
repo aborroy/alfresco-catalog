@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-remove-version/releases"
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-remove-version"
-draft: true
+draft: false
 
 ---

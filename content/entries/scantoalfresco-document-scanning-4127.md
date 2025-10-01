@@ -10,6 +10,6 @@ download_url: "http://crestsolution.com/solutions/alfresco-add-ons/"
 vendor: "Hemant Prasad ‌"
 about: ""
 about_url: "http://crestsolution.com/solutions/alfresco-add-ons/"
-draft: true
+draft: false
 
 ---

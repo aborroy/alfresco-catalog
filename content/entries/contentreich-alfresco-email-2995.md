@@ -10,6 +10,6 @@ download_url: "http://www.contentreich.de/contentreich-alfresco-add-on-email"
 vendor: "Andreas Steffan ‌"
 about: ""
 about_url: "http://www.contentreich.de/contentreich-alfresco-add-on-email"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/saidone75/alfresco-totp-authenticator"
 vendor: "https://www.saidone.org"
 about: ""
 about_url: "https://github.com/saidone75/alfresco-totp-authenticator"
-draft: true
+draft: false
 
 ---

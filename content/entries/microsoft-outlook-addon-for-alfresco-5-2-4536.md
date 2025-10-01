@@ -10,6 +10,6 @@ download_url: "https://github.com/EisenVault/ev-outlook-plugin-github/tree/maste
 vendor: "vipul.swarup@eisenvault.com"
 about: ""
 about_url: "https://github.com/EisenVault/ev-outlook-plugin-github"
-draft: true
+draft: false
 
 ---

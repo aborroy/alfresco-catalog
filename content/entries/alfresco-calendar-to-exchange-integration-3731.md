@@ -10,6 +10,6 @@ download_url: "https://www.parashift.com.au/2014/07/24/alfresco-tohttps://www.pa
 vendor: "peter@parashift.com.au"
 about: ""
 about_url: "https://www.parashift.com.au/add-ons/"
-draft: true
+draft: false
 
 ---

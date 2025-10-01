@@ -10,6 +10,6 @@ download_url: "https://github.com/jpotts/alfresco-fivestar-ratings"
 vendor: "Jeff Potts ‌"
 about: ""
 about_url: "https://github.com/jpotts/alfresco-fivestar-ratings"
-draft: true
+draft: false
 
 ---

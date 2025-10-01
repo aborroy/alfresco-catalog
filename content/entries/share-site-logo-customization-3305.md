@@ -10,6 +10,6 @@ download_url: "https://github.com/douglascrp/alfresco-share-site-logo-customizat
 vendor: "Douglas C. R. Paes ‌"
 about: ""
 about_url: "https://github.com/douglascrp/alfresco-share-site-logo-customization"
-draft: true
+draft: false
 
 ---

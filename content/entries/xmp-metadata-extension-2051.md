@@ -10,6 +10,6 @@ download_url: "http://forge.alfresco.com/projects/xmp/"
 vendor: "Ray Gauss ‌"
 about: ""
 about_url: "http://forge.alfresco.com/projects/xmp/"
-draft: true
+draft: false
 
 ---

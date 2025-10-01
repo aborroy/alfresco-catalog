@@ -10,6 +10,6 @@ download_url: "https://github.com/jpotts/share-site-creators"
 vendor: "Jeff Potts ‌"
 about: ""
 about_url: "https://github.com/jpotts/share-site-creators"
-draft: true
+draft: false
 
 ---

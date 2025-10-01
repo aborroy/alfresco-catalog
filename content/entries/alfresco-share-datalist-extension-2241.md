@@ -10,6 +10,6 @@ download_url: "https://github.com/deas/fme-alfresco-extdl"
 vendor: "alfresco@fme.de"
 about: ""
 about_url: "http://alfresco.fme.de/Datalist-extension.916.0.html"
-draft: true
+draft: false
 
 ---

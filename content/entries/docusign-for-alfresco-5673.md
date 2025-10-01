@@ -10,6 +10,6 @@ download_url: "https://github.com/boneill/alfresco-community-docusign/releases"
 vendor: "Seed Information Management"
 about: ""
 about_url: "https://github.com/boneill/alfresco-community-docusign"
-draft: true
+draft: false
 
 ---

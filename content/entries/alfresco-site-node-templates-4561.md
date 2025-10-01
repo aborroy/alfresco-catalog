@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-site-node-templates"
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-site-node-templates"
-draft: true
+draft: false
 
 ---

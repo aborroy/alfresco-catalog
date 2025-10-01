@@ -10,6 +10,6 @@ download_url: "https://loftux.se/en/products-and-add-ons/alfresco-add-ons/permis
 vendor: "Peter Löfgren ‌"
 about: ""
 about_url: "https://loftux.se/en/products-and-add-ons/alfresco-add-ons/permission-label-add-on-for-alfresco"
-draft: true
+draft: false
 
 ---

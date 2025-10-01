@@ -10,6 +10,6 @@ download_url: "https://connect.hyland.com/t5/alfresco-forum/fileserversng-replac
 vendor: "Community"
 about: ""
 about_url: ""
-draft: true
+draft: false
 
 ---

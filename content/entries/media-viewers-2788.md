@@ -10,6 +10,6 @@ download_url: "http://share-extras.github.io/addons/media-viewers/"
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://share-extras.github.io/addons/media-viewers/"
-draft: true
+draft: false
 
 ---

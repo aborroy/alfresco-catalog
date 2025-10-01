@@ -10,6 +10,6 @@ download_url: "https://github.com/boneill/alfresco-sync"
 vendor: "Seed Information Management Pty. Ltd."
 about: ""
 about_url: "https://github.com/boneill/alfresco-sync"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/EisenVault/ev-alfresco-azure-adapter"
 vendor: "Community"
 about: ""
 about_url: "https://github.com/EisenVault/ev-alfresco-azure-adapter"
-draft: true
+draft: false
 
 ---

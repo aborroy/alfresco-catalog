@@ -10,6 +10,6 @@ download_url: "https://github.com/groupdocs/alfresco-groupdocs-viewer"
 vendor: "support@groupdocs.com"
 about: ""
 about_url: "http://groupdocs.com/"
-draft: true
+draft: false
 
 ---

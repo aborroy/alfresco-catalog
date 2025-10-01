@@ -10,6 +10,6 @@ download_url: "https://github.com/malariagen/alfresco-discussions"
 vendor: "Ian Wright"
 about: ""
 about_url: "https://github.com/malariagen/alfresco-discussions"
-draft: true
+draft: false
 
 ---

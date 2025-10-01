@@ -10,6 +10,6 @@ download_url: "http://www.eurekabpo.ru/en/products/planner/"
 vendor: "skharitonov@eurekabpo.ru"
 about: ""
 about_url: "http://www.eurekabpo.ru/en/products/planner/"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/Redpill-Linpro/alfresco-libreoffice-online-edi
 vendor: "marsv024 (Marcus Svartmark) · GitHub ‌"
 about: ""
 about_url: "https://github.com/Redpill-Linpro/alfresco-libreoffice-online-edit/tree/develop"
-draft: true
+draft: false
 
 ---

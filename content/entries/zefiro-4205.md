@@ -10,6 +10,6 @@ download_url: "https://github.com/MakeITBologna/zefiro/releases"
 vendor: "andrea.feccomandi@make-it.it"
 about: ""
 about_url: "https://github.com/MakeITBologna/zefiro"
-draft: true
+draft: false
 
 ---

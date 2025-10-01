@@ -10,6 +10,6 @@ download_url: "http://forge.alfresco.com/projects/activitystats/"
 vendor: "dgenard _ ‌ ( denis.genard@alfea-consulting.com )"
 about: ""
 about_url: "http://forge.alfresco.com/projects/activitystats/"
-draft: true
+draft: false
 
 ---

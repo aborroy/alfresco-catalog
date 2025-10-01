@@ -10,6 +10,6 @@ download_url: "https://github.com/ge0rg0/share-suggestion-box/raw/master/lib/sha
 vendor: "georgo _ ‌"
 about: ""
 about_url: "https://github.com/ge0rg0/share-suggestion-box"
-draft: true
+draft: false
 
 ---

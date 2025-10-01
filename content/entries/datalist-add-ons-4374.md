@@ -10,6 +10,6 @@ download_url: "http://www.yudrio.com/alfrescoaddons"
 vendor: "craig.michael.nelson _ ‌"
 about: ""
 about_url: "http://www.yudrio.com/alfrescoaddons"
-draft: true
+draft: false
 
 ---

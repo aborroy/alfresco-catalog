@@ -10,6 +10,6 @@ download_url: "https://marketplace.atlassian.com/plugins/jp.ricksoft.plugins.alf
 vendor: "mkt@ricksoft.jp"
 about: ""
 about_url: "https://marketplace.atlassian.com/plugins/jp.ricksoft.plugins.alfresco-for-jira/server/overview"
-draft: true
+draft: false
 
 ---

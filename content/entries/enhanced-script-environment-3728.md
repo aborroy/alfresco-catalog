@@ -10,6 +10,6 @@ download_url: "https://github.com/AFaust/alfresco-enhanced-script-environment/re
 vendor: "Axel Faust ‌"
 about: ""
 about_url: "https://github.com/AFaust/alfresco-enhanced-script-environment"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/ciber/alfresco-js-batch-executer"
 vendor: "Richard Esplin ‌"
 about: ""
 about_url: "https://github.com/ciber/alfresco-js-batch-executer"
-draft: true
+draft: false
 
 ---

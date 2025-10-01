@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/share-extras/downloads"
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://code.google.com/p/share-extras/wiki/ShareOAuth"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-site-home-page-plus/releases
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-site-home-page-plus"
-draft: true
+draft: false
 
 ---

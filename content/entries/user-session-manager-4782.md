@@ -10,6 +10,6 @@ download_url: "https://github.com/Aimprosoft/user-session-management"
 vendor: "Aimprosoft"
 about: ""
 about_url: "https://github.com/Aimprosoft/user-session-management"
-draft: true
+draft: false
 
 ---

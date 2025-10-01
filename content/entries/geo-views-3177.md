@@ -10,6 +10,6 @@ download_url: "https://code.google.com/p/share-extras/downloads/list"
 vendor: "aevans713 _ ‌"
 about: ""
 about_url: "https://code.google.com/p/share-extras/wiki/SiteGeotaggedContentDashlet"
-draft: true
+draft: false
 
 ---

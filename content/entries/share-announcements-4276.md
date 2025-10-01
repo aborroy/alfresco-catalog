@@ -10,6 +10,6 @@ download_url: "https://github.com/jpotts/share-announcements"
 vendor: "Jeff Potts ‌"
 about: ""
 about_url: "https://github.com/jpotts/share-announcements"
-draft: true
+draft: false
 
 ---

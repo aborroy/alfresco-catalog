@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-user-space-template/releases
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-user-space-template"
-draft: true
+draft: false
 
 ---

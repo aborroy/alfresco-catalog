@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/share-extras/downloads/detail?name=creat
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://code.google.com/p/share-extras/wiki/CreateBulkUsers"
-draft: true
+draft: false
 
 ---

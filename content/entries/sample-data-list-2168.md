@@ -10,6 +10,6 @@ download_url: "https://github.com/share-extras/sdk-sample-datalist-action"
 vendor: "Will Abson ‌"
 about: ""
 about_url: "https://github.com/share-extras/sdk-sample-datalist-action"
-draft: true
+draft: false
 
 ---

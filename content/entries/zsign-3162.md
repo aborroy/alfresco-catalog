@@ -10,6 +10,6 @@ download_url: "http://www.ziaconsulting.com/zsign-secure-electronic-document-sig
 vendor: "aevans713 _ ‌"
 about: ""
 about_url: "http://www.ziaconsulting.com/zsign-secure-electronic-document-signature/"
-draft: true
+draft: false
 
 ---

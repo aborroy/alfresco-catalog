@@ -10,6 +10,6 @@ download_url: "https://www.parashift.com.au/products/#alfstream"
 vendor: "peter@parashift.com"
 about: ""
 about_url: "https://www.parashift.com.au/products/#alfstream"
-draft: true
+draft: false
 
 ---

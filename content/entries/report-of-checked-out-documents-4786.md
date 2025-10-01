@@ -10,6 +10,6 @@ download_url: "http://www.contcentric.com/reusable-components/"
 vendor: "ContCentric"
 about: ""
 about_url: "http://www.contcentric.com/reusable-components/"
-draft: true
+draft: false
 
 ---

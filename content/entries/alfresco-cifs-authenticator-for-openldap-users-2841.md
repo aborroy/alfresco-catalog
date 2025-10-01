@@ -10,6 +10,6 @@ download_url: "http://www.zylk.net/en/web/guest/alfresco-form"
 vendor: "Cesar Capillas ‌"
 about: ""
 about_url: "http://www.zylk.net/web/guest/web-2-0/blog/-/blogs/alfresco-cifs-authenticator-for-openldap-users-addon"
-draft: true
+draft: false
 
 ---

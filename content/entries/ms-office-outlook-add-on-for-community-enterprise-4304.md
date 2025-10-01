@@ -10,6 +10,6 @@ download_url: "http://www.progentys.com/shop/"
 vendor: "mai@progentys.com"
 about: ""
 about_url: "http://www.progentys.com/shop/"
-draft: true
+draft: false
 
 ---

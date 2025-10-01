@@ -10,6 +10,6 @@ download_url: "http://repo1.maven.org/maven2/tk/skuro/alfresco/h2-support/"
 vendor: "skuro _ ‌"
 about: ""
 about_url: "https://github.com/skuro/alfresco-h2-support"
-draft: true
+draft: false
 
 ---

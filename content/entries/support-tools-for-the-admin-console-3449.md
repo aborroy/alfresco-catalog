@@ -10,6 +10,6 @@ download_url: "https://github.com/Alfresco/alfresco-support-tools/releases"
 vendor: "antoniosoler _ ‌"
 about: ""
 about_url: "https://github.com/Alfresco/alfresco-support-tools"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/keensoft/alfresco-deleted-content-store-cleane
 vendor: "Angel Borroy ‌"
 about: ""
 about_url: "https://github.com/keensoft/alfresco-deleted-content-store-cleaner"
-draft: true
+draft: false
 
 ---

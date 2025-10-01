@@ -10,6 +10,6 @@ download_url: "http://alfresco.com.cn/addons"
 vendor: "henry huang ‌"
 about: ""
 about_url: "http://alfresco.com.cn/addons"
-draft: true
+draft: false
 
 ---

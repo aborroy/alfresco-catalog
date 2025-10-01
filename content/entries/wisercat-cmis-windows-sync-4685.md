@@ -10,6 +10,6 @@ download_url: "https://www.wisercat.eu/contact/"
 vendor: "ilja.lavrov@wisercat.eu"
 about: ""
 about_url: "https://www.wisercat.eu/"
-draft: true
+draft: false
 
 ---

@@ -10,6 +10,6 @@ download_url: "https://github.com/EisenVault/ev-user-management"
 vendor: "vipul.swarup@eisenvault.com"
 about: ""
 about_url: "https://github.com/EisenVault/ev-user-management"
-draft: true
+draft: false
 
 ---

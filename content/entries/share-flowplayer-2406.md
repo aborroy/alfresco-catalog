@@ -10,6 +10,6 @@ download_url: "http://code.google.com/p/alfrescoshareflowplayer/downloads/list"
 vendor: "Richard Esplin ‌"
 about: ""
 about_url: "http://code.google.com/p/alfrescoshareflowplayer/"
-draft: true
+draft: false
 
 ---

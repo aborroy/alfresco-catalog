@@ -10,6 +10,6 @@ download_url: "http://www.zylk.net/en/web/guest/alfresco-form"
 vendor: "Will Abson ‌"
 about: ""
 about_url: "http://www.zylk.net/web/guest/web-2-0/blog/-/blogs/alfresco-custom-jdbc-authentication-addon"
-draft: true
+draft: false
 
 ---

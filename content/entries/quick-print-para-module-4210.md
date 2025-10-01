@@ -10,6 +10,6 @@ download_url: "https://www.parashift.com.au/add-ons/nt"
 vendor: "peter@parashift.com"
 about: ""
 about_url: "https://www.parashift.com.au/add-ons/"
-draft: true
+draft: false
 
 ---
