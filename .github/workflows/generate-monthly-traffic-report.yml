@@ -1,0 +1,49 @@
+name: Generate Monthly Traffic Report
+
+on:
+  schedule:
+    # Run on the 1st and 15th of each month at 9 AM UTC
+    - cron: '0 9 1,15 * *'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      days:
+        description: 'Number of days to include in report'
+        required: false
+        default: '30'
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install pandas matplotlib
+      
+      - name: Generate report
+        run: |
+          python scripts/generate_report.py --days ${{ github.event.inputs.days || '30' }}
+      
+      - name: Commit report
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add reports/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Add traffic report $(date +%Y-%m-%d)" && git push)
+      
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: traffic-report
+          path: reports/traffic-report-*.html
+          retention-days: 90
