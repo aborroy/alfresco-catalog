@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Need write permission to commit data
+      actions: read    # Need read permission for repository metrics
     
     steps:
       - name: Checkout repository
@@ -27,7 +28,7 @@ jobs:
       
       - name: Collect traffic stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
         run: python scripts/collect_traffic.py
