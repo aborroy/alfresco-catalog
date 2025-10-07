@@ -4,7 +4,7 @@ on:
   schedule:
     # Run on the 1st and 15th of each month at 9 AM UTC
     - cron: '0 9 1,15 * *'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
     inputs:
       days:
         description: 'Number of days to include in report'
@@ -16,34 +16,53 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
+    # Use a single source of truth for the "days" value:
+    env:
+      REPORT_DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.days || '30' }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+          cache: 'pip'
+
       - name: Install dependencies
         run: |
-          pip install pandas matplotlib
-      
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install pandas matplotlib
+          fi
+
       - name: Generate report
         run: |
-          python scripts/generate_report.py --days ${{ github.event.inputs.days || '30' }}
-      
-      - name: Commit report
+          mkdir -p reports
+          python scripts/generate_report.py --days "${REPORT_DAYS}"
+
+      - name: Commit report (if changed)
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git add reports/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Add traffic report $(date +%Y-%m-%d)" && git push)
-      
+          if ! git diff --quiet --cached; then
+            git commit -m "Add traffic report $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+
       - name: Upload report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: traffic-report
-          path: reports/traffic-report-*.html
+          path: |
+            reports/traffic-report-*.html
+          # Optional, keep if you want retention explicitly:
           retention-days: 90
+          if-no-files-found: warn
