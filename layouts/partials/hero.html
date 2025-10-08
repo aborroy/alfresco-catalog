@@ -1,5 +1,5 @@
 {{/* Simple top-of-page description. Driven by site params. */}}
-{{ $title := site.Params.introTitle | default "Alfresco Catalog" }}
+{{ $title := site.Params.introTitle | default "Instructions" }}
 {{ $lead  := site.Params.introLead | default "A community-driven index of third-party solutions for Alfresco." }}
 {{ $hideable := site.Params.introHideable | default true }}
 
@@ -7,7 +7,6 @@
   <div class="hero"
        style="border:1px solid #e5e7eb;border-radius:12px;padding:16px 18px;background:#fafafa;">
     <div style="display:flex;align-items:flex-start;gap:12px;">
-      <div aria-hidden="true" style="font-size:20px;line-height:1.2;">🛟</div>
       <div style="flex:1;">
         <h1 style="margin:0 0 .35rem 0;font-size:1.1rem;line-height:1.2;">{{ $title }}</h1>
         <p style="margin:0;color:#374151;font-size:.95rem;line-height:1.45;">

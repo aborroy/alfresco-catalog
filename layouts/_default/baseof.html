@@ -19,16 +19,15 @@
             <div id="catalog-hero-toggle" class="catalog-hero-toggle" aria-expanded="true">
               <a href="#">About this Catalog</a>
             </div>
-            {{ partial "hero.html" . }}
   
             <a href="https://github.com/aborroy/alfresco-marketplace/issues/new?template=submission.yml"
               class="submit-link" target="_blank" rel="noopener">
               + Submit Entry
             </a>
           </div>
-
         </div>
       </header>
+      {{ partial "hero.html" . }}
       <main>
         {{ block "main" . }}{{ end }}
       </main>
