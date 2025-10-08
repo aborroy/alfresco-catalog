@@ -5,7 +5,7 @@ description: "ezuno - (Desk)Top Your Alfresco Experience! ezuno is an additive d
 screenshots: []
 compatibility: ["4.2.x", "5.0.x", "5.1.x", "5.2.x", "6.0.x", "4.1.x", "4.2.x", "5.0.x", "5.1.x", "5.2.x", "6.0.x"]
 license: "LicenseRef-Proprietary"
-keywords: ["&", "desktop", "share", "drop", "search", "productivity", "full-text", "integration"]
+keywords: ["desktop", "share", "search", "productivity"]
 download_url: "https://ezuno.com/#clients"
 vendor: "FAW"
 about: ""

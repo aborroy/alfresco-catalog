@@ -5,7 +5,7 @@ description: "The module is an addon to Alfresco which makes it possible to edit
 screenshots: []
 compatibility: ["4.x", "5.0.x"]
 license: "LGPL-3.0-or-later"
-keywords: []
+keywords: ["libreoffice"]
 download_url: "https://github.com/Redpill-Linpro/alfresco-libreoffice-online-edit/releases"
 vendor: "marsv024 (Marcus Svartmark) · GitHub ‌"
 about: ""

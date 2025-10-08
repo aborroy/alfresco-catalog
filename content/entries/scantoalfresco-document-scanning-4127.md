@@ -5,7 +5,7 @@ description: "Scan documents as TIFF or PDF directly within Alfresco Share inter
 screenshots: []
 compatibility: ["4.2.x", "5.0.x", "5.1.x", "4.2.x", "5.0.x", "5.1.x"]
 license: "LicenseRef-Proprietary"
-keywords: ["scan", "for", "document", "scanning", "solution"]
+keywords: ["scan", "scanning"]
 download_url: "http://crestsolution.com/solutions/alfresco-add-ons/"
 vendor: "Hemant Prasad ‌"
 vendor_type: "partner"
