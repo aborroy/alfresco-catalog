@@ -31,7 +31,12 @@
 
   <p class="badges">
     {{ if $vtype }}
-      <span class="badge badge--contrib badge--{{ $vtype }}" title="{{ title $vtype }}">{{ title $vtype }}</span>
+      <span class="badge badge--contrib badge--{{ $vtype }}" title="{{ title $vtype }}">
+        <svg class="badge-icon" aria-hidden="true" width="16" height="16">
+          <use href="{{ "icons/icons-sprite.svg" | relURL }}#icon-{{ $vtype }}"></use>
+        </svg>
+        {{ title $vtype }}
+      </span>
     {{ end }}
   </p>  
   

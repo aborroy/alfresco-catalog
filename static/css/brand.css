@@ -366,9 +366,6 @@ nav.pagination .disabled a:focus {
 
 .badge--verified { background:#ECFDF5; color:#065F46; border-color:#A7F3D0; }
 
-.badge--partner::before{ content: "🤝"; }
-.badge--customer::before{ content: "👤"; }
-.badge--community::before{ content: "🌐"; }
 .badge--contrib::before{ margin-right:6px; }
 
 #facet-root .chk .ico{
@@ -392,4 +389,22 @@ nav.pagination .disabled a:focus {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* Brand bee icon styling */
+.brand-bee {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  margin: 0 0.1em;
+  fill: currentColor;
+  color: inherit;
+}
+
+.brand-text {
+  color: #6366f1;
+}
+
+.brand-text .brand-bee {
+  fill: #6366f1;
 }

@@ -7,7 +7,8 @@ compatibility: ["5.1.x", "5.2.x", "5.1.x", "5.2.x"]
 license: "Proprietary"
 keywords: ["alfresco", "Zimbra", "addon", "plugin", "community", "Add-on", "Alfresco", "-"]
 download_url: "https://www.crestsolution.com"
-vendor: "Hemant Prasad ‌"
+vendor: "Hemant Prasad"
+vendor_type: "partner"
 about: ""
 about_url: "https://www.crestsolution.com"
 draft: false

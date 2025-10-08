@@ -41,7 +41,7 @@
           <option value="relevance">Relevance</option>
           <option value="az">A to Z</option>
           <option value="za">Z to A</option>
-          <option value="newest" selected>Newest 🠃</option>
+          <option value="newest" selected>Newest</option>
         </select>
       </div>
     </div>
@@ -108,7 +108,11 @@
   // Helpers
   const CANON = (s) => (s || '').toString().trim().toLowerCase();
   const Title = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
-  const ICON  = { partner: '🤝', customer: '👤', community: '🌐' };
+  const ICON = {
+    partner: 'icon-partner',
+    customer: 'icon-customer',
+    community: 'icon-community'
+  };
 
   function onUserIntent(fn){
     let tid = null;
@@ -149,13 +153,19 @@
       const withIcons = opts && opts.withIcons;
       root.innerHTML = '';
       items.forEach(v => {
-        const id  = encodeURIComponent(v); // keep canonical in value
+        const id  = encodeURIComponent(v);
         const cnt = counts[v] || 0;
         const lab = document.createElement('label');
         lab.className = 'chk';
+        
+        // Updated to use SVG sprite with proper path
+        const iconHTML = withIcons && ICON[v] 
+          ? `<svg class="ico" aria-hidden="true" width="20" height="20"><use href="/icons/icons-sprite.svg#${ICON[v]}"></use></svg>` 
+          : '';
+        
         lab.innerHTML = `
           <input type="checkbox" value="${id}">
-          ${withIcons ? `<span class="ico" aria-hidden="true">${ICON[v] || ''}</span>` : ''}
+          ${iconHTML}
           <span>${Title(v)}</span>
           <em>${cnt}</em>
         `;
@@ -227,8 +237,14 @@
     if (item.vendor_type) {
       const vt = CANON(item.vendor_type);
       const label = Title(vt);
-      if (label) {
-        contribHTML = `<div class="contrib"><span class="badge badge--contrib badge--${vt}" title="${label}">${label}</span></div>`;
+      if (label && ICON[vt]) {
+        const spriteUrl = '{{ "icons/icons-sprite.svg" | relURL }}';
+        contribHTML = `<div class="contrib"><span class="badge badge--contrib badge--${vt}" title="${label}">
+          <svg class="badge-icon" aria-hidden="true" width="16" height="16">
+            <use href="${spriteUrl}#${ICON[vt]}"></use>
+          </svg>
+          ${label}
+        </span></div>`;
       }
     }
 

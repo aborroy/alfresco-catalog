@@ -8,6 +8,7 @@ license: "Proprietary"
 keywords: ["alfresco", "addon", "plugin", "community", "atlassian"]
 download_url: "https://marketplace.atlassian.com/plugins/jp.ricksoft.plugins.alfresco-for-jira/server/overview"
 vendor: "mkt@ricksoft.jp"
+vendor_type: "customer"
 about: ""
 about_url: "https://marketplace.atlassian.com/plugins/jp.ricksoft.plugins.alfresco-for-jira/server/overview"
 draft: false
