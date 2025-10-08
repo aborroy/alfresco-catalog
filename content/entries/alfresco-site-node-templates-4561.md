@@ -5,7 +5,7 @@ description: "This add-on provide an additional space to store node templates wi
 screenshots: []
 compatibility: ["5.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "Keensoft"]
+keywords: ["Keensoft"]
 download_url: "https://github.com/keensoft/alfresco-site-node-templates"
 vendor: "Angel Borroy ‌"
 about: ""

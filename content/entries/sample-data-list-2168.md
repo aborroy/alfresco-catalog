@@ -5,7 +5,7 @@ description: "This add-on project for Alfresco Share defines sample data list de
 screenshots: []
 compatibility: ["3.3.x", "3.4.x", "3.3.x", "3.4.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "Share-Extras"]
+keywords: ["Share-Extras"]
 download_url: "https://github.com/share-extras/sdk-sample-datalist-action"
 vendor: "Will Abson ‌"
 about: ""

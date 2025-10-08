@@ -5,7 +5,7 @@ description: "Zefiro is an Alfresco addon, oriented to business productivity. Ze
 screenshots: []
 compatibility: ["5.1.x"]
 license: "GPL-3.0-or-later"
-keywords: ["addon", "plugin", "alfresco", "community"]
+keywords: []
 download_url: "https://github.com/MakeITBologna/zefiro/releases"
 vendor: "andrea.feccomandi@make-it.it"
 about: ""

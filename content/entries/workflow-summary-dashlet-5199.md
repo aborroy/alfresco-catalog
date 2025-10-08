@@ -5,7 +5,7 @@ description: "This addon allows the manager group (not only admins!) to see all 
 screenshots: []
 compatibility: ["6.1.1"]
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "addon", "tools", "plugin", "community", "manager", "workflows"]
+keywords: ["tools", "manager", "workflows"]
 download_url: "https://github.com/howkymike/alfresco-workflow-summary"
 vendor: "howkymike"
 about: ""

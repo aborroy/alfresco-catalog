@@ -5,7 +5,7 @@ description: "The fileServersNG module replaces the file servers subsystem that 
 screenshots: []
 compatibility: []
 license: "LicenseRef-Proprietary"
-keywords: ["addon", "plugin", "alfresco", "community"]
+keywords: []
 download_url: "https://connect.hyland.com/t5/alfresco-forum/fileserversng-replacement-file-server-subsystem/td-p/4809"
 vendor: "Community"
 about: ""

@@ -5,7 +5,7 @@ description: "This project includes a suggestion box addon for Alfresco Share. T
 screenshots: []
 compatibility: ["3.2", "3.2r", "3.3.x", "3.4.x", "4.0.x", "4.2.x", "3.2", "3.2r", "3.3.x", "3.4.x", "4.0.x", "4.1.x", "4.2.x"]
 license: "GPL-3.0-or-later"
-keywords: ["alfresco", "Share", "addon", "plugin", "community", "Alfresco"]
+keywords: []
 download_url: "https://github.com/ge0rg0/share-suggestion-box/raw/master/lib/share-suggestion-box-1.0.jar"
 vendor: "georgo _ ‌"
 about: ""

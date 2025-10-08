@@ -5,7 +5,7 @@ description: "This addon provides a way to manage list of values to be used in a
 screenshots: []
 compatibility: ["4.x"]
 license: "Apache-2.0"
-keywords: ["addon", "plugin", "alfresco", "community"]
+keywords: []
 download_url: "https://github.com/Redpill-Linpro/alfresco-listmanager"
 vendor: "Erik Billerby ‌"
 about: ""

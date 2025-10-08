@@ -5,7 +5,7 @@ description: "When uploading files having the same to a folder in Alfresco, the 
 screenshots: []
 compatibility: ["5.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "keensoft"]
+keywords: ["keensoft"]
 download_url: "https://github.com/keensoft/alfresco-version-by-name/releases"
 vendor: "Angel Borroy ‌"
 about: ""

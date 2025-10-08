@@ -5,7 +5,7 @@ description: "This addon allows you to reset password if you forgot it. Quick us
 screenshots: []
 compatibility: ["4.2.x", "5.0.x", "5.1.x", "4.2.x", "5.0.x", "5.1.x"]
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "reset", "addon", "plugin", "community", "forgot", "remember", "password"]
+keywords: ["forgot", "remember", "password"]
 download_url: "https://github.com/FlexSolution/AlfrescoResetPassword"
 vendor: "Sergey Palyukh ‌"
 about: ""

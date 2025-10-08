@@ -5,7 +5,7 @@ description: "This Addon is a (free!) bunch of small tweaks making email in Alfr
 screenshots: []
 compatibility: ["4.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "Email"]
+keywords: ["Email"]
 download_url: "http://www.contentreich.de/von-menschen-lesbare-emails-in-alfresco-share"
 vendor: "Andreas Steffan ‌"
 about: ""

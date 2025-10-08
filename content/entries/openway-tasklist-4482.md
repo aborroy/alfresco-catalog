@@ -5,7 +5,7 @@ description: "Openway Tasklist Addon replaces the My Tasks default page with a c
 screenshots: []
 compatibility: ["4.2.x", "5.1.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "Workflow", "plugin", "community", "Tasklist"]
+keywords: ["Workflow", "Tasklist"]
 download_url: "https://github.com/IntesysOpenway/openway-tasklist"
 vendor: "Ruud Gianesini ‌"
 about: ""

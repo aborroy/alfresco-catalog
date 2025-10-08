@@ -5,7 +5,7 @@ description: "This project provides the following components which display geota
 screenshots: []
 compatibility: ["3.3.x", "3.4.x", "4.0.x", "4.2.x", "3.3.x", "3.4.x", "4.0.x", "4.1.x", "4.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "Geotag"]
+keywords: ["Geotag"]
 download_url: "https://code.google.com/p/share-extras/downloads/list"
 vendor: "aevans713 _ ‌"
 about: ""

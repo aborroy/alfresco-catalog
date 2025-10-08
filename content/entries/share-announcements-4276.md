@@ -5,7 +5,7 @@ description: "This add-on let's you manage system announcements as plain text fi
 screenshots: []
 compatibility: ["5.0.x", "5.1.x", "5.2.x", "5.0.x", "5.1.x", "5.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "Login", "addon", "plugin", "community", "Page", "System", "Announcements"]
+keywords: ["Page", "System", "Announcements"]
 download_url: "https://github.com/jpotts/share-announcements"
 vendor: "Jeff Potts ‌"
 about: ""

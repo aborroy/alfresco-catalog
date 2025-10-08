@@ -5,7 +5,7 @@ description: "This add-on provides support for using a DB2 database with Alfresc
 screenshots: []
 compatibility: ["4.0.x", "4.1.x", "4.2.x"]
 license: "GPL-3.0-or-later"
-keywords: ["alfresco", "addon", "DB2", "DataBas", "plugin", "community"]
+keywords: ["DB2", "DataBas"]
 download_url: "https://github.com/jett/db2-alfresco"
 vendor: "jettgamboa@gmail.com"
 about: ""

@@ -5,7 +5,7 @@ description: "From Alfresco 5.1 EE, a user can define the start page after login
 screenshots: []
 compatibility: ["5.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "home", "addon", "site", "plugin", "community", "page"]
+keywords: ["site", "page"]
 download_url: "https://github.com/keensoft/alfresco-site-home-page-plus/releases"
 vendor: "Angel Borroy ‌"
 about: ""

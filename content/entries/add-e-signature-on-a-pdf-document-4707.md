@@ -5,7 +5,7 @@ description: "EisenVault (www.eisenvault.com) has released E-Signature add-on th
 screenshots: []
 compatibility: ["5.2.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "e-Signature", "EisenVault", "signature"]
+keywords: ["e-Signature", "EisenVault", "signature"]
 download_url: "https://github.com/sumitt/eisenvault-esign.git"
 vendor: "Sumit Tomar"
 about: ""

@@ -5,7 +5,7 @@ description: "Alfresco Extension which accesses a new feature called \\\"Enterpr
 screenshots: []
 compatibility: ["4.2.x", "4.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "Advanced", "addon", "Sense", "plugin", "community", "Sensefy"]
+keywords: ["Sense", "Sensefy"]
 download_url: "https://github.com/zaizi/sensefy-alfresco-plugin"
 vendor: "Richard Esplin ‌"
 about: ""

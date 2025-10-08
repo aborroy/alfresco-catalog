@@ -5,7 +5,7 @@ description: "This addon provides a repository action to extract OCR text from i
 screenshots: []
 compatibility: ["4.2.x", "5.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "OCR", "plugin", "community", "Keensoft"]
+keywords: ["OCR", "Keensoft"]
 download_url: "https://github.com/keensoft/alfresco-simple-ocr/releases"
 vendor: "Angel Borroy ‌"
 about: ""

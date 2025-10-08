@@ -5,7 +5,7 @@ description: "This add-on provide a preview for a ZIP file including a hierarchi
 screenshots: []
 compatibility: ["5.2.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "keensoft"]
+keywords: ["keensoft"]
 download_url: "https://github.com/keensoft/alfresco-zip-previewer"
 vendor: "Angel Borroy ‌"
 about: ""

@@ -5,7 +5,7 @@ description: "This add-on project for Alfresco Share defines a custom Document L
 screenshots: []
 compatibility: ["3.3.x", "3.4.x", "4.0.x", "3.3.x", "3.4.x", "4.0.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "Share-Extras"]
+keywords: ["Share-Extras"]
 download_url: "http://code.google.com/p/share-extras/downloads/detail?name=execute-script-action-0.1.jar"
 vendor: "Jeff Potts ‌"
 about: ""

@@ -5,7 +5,7 @@ description: "Metaversant's Fivestar Ratings Widget for Alfresco Share This is a
 screenshots: []
 compatibility: ["3.3.x", "3.4.x"]
 license: "Apache-2.0"
-keywords: ["addon", "plugin", "alfresco", "community"]
+keywords: []
 download_url: "https://github.com/jpotts/alfresco-fivestar-ratings"
 vendor: "Jeff Potts ‌"
 about: ""

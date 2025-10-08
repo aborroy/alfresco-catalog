@@ -5,7 +5,7 @@ description: "This add-on project for Alfresco Share provides a number of conten
 screenshots: []
 compatibility: ["4.0.x", "4.0.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "Share", "Preview", "addon", "plugin", "community", "Share-Extras", "PDF"]
+keywords: ["Share-Extras", "PDF"]
 download_url: "http://share-extras.github.io/addons/media-viewers/"
 vendor: "Will Abson ‌"
 about: ""

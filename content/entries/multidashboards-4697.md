@@ -5,7 +5,7 @@ description: "Alfresco Multi Dashboards Add-on is very powerful and flexible. It
 screenshots: []
 compatibility: ["5.1.x", "5.2.x", "5.2.x", "5.2.x"]
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "Share", "addon", "plugin", "community", "page", "multi-dashboards", "dashboards"]
+keywords: ["page", "multi-dashboards", "dashboards"]
 download_url: "https://flex-solution.com/site/solutions/multi_dashboard"
 vendor: "Sergey Palyukh ‌"
 about: ""

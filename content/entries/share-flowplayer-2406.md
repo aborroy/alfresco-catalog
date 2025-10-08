@@ -5,7 +5,7 @@ description: "This code gives Alfresco Share the ability to play videos from the
 screenshots: []
 compatibility: ["3.3.x", "3.4.x", "3.3.x", "3.4.x"]
 license: "GPL-3.0-or-later"
-keywords: ["addon", "plugin", "alfresco", "community"]
+keywords: []
 download_url: "http://code.google.com/p/alfrescoshareflowplayer/downloads/list"
 vendor: "Richard Esplin ‌"
 about: ""

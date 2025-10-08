@@ -5,7 +5,7 @@ description: "This add-on provides a modified page footer component, which integ
 screenshots: []
 compatibility: ["3.3.x", "3.4.x", "4.0.x", "3.3.x", "3.4.x", "4.0.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "Share-Extras"]
+keywords: ["Share-Extras"]
 download_url: "https://code.google.com/p/share-extras/wiki/GoogleAnalyticsTracking"
 vendor: "Richard Esplin ‌"
 about: ""

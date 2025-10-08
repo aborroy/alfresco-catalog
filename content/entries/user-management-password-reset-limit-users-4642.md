@@ -5,7 +5,7 @@ description: "EisenVault (www.eisenvault.com) has released this add-on that allo
 screenshots: []
 compatibility: ["5.1.x", "5.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "plugin", "community", "user", "EisenVault", "management"]
+keywords: ["user", "EisenVault", "management"]
 download_url: "https://github.com/EisenVault/ev-user-management"
 vendor: "vipul.swarup@eisenvault.com"
 about: ""

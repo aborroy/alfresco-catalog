@@ -5,7 +5,7 @@ description: "This add-on gives you the ability to restrict Alfresco Share site 
 screenshots: []
 compatibility: ["4.2.x", "5.0.x", "5.1.x", "5.2.x", "4.2.x", "5.0.x", "5.1.x", "5.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "Share", "Site", "addon", "Creators", "Groups", "plugin", "community"]
+keywords: ["Creators", "Groups"]
 download_url: "https://github.com/jpotts/share-site-creators"
 vendor: "Jeff Potts ‌"
 about: ""

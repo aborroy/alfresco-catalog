@@ -5,7 +5,7 @@ description: "Provides an Alfresco Share action for signing PDF files (PAdES-BES
 screenshots: []
 compatibility: ["5.x", "6.x", "7.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "electronic", "addon", "plugin", "community", "keensoft", "signature"]
+keywords: ["keensoft", "signature"]
 download_url: "https://github.com/keensoft/alfresco-esign-cert/releases"
 vendor: "Angel Borroy ‌"
 about: ""

@@ -5,7 +5,7 @@ description: "It adds the following Features to the Admin Console: -System Perfo
 screenshots: []
 compatibility: ["4.2.x", "5.0.x", "5.1.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "console", "addon", "tools", "plugin", "community", "admin", "support", "SupportTools"]
+keywords: ["tools", "admin", "support", "SupportTools"]
 download_url: "https://github.com/Alfresco/alfresco-support-tools/releases"
 vendor: "antoniosoler _ ‌"
 about: ""

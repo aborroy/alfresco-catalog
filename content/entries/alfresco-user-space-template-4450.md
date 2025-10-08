@@ -5,7 +5,7 @@ description: "Adds the ability to create a default set of folders to an Alfresco
 screenshots: []
 compatibility: ["5.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "keensoft", "beecon"]
+keywords: ["keensoft", "beecon"]
 download_url: "https://github.com/keensoft/alfresco-user-space-template/releases"
 vendor: "Angel Borroy ‌"
 about: ""

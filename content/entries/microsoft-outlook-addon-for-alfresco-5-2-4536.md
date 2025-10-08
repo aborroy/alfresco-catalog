@@ -5,7 +5,7 @@ description: "Microsoft Outlook Plugin for Alfresco 5.2 from EisenVault. This al
 screenshots: []
 compatibility: ["5.2.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "Microsoft", "addon", "plugin", "community", "Add-In", "EisenVault", "Outlook"]
+keywords: ["Add-In", "EisenVault", "Outlook"]
 download_url: "https://github.com/EisenVault/ev-outlook-plugin-github/tree/master/Installer-Binaries"
 vendor: "vipul.swarup@eisenvault.com"
 about: ""

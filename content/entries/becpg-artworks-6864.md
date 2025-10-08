@@ -5,7 +5,7 @@ description: "beCPG Artworks is an addon that provides two additional features :
 screenshots: []
 compatibility: ["7.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "plugin", "community", "Artworks", "beCPG"]
+keywords: ["Artworks", "beCPG"]
 download_url: "https://github.com/becpg/becpg-artworks"
 vendor: "beCPG"
 about: ""

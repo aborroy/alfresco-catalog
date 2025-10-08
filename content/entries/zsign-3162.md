@@ -5,7 +5,7 @@ description: "Zia Consulting ZSign is an add-on for Alfresco, allowing users to 
 screenshots: []
 compatibility: []
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "addon", "plugin", "community", "signing", "zsign", "document", "repository"]
+keywords: ["signing", "zsign", "document", "repository"]
 download_url: "http://www.ziaconsulting.com/zsign-secure-electronic-document-signature/"
 vendor: "aevans713 _ ‌"
 about: ""

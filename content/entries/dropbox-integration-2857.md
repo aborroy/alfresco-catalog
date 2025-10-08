@@ -5,7 +5,7 @@ description: "The Alfresco Dropbox Connector Allows you to synchronize files bet
 screenshots: []
 compatibility: ["4.0.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "Synchronization", "addon", "Dropbox", "plugin", "community", "Integration"]
+keywords: ["Dropbox", "Integration"]
 download_url: "https://github.com/Alfresco/alfresco-dropbox-integration"
 vendor: "Jeff Potts ‌"
 about: ""

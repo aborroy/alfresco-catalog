@@ -5,7 +5,7 @@ description: "This addon allows previewing of AutoCAD (DWG) files within Alfresc
 screenshots: []
 compatibility: ["5.1.x", "5.2.x"]
 license: "GPL-3.0-or-later"
-keywords: ["alfresco", "Share", "addon", "autocad", "plugin", "community", "file", "EisenVault", "management", "Alfresco", "AutoCAD"]
+keywords: ["autocad", "file", "EisenVault", "management"]
 download_url: "https://github.com/EisenVault/Alfresco-Autocad-Viewer"
 vendor: "vipul.swarup@eisenvault.com"
 about: ""

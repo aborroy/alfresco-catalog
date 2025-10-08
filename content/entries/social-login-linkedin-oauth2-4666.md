@@ -5,7 +5,7 @@ description: "This addon allows users to sign up and sign in to Alfresco by usin
 screenshots: []
 compatibility: ["5.2.x"]
 license: "GPL-3.0-or-later"
-keywords: ["alfresco", "login", "addon", "authorization", "sign", "plugin", "community", "up", "linkedin", "authentication", "oauth2", "social"]
+keywords: ["authorization", "sign", "up", "linkedin", "authentication", "oauth2", "social"]
 download_url: "https://www.flex-solution.com/site/"
 vendor: "Sergey Palyukh ‌"
 about: ""

@@ -5,7 +5,7 @@ description: "Parashifts Alfresco OnlyOffice Integration embeds OnlyOffice seaml
 screenshots: []
 compatibility: ["5.x"]
 license: "GPL-3.0-or-later"
-keywords: ["alfresco", "addon", "realtime", "plugin", "community", "onlyoffice"]
+keywords: ["realtime", "onlyoffice"]
 download_url: "https://github.com/cetra3/onlyoffice-alfresco"
 vendor: "Cetra"
 about: ""

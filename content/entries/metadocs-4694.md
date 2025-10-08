@@ -5,7 +5,7 @@ description: "Document Management Solution for Dynamics NAV MetaDocs for NAV is 
 screenshots: []
 compatibility: []
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "Management", "Microsoft", "Document", "addon", "plugin", "community", "for", "Add-on", "NAV", "Dynamics"]
+keywords: ["for", "Add-on", "NAV", "Dynamics"]
 download_url: "http://www.metaoption.com/metadocs-document-management-add-on-for-dynamics-nav/"
 vendor: "onlinemkt54@gmail.com"
 about: ""

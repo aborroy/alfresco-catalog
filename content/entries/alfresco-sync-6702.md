@@ -5,7 +5,7 @@ description: "The Alfesco Sync addon syncs a source folder with a target folder 
 screenshots: []
 compatibility: ["5.2.x", "6.1.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "Sync", "addon", "plugin", "community", "Alfresco", "Content"]
+keywords: []
 download_url: "https://github.com/boneill/alfresco-sync"
 vendor: "Seed Information Management Pty. Ltd."
 about: ""

@@ -5,7 +5,7 @@ description: "Manual Manager by Loftux AB is an add-on for Alfresco Share that a
 screenshots: []
 compatibility: ["4.0.x", "4.2.x", "4.1.x", "4.2.x"]
 license: "LGPL-3.0-or-later"
-keywords: ["alfresco", "addon", "manual", "Markdown", "plugin", "community", "slideshow", "loftux"]
+keywords: ["manual", "Markdown", "slideshow", "loftux"]
 download_url: "https://github.com/loftuxab/manual-manager"
 vendor: "Peter Löfgren ‌"
 about: ""

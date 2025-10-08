@@ -5,7 +5,7 @@ description: "This addon allow to: - establish a file naming convention - auto a
 screenshots: []
 compatibility: ["4.2.x"]
 license: "Apache-2.0"
-keywords: ["alfresco", "addon", "CODIFICATION", "CONTROL", "plugin", "community", "SECUENTIAL", "numbering", "DOCUMENT"]
+keywords: ["CODIFICATION", "CONTROL", "SECUENTIAL", "numbering", "DOCUMENT"]
 download_url: "http://github.com/alespin2021/DCC"
 vendor: "alespin2021@yahoo.com _ ‌"
 about: ""

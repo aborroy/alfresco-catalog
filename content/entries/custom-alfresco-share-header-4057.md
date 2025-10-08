@@ -5,7 +5,7 @@ description: "This addon is actively developed by Androgogic and it's Alfresco T
 screenshots: []
 compatibility: ["5.x"]
 license: "MIT"
-keywords: ["alfresco", "Share", "addon", "style", "header", "plugin", "community", "Alfresco", "theme"]
+keywords: ["style", "header"]
 download_url: "https://github.com/teqnology/alfresco-header-share/blob/master/target/alfresco-header-share.amp?raw=true"
 vendor: "Alch3mi5t _"
 about: ""

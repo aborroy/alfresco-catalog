@@ -5,7 +5,7 @@ description: "This addon will let you see documents preview while editing tasks.
 screenshots: []
 compatibility: ["6.1.1"]
 license: "LicenseRef-Proprietary"
-keywords: ["alfresco", "preview", "tasks", "addon", "documents", "plugin", "community", "workflows"]
+keywords: ["documents", "workflows"]
 download_url: "https://gist.github.com/howkymike/2599efe5abe0c0461825354e967ef74d"
 vendor: "howkymike"
 about: ""
