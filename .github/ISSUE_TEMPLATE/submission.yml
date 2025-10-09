@@ -6,7 +6,7 @@ body:
     id: title
     attributes:
       label: "Name"
-      placeholder: "Connector X"
+      placeholder: "Alfresco Add-on for X"
     validations:
       required: true
 
