@@ -2,7 +2,7 @@
 title: "Alfresco Markdown Rendition"
 description: "Creates and stores a **Markdown rendition** for every document in Alfresco Repository for any source mimetype.\nRuns *asynchronously after commit* (does not block user transactions)"
 screenshots: ["https://opengraph.githubassets.com/1/aborroy/alfresco-markdown-rendition"]
-compatibility: ["ACS 5.x","ACS 6.x","ACS 7.x","ACS 23.1","ACS 23.2","ACS 23.3","ACS 23.4","ACS 23.x","ACS 25.1","ACS 25.2","ACS 25.x"]
+compatibility: ["ACS 23.x","ACS 25.x"]
 license: "Apache-2.0"
 keywords: ["repository","rendition","markdown"]
 download_url: "https://github.com/aborroy/alfresco-markdown-rendition"
