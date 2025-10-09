@@ -1,8 +1,8 @@
 {{- $src := . -}}
-{{- $s := lower (trim $src) -}}
+{{- $s := lower (strings.TrimSpace $src) -}}
 
-{{- if or (eq $s "_no response_") (eq $s "no response") -}}
-  {{- /* Ignore placeholder values entirely */ -}}
+{{- if or (eq $s "_no response_") (eq $s "no response") (eq $s "") -}}
+  {{- /* Ignore placeholder/empty values entirely */ -}}
 {{- else -}}
 
   {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
