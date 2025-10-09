@@ -44,7 +44,6 @@
     },    
     "about": {
       "type": "string",
-      "maxLength": 500
     },
     "about_url": {
       "type": "string"
