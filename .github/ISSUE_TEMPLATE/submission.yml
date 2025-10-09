@@ -1,5 +1,6 @@
 name: "Submit a catalog entry"
 description: "Use this form to propose a new listing. A PR will be created for review."
+title: "[Catalog Entry] "
 labels: ["new-entry"]
 body:
   - type: input
@@ -24,17 +25,17 @@ body:
       label: "Compatibility"
       description: "Select the Alfresco versions this applies to"
       options:
-        - ACS 5.x
-        - ACS 6.x
-        - ACS 7.x
-        - ACS 23.1
-        - ACS 23.2
-        - ACS 23.3
-        - ACS 23.4
-        - ACS 23.x
-        - ACS 25.1
-        - ACS 25.2
-        - ACS 25.x
+        - label: "ACS 5.x"
+        - label: "ACS 6.x"
+        - label: "ACS 7.x"
+        - label: "ACS 23.1"
+        - label: "ACS 23.2"
+        - label: "ACS 23.3"
+        - label: "ACS 23.4"
+        - label: "ACS 23.x"
+        - label: "ACS 25.1"
+        - label: "ACS 25.2"
+        - label: "ACS 25.x"
 
   - type: dropdown
     id: license
@@ -67,16 +68,16 @@ body:
     id: vendor
     attributes:
       label: "Author/Vendor name"
-      
+
   - type: dropdown
     id: vendor_type
     attributes:
       label: "Contributor type"
+      description: "Select who is contributing this entry"
       options:
         - partner
         - customer
         - community
-      description: "Select who is contributing this entry"
     validations:
       required: true
 
