@@ -43,10 +43,16 @@ function getField(sections, ...aliases) {
 
 function parseList(s) {
   if (!s) return [];
-  const lines = s
-    .split(/\r?\n/)
-    .map(l => l.replace(/^- \[.\]\s*/, '').trim())
+
+  const lines = s.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+
+  const checked = lines
+    .filter(l => /^-\s*\[[xX]\]/.test(l))
+    .map(l => l.replace(/^-\s*\[[xX]\]\s*/, '').trim())
     .filter(Boolean);
+
+  if (checked.length) return checked;
+
   return lines.join(',').split(',').map(x => x.trim()).filter(Boolean);
 }
 
