@@ -43,7 +43,7 @@
       "enum": ["partner", "customer", "community"] 
     },    
     "about": {
-      "type": "string",
+      "type": "string"
     },
     "about_url": {
       "type": "string"
