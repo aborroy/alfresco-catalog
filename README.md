@@ -1,6 +1,6 @@
 # Alfresco Addons Catalog 
 
-![Status](https://img.shields.io/badge/status-DEVELOPMENT-orange?style=flat-square) [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE) [![Built with Hugo](https://img.shields.io/badge/built%20with-Hugo-ff4088?style=flat-square\&logo=hugo)](https://gohugo.io/) [![GitHub Pages](https://img.shields.io/badge/deployed%20on-GitHub%20Pages-24292e?style=flat-square\&logo=github)](https://aborroy.github.io/alfresco-catalog/) [![Build](https://github.com/aborroy/alfresco-catalog/actions/workflows/validate-and-build.yml/badge.svg)](https://github.com/aborroy/alfresco-catalog/actions/workflows/validate-and-build.yml)
+![Status](https://img.shields.io/badge/status-DEVELOPMENT-orange?style=flat-square) [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE) [![Built with Hugo](https://img.shields.io/badge/built%20with-Hugo-ff4088?style=flat-square\&logo=hugo)](https://gohugo.io/) [![GitHub Pages](https://img.shields.io/badge/deployed%20on-GitHub%20Pages-24292e?style=flat-square\&logo=github)](https://alfrescolabs.github.io/alfresco-addons-catalog/) [![Build](https://github.com/alfrescolabs/alfresco-addons-catalog/actions/workflows/validate-and-build.yml/badge.svg)](https://github.com/alfrescolabs/alfresco-addons-catalog/actions/workflows/validate-and-build.yml)
 
 > **Project in Beta — Now in AlfrescoLabs**
 > The **Alfresco Add-ons Catalog** is now available in the **[AlfrescoLabs](https://github.com/AlfrescoLabs)** organization.

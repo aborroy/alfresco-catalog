@@ -464,7 +464,7 @@ def generate_html_report(period_days=30):
         <div class="report-info">
             <p><strong>Report Period:</strong> {start_date} to {end_date} ({period_days} days)</p>
             <p><strong>Report Generated:</strong> {report_date}</p>
-            <p><strong>Site URL:</strong> <a href="https://aborroy.github.io/alfresco-catalog/" target="_blank">https://aborroy.github.io/alfresco-catalog/</a></p>
+            <p><strong>Site URL:</strong> <a href="https://alfrescolabs.github.io/alfresco-addons-catalog/" target="_blank">https://aborroy.github.io/alfresco-catalog/</a></p>
         </div>
         
         <div class="section">
@@ -536,7 +536,7 @@ def generate_html_report(period_days=30):
         for path in top_paths:
             html += f"""
                     <tr>
-                        <td><a href="https://aborroy.github.io/alfresco-catalog{path['path']}" class="path-link" target="_blank">{path['path']}</a></td>
+                        <td><a href="https://alfrescolabs.github.io/alfresco-addons-catalog{path['path']}" class="path-link" target="_blank">{path['path']}</a></td>
                         <td style="text-align: right;"><strong>{path['count']:,}</strong></td>
                         <td style="text-align: right;">{path['uniques']:,}</td>
                     </tr>
