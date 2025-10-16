@@ -1,6 +1,6 @@
-baseURL = "https://aborroy.github.io/alfresco-catalog/"
+baseURL = "https://alfrescolabs.github.io/alfresco-addons-catalog/"
 languageCode = "en-us"
-title = "Alfresco Catalog"
+title = "Alfresco Addons Catalog"
 # Show only the top N cards per page
 [pagination]
 pageSize = 10
@@ -22,6 +22,6 @@ home = ["HTML", "JSON"]
 
 [params]
 introTitle = "Instructions"
-introLead = """Alfresco Buzz is a community-driven space where customers, partners, and community members can showcase add-ons, solutions, and real-world use cases built around Alfresco.<br/>
+introLead = """Alfresco Addons Catalog is a community-driven space where customers, partners, and community members can showcase add-ons, solutions, and real-world use cases built around Alfresco.<br/>
 Browse the catalog to quickly discover extensions and ideas that may inspire or accelerate your projects.<br/>
 Want to share your own work? Click “+ Submit Entry” to suggest a new listing, every submission is reviewed by the Hyland Team before it appears here."""
