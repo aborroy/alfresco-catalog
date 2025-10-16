@@ -21,7 +21,8 @@ vendor = "vendors"
 home = ["HTML", "JSON"]
 
 [params]
-introTitle = "Instructions"
-introLead = """Alfresco Addons Catalog is a community-driven space where customers, partners, and community members can showcase add-ons, solutions, and real-world use cases built around Alfresco.<br/>
-Browse the catalog to quickly discover extensions and ideas that may inspire or accelerate your projects.<br/>
-Want to share your own work? Click “+ Submit Entry” to suggest a new listing, every submission is reviewed by the Hyland Team before it appears here."""
+introTitle = "About this Catalog"
+introLead = """<p>Alfresco Addons Catalog is a community-driven space where customers, partners, and community members can showcase add-ons, solutions, and real-world use cases built around Alfresco. Browse the catalog to quickly discover extensions and ideas that may inspire or accelerate your projects.</p>
+<hr>
+<p><strong>Want to share your own work?</strong></p>
+<p>Click “<em>+ Submit Entry</em>” to suggest a new listing, every submission is reviewed by the Hyland Team before it appears here.</p>"""
