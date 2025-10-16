@@ -1,0 +1,34 @@
+.catalog-hero {
+    margin: 0 0 3rem;
+    background-color: var(--control-bg);
+    border-radius: .5rem;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--brand-shadow);
+}
+
+.hero-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: #334155;
+}
+
+.hero-content p {
+    font-size: .8rem;
+}
+
+.hero-content hr {
+    border: 1px solid lightgray;
+    margin: 1.2rem 0;
+}
+
+#catalog-hero-close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
