@@ -261,7 +261,7 @@
         <p class="vendor">${vendorHTML}</p>
       </div>
       ${contribHTML}
-      <p class="desc">${item.description || ''}</p>
+      <p class="desc">${(item.description || '').replace(/[#*_`>\[\]()~]/g, '')}</p>
       <div class="badges">
         ${badges.join('')}
       </div>
