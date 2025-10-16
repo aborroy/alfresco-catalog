@@ -1,19 +1,18 @@
-# Alfresco Catalog 
+# Alfresco Addons Catalog 
 
 ![Status](https://img.shields.io/badge/status-DEVELOPMENT-orange?style=flat-square) [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE) [![Built with Hugo](https://img.shields.io/badge/built%20with-Hugo-ff4088?style=flat-square\&logo=hugo)](https://gohugo.io/) [![GitHub Pages](https://img.shields.io/badge/deployed%20on-GitHub%20Pages-24292e?style=flat-square\&logo=github)](https://aborroy.github.io/alfresco-catalog/) [![Build](https://github.com/aborroy/alfresco-catalog/actions/workflows/validate-and-build.yml/badge.svg)](https://github.com/aborroy/alfresco-catalog/actions/workflows/validate-and-build.yml)
 
-> **Project in Active Development**
->
-> The Alfresco Catalog is currently under migration to the **[AlfrescoLabs](https://github.com/AlfrescoLabs)** organization.
-> During this phase, **external contributions are paused** until the new location is live.
-> You can still explore the project, structure, and build locally.
+> **Project in Beta — Now in AlfrescoLabs**
+> The **Alfresco Add-ons Catalog** is now available in the **[AlfrescoLabs](https://github.com/AlfrescoLabs)** organization.
+> The project is currently in **Beta status** and **open to community contributions**.
+> We welcome feedback, ideas, and pull requests as we continue shaping the catalog together.
 
 ## Overview
 
-The **Alfresco Catalog** is a **community-driven showcase** of add-ons, integrations, and tools built for the Alfresco ecosystem.
+The **Alfresco Addons Catalog** is a **community-driven showcase** of add-ons, integrations, and tools built for the Alfresco ecosystem.
 It’s entirely static, runs on **Hugo + GitHub Pages**, and enables **zero-infrastructure publishing** of third-party solutions.
 
-**Live site (development):** [https://aborroy.github.io/alfresco-catalog/](https://aborroy.github.io/alfresco-catalog/)
+**Live site (development):** [https://alfrescolabs.github.io/alfresco-addons-catalog/](https://alfrescolabs.github.io/alfresco-addons-catalog/)
 
 Key features:
 
@@ -70,10 +69,11 @@ Then open [http://localhost:1313](http://localhost:1313).
 
 This uses the official `klakegg/hugo:ext` container to run a consistent environment.
 
-## Adding New Entries (Temporarily Disabled)
+## Adding New Entries
 
-While the catalog is in **development mode**, new submissions are paused.
-Once migrated to [AlfrescoLabs](https://github.com/AlfrescoLabs), contributions will be re-enabled through Issues and PRs.
+The catalog is now hosted in **[AlfrescoLabs](https://github.com/AlfrescoLabs)** and is in **Beta status**.
+You can **submit new entries** and **propose improvements** through **Issues and Pull Requests**.
+Community contributions are encouraged as we refine and expand the Alfresco Add-ons Catalog.
 
 For reference, the normal submission flow is:
 
@@ -115,10 +115,6 @@ Licensed under the **Apache License 2.0**.
 See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
-
-> Temporarily closed for contributions while migrating to [AlfrescoLabs](https://github.com/AlfrescoLabs).
-
-Once open again:
 
 * Follow [CONTENT_POLICY.md](CONTENT_POLICY.md) and [TAKEDOWN.md](TAKEDOWN.md)
 * Each PR undergoes automatic schema validation and manual review
