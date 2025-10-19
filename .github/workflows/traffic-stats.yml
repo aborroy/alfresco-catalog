@@ -28,7 +28,7 @@ jobs:
       
       - name: Collect traffic stats
         env:
-          GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TRAFFIC_STATS_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
         run: python scripts/collect_traffic.py
