@@ -44,11 +44,26 @@ jobs:
           hugo-version: '0.127.0'
           extended: true
 
-      - name: Build
-        run: hugo --minify
-
+      # This step provides the Pages base_url we must pass to Hugo
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@v5
+
+      # OPTIONAL: ensure reports/ is published even if not under static/.
+      # If you prefer, move reports/ -> static/reports/ or set staticDir in hugo.toml.
+      - name: Stage reports into static (so Hugo includes them)
+        run: |
+          if [ -d reports ]; then
+            mkdir -p static/reports
+            rsync -a --delete reports/ static/reports/
+          fi
+
+      - name: Build
+        env:
+          HUGO_ENV: production
+        run: |
+          # Use Pages-provided base URL so /alfresco-addons-catalog/ path is correct
+          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
