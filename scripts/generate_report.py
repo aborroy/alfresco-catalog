@@ -464,7 +464,7 @@ def generate_html_report(period_days=30):
         <div class="report-info">
             <p><strong>Report Period:</strong> {start_date} to {end_date} ({period_days} days)</p>
             <p><strong>Report Generated:</strong> {report_date}</p>
-            <p><strong>Site URL:</strong> <a href="https://alfrescolabs.github.io/alfresco-addons-catalog/" target="_blank">https://aborroy.github.io/alfresco-catalog/</a></p>
+            <p><strong>Site URL:</strong> <a href="https://alfrescolabs.github.io/alfresco-addons-catalog/" target="_blank">https://alfrescolabs.github.io/alfresco-addons-catalog/</a></p>
         </div>
         
         <div class="section">
