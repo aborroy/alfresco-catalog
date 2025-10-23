@@ -9,7 +9,7 @@ description: "This add-on project for Alfresco Share defines sample data list de
   Type Data List Definitions Extension Points Installation JAR Products Share Web
   Client"
 screenshots: []
-compatibility: ["3.3.x", "3.4.x", "3.3.x", "3.4.x"]
+compatibility: ["ACS 3.x"]
 license: "Apache-2.0"
 keywords: ["share-Extras"]
 download_url: "https://github.com/share-extras/sdk-sample-datalist-action"

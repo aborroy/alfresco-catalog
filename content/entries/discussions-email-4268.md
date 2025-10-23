@@ -5,7 +5,7 @@ description: "Enhancements to the Site Discussions The add-on allows you to, via
 screenshots: []
 compatibility: []
 license: "LicenseRef-Proprietary"
-keywords: []
+keywords: [ACS 5.x]
 download_url: "https://github.com/malariagen/alfresco-discussions"
 vendor: "Ian Wright"
 about: ""

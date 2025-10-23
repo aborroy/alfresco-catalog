@@ -25,6 +25,7 @@ body:
       label: "Compatibility"
       description: "Select the Alfresco versions this applies to"
       options:
+        - label: "ACS 4.x"
         - label: "ACS 5.x"
         - label: "ACS 6.x"
         - label: "ACS 7.x"
